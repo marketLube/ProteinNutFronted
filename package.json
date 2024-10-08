@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "watch:sass":"sass --watch sass/main.scss:css/style.css -w",
     "lint": "eslint .",
     "preview": "vite preview"
   },
