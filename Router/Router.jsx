@@ -12,6 +12,9 @@ import { ProductDisplay } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/N
 import { ProductContainer } from "../src/Component/ProductContainer/ProductContainer";
 import { Buttons } from "../src/Component/Button/Buttons";
 import { Checkouts } from "../src/Component/Checkout/Checkouts";
+import { Counter } from "../src/Component/Counter/Counter";
+import { ProductDetails } from "../src/Component/ProductDisplay/ProductDetails";
+import { GridDisplay } from "../src/Component/ProductDisplayGrid/GridDisplay";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +64,18 @@ const router = createBrowserRouter([
       {
         path:"checkoutcard",
         element:<Checkouts/>
+      },
+      {
+        path:"counter",
+        element:<Counter/>
+      },
+      {
+        path:"productdetails",
+        element:<ProductDetails/>
+      },
+      {
+        path:"productgrid",
+        element:<GridDisplay/>
       }
     ],
   },

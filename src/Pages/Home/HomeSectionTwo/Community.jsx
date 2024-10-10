@@ -50,7 +50,7 @@ export const Community = () => {
 
         .form {
           position: relative;
-          width: 80%;
+          width: 60%;
         }
 
         .input {
@@ -109,7 +109,9 @@ export const Community = () => {
 
         .menu {
           display: flex;
-          gap: 24px;
+          gap: 17px;
+          // background-color: #ffd54f;
+          justify-content: space-between;
         }
 
         .menu-item {
@@ -126,6 +128,18 @@ export const Community = () => {
         .sl-icon {
           color: #4CAF50;
         }
+          .icons{
+          width: 45px;
+          height: 45px;
+          background-color: #4CAF50;
+          border: none;
+          border-radius: 50%;
+          font-size: 16px;
+          display: flex;
+          align-items:center;
+          justify-content: center;
+          }
+
         `}
       </style>
       <div className="container-main">
@@ -149,14 +163,17 @@ export const Community = () => {
               <div className="menu">
                 {/* <a href="#" className="menu-item">Shop</a>
                 <a href="#" className="menu-item">Where to buy</a> */}
+                <div className='icons'>logo</div>
+                <div className='icons'>logo</div>
+                <div className='icons'>logo</div>
               </div>
-              <div className="sl-icons">
+              {/* <div className="sl-icons">
                 <div className="sl-icon" />
                 <div className="social-icon" />
                 <div className="social-icon" />
-                {/* <Instagram className="social-icon" />
-                <MessageCircle className="social-icon" /> */}
-              </div>
+                <Instagram className="social-icon" />
+                <MessageCircle className="social-icon" />
+              </div> */}
             </nav>
           </div>
         </div>

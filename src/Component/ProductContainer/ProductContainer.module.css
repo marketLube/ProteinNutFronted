@@ -28,7 +28,7 @@
     max-width: 300px;
     height: auto;
     margin-bottom: 3px;
-    position: relative; /* Added to keep it above the circle */
+    position: relative; 
     z-index: 4;
   }
   .imgcircle{
