@@ -1,9 +1,9 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 // Main Heading
-export const MainHeading = styled.h1`
+export const MainHeading = styled.div`
   font-family: "SUSE", "Kanit", "";
-  font-size: 11rem;
+  font-size: 8rem;
   width: 80%;
   font-weight: 900;
   line-height: 11.2rem;
@@ -13,8 +13,13 @@ export const MainHeading = styled.h1`
   color: var(--font-gray);
   position: absolute;
   top: 13rem;
-  text-wrap: nowrap;
   z-index: 20;
   left: 50%;
   transform: translateX(-50%);
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
 `;

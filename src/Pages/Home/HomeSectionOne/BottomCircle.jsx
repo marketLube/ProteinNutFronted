@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { StyledCircle } from "./StyledComponents/StyledCircle";
+import { StyledProteinBanner } from "./StyledComponents/ProteinBanner";
+import heroImage from "../../../../public/assets/hero-image.png";
 
 const colors = [
   "linear-gradient(45deg, #ffd45f, #f8c7a1)",
@@ -25,7 +27,7 @@ function BottomCircle() {
       } else {
         index.current += 1;
       }
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
@@ -34,17 +36,24 @@ function BottomCircle() {
     if (index.current === colors.length) {
     }
     curColor.current = colors[index.current];
-    prevColor.current = colors[index.current - 1];
+    prevColor.current = colors[index.current - 2];
   }, [index.current]);
 
   console.log(index.current);
   console.log(prevColor.current, curColor.current);
   return (
-    <StyledCircle
-      $curColor={curColor.current} // Pass current color reference
-      $circle={circle} // Pass circle state for animation
-      $prevColor={prevColor.current} // Pass previous color reference
-    />
+    <>
+      {/* <StyledProteinBanner>
+        <p className="banner-text">Packed with Protein, Powered by Peanut Butter.</p>
+        <button className="shop-button">Shop Now</button>
+      </StyledProteinBanner> */}
+      
+      <StyledCircle
+        $curColor={curColor.current} // Pass current color reference
+        $circle={circle} // Pass circle state for animation
+        $prevColor={prevColor.current} // Pass previous color reference
+      />
+    </>
   );
 }
 
