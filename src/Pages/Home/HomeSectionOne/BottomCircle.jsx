@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { StyledCircle } from "./StyledComponents/StyledCircle";
+import { Green } from "../HomeSectionTwo/Component.jsx/Green";
 
 const colors = [
   "linear-gradient(45deg, #ffd45f, #f8c7a1)",
@@ -40,11 +41,13 @@ function BottomCircle() {
   console.log(index.current);
   console.log(prevColor.current, curColor.current);
   return (
+    
     <StyledCircle
       $curColor={curColor.current} // Pass current color reference
       $circle={circle} // Pass circle state for animation
       $prevColor={prevColor.current} // Pass previous color reference
     />
+  
   );
 }
 

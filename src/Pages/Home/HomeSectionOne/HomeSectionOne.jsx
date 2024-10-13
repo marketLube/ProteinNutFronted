@@ -7,6 +7,7 @@ import { MainHeading as StyledMainHeading } from "./StyledComponents/MainHeading
 import { motion } from "framer-motion";
 import BottomCircle from "./BottomCircle";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
+import { Green } from "../HomeSectionTwo/Component.jsx/Green";
 
 // Convert MainHeading to a motion component
 const MainHeading = motion(StyledMainHeading);

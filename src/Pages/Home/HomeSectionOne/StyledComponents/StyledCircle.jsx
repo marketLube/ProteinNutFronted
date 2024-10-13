@@ -58,6 +58,7 @@ export const StyledCircle = styled.div`
     right: 0;
     bottom: 0;
     z-index: 10;
+    
 
     ${({ $circle }) =>
       $circle &&
