@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import useObserver from "../../../Hooks/useObserver";
@@ -138,13 +138,40 @@ const CurlingText = ({ text }) => {
   );
 };
 
+const colors = [
+  "#ffd45f",
+  "#ff9a9e",
+  "#e2a4b6",
+  "#a2c2e3",
+  "#fcb045",
+  "#8ec8a4",
+];
+
 function HomeSectionOne() {
   const targetRef = useRef(null);
   const dispatch = useDispatch();
   useObserver(targetRef, (isVisible) => dispatch(setIsHome(isVisible)), 1);
 
+  const [prevColor, setPrevColor] = useState(colors[0]);
+  const [curColor, setCurColor] = useState(colors[0]);
+  const [isChangingColor, setIsChangingColor] = useState(false);
+
+  const handleColorChange = useCallback((newColor, oldColor) => {
+    setPrevColor(oldColor);
+    setCurColor(newColor);
+    setIsChangingColor(true);
+    
+    // Reset isChangingColor after animation completes
+    setTimeout(() => setIsChangingColor(false), 500);
+  }, []);
+
   return (
-    <StyledSectionOne ref={targetRef}>
+    <StyledSectionOne 
+      ref={targetRef}
+      $prevColor={prevColor}
+      $curColor={curColor}
+      $isChangingColor={isChangingColor}
+    >
       <ContentWrapper>
         <StyledMainHeading>
           <AnimatedText text="Boost your Day" delay={0.2} />
@@ -159,7 +186,7 @@ function HomeSectionOne() {
           <div className="banner-stripe"></div>
           <div className="banner-stripe"></div>
           <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
+          
           
           <div className="banner-content">
             <p className="banner-text">Packed with Protein, Powered by Peanut Butter.</p>
@@ -176,8 +203,8 @@ function HomeSectionOne() {
       </ContentWrapper>
       
       
-      <BottomCircle />
-      <StyledCircleDummy/>
+      <BottomCircle onColorChange={handleColorChange} />
+      {/* <StyledCircleDummy/> */}
     </StyledSectionOne>
   );
 }
