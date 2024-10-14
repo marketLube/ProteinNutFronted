@@ -1,6 +1,16 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 export const FormOne = () => {
+
+  const form = useForm();
+  const { register , handleSubmit} = form;
+
+  const onSubmitftn = (data) => {
+    console.log(data);
+    
+  };
+
   return (
     <div>
       <style>
@@ -46,12 +56,12 @@ export const FormOne = () => {
         `}
       </style>
       <div className="form-container">
-        <form>
+        <form onSubmit={handleSubmit(onSubmitftn)}>
           <label>Payment</label>
-          <input type="text" placeholder="UPI" />
+          <input type="text" placeholder="UPI"  {...register("payment", { required: "Payment is required" })} />
           <label>Or</label>
           <div>
-            <input type="text" placeholder="Card Payment" />
+            <input type="text" placeholder="Card Payment"  {...register("card")} />
             <span aria-hidden="true"></span>
           </div>
           <button type="submit">Payment</button>

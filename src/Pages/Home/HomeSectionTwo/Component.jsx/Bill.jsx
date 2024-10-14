@@ -1,6 +1,15 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 export const Bill = () => {
+
+  const form = useForm();
+  const { register , handleSubmit} = form;
+
+  const onSubmitftn = (data) => {
+    console.log(data);
+    
+  };
     return (
         <div>
             <style>
@@ -114,6 +123,7 @@ export const Bill = () => {
             </style>
             <div className="checkout__container">
                 <div className="checkout__content">
+                <form onSubmit={handleSubmit(onSubmitftn)}>
                     <div className='checkout__data'>
                         <div className="checkout__items">
                             <div className="checkout__image"></div>
@@ -123,7 +133,7 @@ export const Bill = () => {
                     </div>
 
                     <div className="checkout__coupon">
-                        <input type="text" placeholder="Coupon Code" />
+                        <input type="text" placeholder="Coupon Code" {...register("coupon")} />
                         <button>Apply</button>
                     </div>
                     <div className="checkout__subtotal">
@@ -138,6 +148,7 @@ export const Bill = () => {
                         <p>Total</p>
                         <p>$234</p>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

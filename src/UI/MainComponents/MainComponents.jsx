@@ -13,5 +13,6 @@ export const StyledFooter = styled.footer`
 export const StyledMain = styled.main`
   width: 100%;
   min-height: 100vh;
+  
 `;
 
