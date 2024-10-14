@@ -3,7 +3,7 @@ function Logo({ style }) {
   return (
     <div className={styles.logoContainer} style={style}>
       <img
-        src="https://placeholderlogo.com/img/placeholder-logo-1.png"
+        src="./Image/Logo.svg"
         alt="logo of proteing nut"
       />
     </div>
