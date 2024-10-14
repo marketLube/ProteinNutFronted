@@ -7,6 +7,8 @@ function Home() {
   return (
     <Main>
       <HomeSectionOne />
+      <FormOne />
+      <Pages />
     </Main>
   );
 }
