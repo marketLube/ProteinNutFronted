@@ -7,14 +7,14 @@ export const Pages = () => {
     <div>
       <style>
         {`
-          .formone {
-            display: flex;
-            background-color: #ffffe6;
-            justify-content: space-around;
-            padding: 20px;
-            gap: 20px; 
-            padding-top:150px
-          }
+          // .formone {
+          //   display: flex;
+          //   background-color: #ffffe6;
+          //   justify-content: space-around;
+          //   padding: 20px;
+          //   gap: 20px; 
+          //   padding-top:150px
+          // }
         `}
       </style>
       

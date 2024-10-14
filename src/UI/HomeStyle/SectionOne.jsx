@@ -7,4 +7,5 @@ export const StyledSectionOne = styled.section`
   /* transition: all 2s ease; */
   position: relative;
   overflow: hidden;
+  // display:none;
 `;

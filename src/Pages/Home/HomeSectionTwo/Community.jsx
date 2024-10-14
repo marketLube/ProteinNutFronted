@@ -1,4 +1,7 @@
 import React from 'react';
+import { FaFacebookF } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa6";
 
 export const Community = () => {
   return (
@@ -6,51 +9,58 @@ export const Community = () => {
       <style>
         {`
         .container-main {
-          background-color: #00004d;
+          background-color: #f1d371;
+          padding: 30px;
         }
 
         .container {
           display: flex;
           flex-direction: column;
-          padding: 40px;
+          padding: 20px;
           background-color: #ffffff;
           border-radius: 20px;
-          max-width: 800px;
+          max-width: 100%;
+          height: auto;
           margin: 0 auto;
-          opacity: 0.9; /* Set the desired opacity for the container */
+          align-items: center;
+          justify-content: center;
+          opacity: 0.8;
         }
 
         .container-items {
-          //  background-color: #00004d;
+          width: 100%;
         }
 
         .content {
           display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
           margin-bottom: 40px;
+          width: 100%;
         }
 
         .left-section {
-          flex: 1;
+          text-align: center;
         }
 
         .title {
-          font-size: 32px;
+          font-size: 24px;
           font-weight: bold;
           color: #00004d;
           margin-bottom: 16px;
         }
 
         .description {
-          font-size: 19px;
+          font-size: 16px;
           color: #00004d;
           margin-bottom: 24px;
         }
 
         .form {
           position: relative;
-          width: 60%;
+          width: 100%;
+          max-width: 400px;
         }
 
         .input {
@@ -71,9 +81,8 @@ export const Community = () => {
         .button {
           position: absolute;
           right: 0;
-        //   bottom:0;
-          top:-4rem;
-          transform: translateY(50%);
+          top: 50%;
+          transform: translateY(-50%);
           width: 70px;
           height: 70px;
           background-color: #ffd54f;
@@ -86,17 +95,12 @@ export const Community = () => {
           align-items: center;
           justify-content: center;
           z-index: 1;
-          opacity: 0.7;
-        
-          
+          opacity: 0.8;
         }
-          .form-button{
-          margin-right:0.5rem;
-          }
 
         .nav {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
           margin-top: 40px;
         }
@@ -105,41 +109,103 @@ export const Community = () => {
           color: #4CAF50;
           font-size: 24px;
           font-weight: bold;
+          width: 100px;
+          height: auto;
+          margin-bottom: 20px;
         }
 
         .menu {
           display: flex;
-          gap: 17px;
-          // background-color: #ffd54f;
-          justify-content: space-between;
-        }
-
-        .menu-item {
-          color: #333;
-          text-decoration: none;
-        }
-
-        .sl-icons {
-          display: flex;
           gap: 16px;
-          background-color: #ffd54f;
         }
 
-        .sl-icon {
-          color: #4CAF50;
-        }
-          .icons{
+        .icons {
           width: 45px;
           height: 45px;
           background-color: #4CAF50;
+          color: white;
           border: none;
           border-radius: 50%;
           font-size: 16px;
           display: flex;
-          align-items:center;
+          align-items: center;
           justify-content: center;
+        }
+
+        /* Media Queries */
+        @media (min-width: 600px) {
+          .container {
+            padding: 40px;
           }
 
+          .content {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          .left-section {
+            text-align: left;
+          }
+
+          .title {
+            font-size: 28px;
+          }
+
+          .description {
+            font-size: 18px;
+            width: 60%;
+          }
+
+          .form {
+            max-width: 500px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .container {
+            padding: 60px;
+          }
+
+          .title {
+            font-size: 32px;
+          }
+
+          .description {
+            font-size: 20px;
+          }
+
+          .form {
+            max-width: 600px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .container {
+            padding: 80px;
+          }
+
+          .title {
+            font-size: 36px;
+          }
+
+          .description {
+            font-size: 22px;
+          }
+
+          .nav {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          .logo {
+            font-size: 32px;
+            width: 150px;
+          }
+
+          .menu {
+            gap: 24px;
+          }
+        }
         `}
       </style>
       <div className="container-main">
@@ -149,7 +215,7 @@ export const Community = () => {
               <div className="left-section">
                 <h1 className="title">Join our community</h1>
                 <p className="description">
-                  Get access to new recipes, exciting updates, and <br /> grab Rs.50 off on a pack of peanuts
+                  Get access to new recipes, exciting updates, and grab Rs.50 off on a pack of peanuts
                 </p>
                 <div className="form">
                   <input type="email" placeholder="Email address" className="input" />
@@ -159,21 +225,12 @@ export const Community = () => {
             </div>
 
             <nav className="nav">
-              <div className="logo">Proteinuts</div>
+              <img src="./Image/Logo.svg" alt="nutslogs" className='logo' />
               <div className="menu">
-                {/* <a href="#" className="menu-item">Shop</a>
-                <a href="#" className="menu-item">Where to buy</a> */}
-                <div className='icons'>logo</div>
-                <div className='icons'>logo</div>
-                <div className='icons'>logo</div>
+                <div className='icons'><FaFacebookF /></div>
+                <div className='icons'><FaInstagram /></div>
+                <div className='icons'><FaWhatsapp /></div>
               </div>
-              {/* <div className="sl-icons">
-                <div className="sl-icon" />
-                <div className="social-icon" />
-                <div className="social-icon" />
-                <Instagram className="social-icon" />
-                <MessageCircle className="social-icon" />
-              </div> */}
             </nav>
           </div>
         </div>

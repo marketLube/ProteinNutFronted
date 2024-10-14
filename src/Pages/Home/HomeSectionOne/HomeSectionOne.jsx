@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import BottomCircle from "./BottomCircle";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
 import { Green } from "../HomeSectionTwo/Component.jsx/Green";
+import styles from './HomeSectionOne.module.css'
 
 // Convert MainHeading to a motion component
 const MainHeading = motion(StyledMainHeading);
@@ -19,14 +20,14 @@ function HomeSectionOne() {
   return (
     <StyledSectionOne ref={targetRef}>
       <MainHeading>
-        <motion.div
+        <motion.div className={styles.headtag}
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
           Boost your energy
         </motion.div>
-        <motion.div
+        <motion.div className={styles.headtag}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ opacity: { duration: 0.7 }, scale: { duration: 0.7 } }}

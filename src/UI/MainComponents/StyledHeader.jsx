@@ -8,6 +8,9 @@ const dontMove = css`
 `;
 
 export const StyledHeader = styled.header`
+@media (max-width: 768px) {
+   display:none;
+}
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -31,6 +34,9 @@ const visible = css`
 `;
 
 export const HeaderBg = styled.div`
+@media (max-width: 768px) {
+   display:none;
+}
   background-color: white;
   z-index: 99;
   position: fixed;

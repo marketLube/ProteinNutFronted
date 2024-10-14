@@ -17,4 +17,6 @@ export const MainHeading = styled.h1`
   z-index: 20;
   left: 50%;
   transform: translateX(-50%);
+
+  
 `;

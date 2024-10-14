@@ -16,6 +16,10 @@ import { Counter } from "../src/Component/Counter/Counter";
 import { ProductDetails } from "../src/Component/ProductDisplay/ProductDetails";
 import { GridDisplay } from "../src/Component/ProductDisplayGrid/GridDisplay";
 import { Green } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Green";
+import { Addresses } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Addresses";
+import { FormOne } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/FormOne";
+import { Bill } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Bill";
+import { HomeLandingSection1 } from "../src/Component/HomeLandingSection1";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +33,26 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "addresses",
+        element:< Addresses />
+      },
+      {
+        path: "paymentform",
+        element: <FormOne />
+      },
+      {
+        path:'bill',
+        element:<Bill/>
+      },
+      {
+        path:'myaccountpage',
+        element:<Myaccount />
+      },
+      {
+        path:"formtwo",
+        element:<Contactpage/>
       },
       {
         path: "homesectiontwo",
@@ -81,6 +105,10 @@ const router = createBrowserRouter([
       {
         path:"greencard",
         element:<Green/>
+      },,
+      {
+         path:"homesectioncontent",
+         element:<HomeLandingSection1/>
       }
     ],
   },
