@@ -3,6 +3,7 @@ import { HeaderBg, StyledHeader } from "../../UI/MainComponents/StyledHeader";
 import Logo from "../../Utils/Logo/Logo";
 import HeaderButtonsContainer from "./HeaderButtonsContainer";
 import styles from "./Header.module.css";
+import { Navbar } from "../../Component/Navbar";
 
 function Header() {
   const { isHome } = useSelector((state) => state.general);
@@ -21,6 +22,7 @@ function Header() {
           <HeaderButtonsContainer />
         </div>
       </StyledHeader>
+      <Navbar/>
     </>
   );
 }

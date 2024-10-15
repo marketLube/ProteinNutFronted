@@ -1,0 +1,16 @@
+.sectionone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:50px;
+}
+.maindiv{
+    
+    padding:130px 120px;
+}
+.maindiv h1{
+    font-size: 5rem;
+    color: #220d4e;
+}
+
+

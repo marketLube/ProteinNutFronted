@@ -20,6 +20,10 @@ import { Addresses } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Addres
 import { FormOne } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/FormOne";
 import { Bill } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Bill";
 import { HomeLandingSection1 } from "../src/Component/HomeLandingSection1";
+import { Navbar } from "../src/Component/Navbar";
+import { Reels } from "../src/Component/Reelsection/Reels";
+import { Swipercomponent } from "../src/Component/Reelsection/Swipercomponent";
+import { Cartpage } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/Cartpage";
 
 const router = createBrowserRouter([
   {
@@ -105,10 +109,22 @@ const router = createBrowserRouter([
       {
         path:"greencard",
         element:<Green/>
-      },,
+      },
       {
          path:"homesectioncontent",
          element:<HomeLandingSection1/>
+      },
+      {
+        path:"naavbar",
+        element:<Navbar/>
+      },
+      {
+         path:"reels",
+         element:<Swipercomponent />
+      },
+      {
+        path:"cartpage",
+        element:<Cartpage/>
       }
     ],
   },

@@ -24,6 +24,7 @@ export const StyledHeader = styled.header`
   transition: transform 0.5s ease;
   ${(props) => (props.$isHome ? move : dontMove)};
   overflow: hidden;
+  
 `;
 
 const hide = css`
@@ -47,4 +48,5 @@ export const HeaderBg = styled.div`
   border-bottom-left-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
   ${(props) => (props.$isHome ? hide : visible)};
+  
 `;

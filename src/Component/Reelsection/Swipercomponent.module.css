@@ -1,0 +1,11 @@
+   .reelsdisplay{
+    width: 30rem;
+    height: 40rem;
+    /* display: grid; */
+    /* grid-template-columns: repeat(4,1fr); */
+    /* gap: 59px; */
+    background-color:#f3ce94 ;
+    border-radius: 30px;
+    margin: 30px;
+    /* padding: 2rem 0; */
+}
