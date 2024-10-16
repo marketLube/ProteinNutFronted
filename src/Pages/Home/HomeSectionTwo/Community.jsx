@@ -1,7 +1,5 @@
 import React from 'react';
-import { FaFacebookF } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 export const Community = () => {
   return (
@@ -10,7 +8,7 @@ export const Community = () => {
         {`
         .container-main {
           background-color: #f1d371;
-          padding: 30px;
+          padding: 20px;
         }
 
         .container {
@@ -18,7 +16,7 @@ export const Community = () => {
           flex-direction: column;
           padding: 20px;
           background-color: #ffffff;
-          border-radius: 20px;
+          border-radius: 25px;
           max-width: 100%;
           height: auto;
           margin: 0 auto;
@@ -29,6 +27,7 @@ export const Community = () => {
 
         .container-items {
           width: 100%;
+          padding: 20px;
         }
 
         .content {
@@ -55,12 +54,13 @@ export const Community = () => {
           font-size: 16px;
           color: #00004d;
           margin-bottom: 24px;
+          
         }
 
         .form {
           position: relative;
           width: 100%;
-          max-width: 400px;
+          max-width: 300px;
         }
 
         .input {
@@ -83,12 +83,12 @@ export const Community = () => {
           right: 0;
           top: 50%;
           transform: translateY(-50%);
-          width: 70px;
-          height: 70px;
+          width: 50px;
+          height: 50px;
           background-color: #ffd54f;
           border: none;
           border-radius: 50%;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: bold;
           cursor: pointer;
           display: flex;
@@ -109,7 +109,7 @@ export const Community = () => {
           color: #4CAF50;
           font-size: 24px;
           font-weight: bold;
-          width: 100px;
+          width: 120px;
           height: auto;
           margin-bottom: 20px;
         }
@@ -117,12 +117,15 @@ export const Community = () => {
         .menu {
           display: flex;
           gap: 16px;
+          // background-color: #00004d;
+          padding: 10px;
+          border-radius: 25px;
         }
 
         .icons {
-          width: 45px;
-          height: 45px;
-          background-color: #4CAF50;
+          width: 35px;
+          height: 35px;
+          background-color: #5c8e55;
           color: white;
           border: none;
           border-radius: 50%;
@@ -133,9 +136,34 @@ export const Community = () => {
         }
 
         /* Media Queries */
-        @media (min-width: 600px) {
+        @media (min-width: 480px) {
+          .container-main {
+            padding: 40px;
+          }
+
+          .container {
+            padding: 30px;
+            border-radius: 35px;
+          }
+
+          .form {
+            max-width: 350px;
+          }
+
+          .button {
+            width: 60px;
+            height: 60px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .container-main {
+            padding: 60px;
+          }
+
           .container {
             padding: 40px;
+            border-radius: 40px;
           }
 
           .content {
@@ -145,6 +173,7 @@ export const Community = () => {
 
           .left-section {
             text-align: left;
+            width: 60%;
           }
 
           .title {
@@ -153,57 +182,59 @@ export const Community = () => {
 
           .description {
             font-size: 18px;
-            width: 60%;
+            width:68%
           }
 
           .form {
-            max-width: 500px;
-          }
-        }
-
-        @media (min-width: 768px) {
-          .container {
-            padding: 60px;
-          }
-
-          .title {
-            font-size: 32px;
-          }
-
-          .description {
-            font-size: 20px;
-          }
-
-          .form {
-            max-width: 600px;
-          }
-        }
-
-        @media (min-width: 1024px) {
-          .container {
-            padding: 80px;
-          }
-
-          .title {
-            font-size: 36px;
-          }
-
-          .description {
-            font-size: 22px;
+            max-width: 400px;
           }
 
           .nav {
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
+            margin-top: 100px;
           }
 
           .logo {
-            font-size: 32px;
-            width: 150px;
+            margin-bottom: 0;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .container-main {
+            padding: 80px;
           }
 
-          .menu {
-            gap: 24px;
+          .container {
+            padding: 80px;
+            border-radius: 50px;
+          }
+
+          .title {
+            font-size: 45px;
+          }
+
+          .description {
+            font-size: 24px;
+          }
+
+          .form {
+            max-width: 640px;
+          }
+
+          .button {
+            width: 80px;
+            height: 80px;
+          }
+
+          .logo {
+            width: 250px;
+          }
+
+          .icons {
+            width: 45px;
+            height: 45px;
           }
         }
         `}

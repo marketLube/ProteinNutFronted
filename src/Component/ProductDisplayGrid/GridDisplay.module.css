@@ -3,17 +3,17 @@
     height: 75%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 59px;
-    /* background-color:#fff9f2 ; */
+    gap: 2px;
+    /* background-color:#f2b773 ; */
     flex:1;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .display {
  width: 100%;
  padding: 15rem;
  flex-direction: column;
- background-color: #fff9f2;
+ background-color: #f3f1e8;
  
  
 }

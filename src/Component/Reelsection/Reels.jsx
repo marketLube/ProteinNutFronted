@@ -3,23 +3,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 import { Swipercomponent } from './Swipercomponent';
 import { Navigation, Pagination, Mousewheel, A11y } from 'swiper/modules';
+import styles from './Reels.module.css'
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export const Reels = () => {
   return (
-    <div>
+    <div className={styles.bg}>
         <Swiper 
         modules={[Navigation, Pagination, Mousewheel, A11y]}
-        spaceBetween={10}
-        slidesPerView={3}
+        spaceBetween={1}
+        slidesPerView={4}
         navigation
         pagination={{ clickable: true }}
         mousewheel={{ invert: false }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}>
 
+        <SwiperSlide><Swipercomponent/></SwiperSlide>
+        <SwiperSlide><Swipercomponent/></SwiperSlide>
         <SwiperSlide><Swipercomponent/></SwiperSlide>
         <SwiperSlide><Swipercomponent/></SwiperSlide>
         <SwiperSlide><Swipercomponent/></SwiperSlide>
