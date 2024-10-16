@@ -11,7 +11,7 @@ import { Green } from "../HomeSectionTwo/Component.jsx/Green";
 import styles from './HomeSectionOne.module.css'
 
 // Convert MainHeading to a motion component
-const MainHeading = motion(StyledMainHeading);
+const  MainHeading = motion(StyledMainHeading);
 
 function HomeSectionOne() {
   const targetRef = useRef(null);
