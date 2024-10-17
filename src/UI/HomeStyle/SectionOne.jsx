@@ -17,10 +17,14 @@ export const StyledSectionOne = styled.section`
   background-color: var(--light-green);
   position: relative;
   overflow: hidden;
+<<<<<<< HEAD
 
   ${({ $prevColor, $curColor, $isChangingColor }) =>
     $isChangingColor &&
     css`
       animation: ${createBgAnim($prevColor, $curColor)} 0.5s forwards;
     `}
+=======
+  // display:none;
+>>>>>>> origin/saniga
 `;

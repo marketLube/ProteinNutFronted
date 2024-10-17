@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const StyledCircleDummy = styled.div`
   width: 70%;
   height: 0;
@@ -9,5 +10,6 @@ export const StyledCircleDummy = styled.div`
   position: absolute;
   bottom: -70%;
   left: 50%;
-  transform: translateX(-50%);
-`;
+  transform: translateX(-50%);`
+;
+

@@ -10,11 +10,10 @@ const colors = [
   "#c6de48",
   "#c2e0c2",
   "#f9d160",
-  
 ];
 
 const StyledCircle = styled(motion.div)`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -33,11 +32,11 @@ const Background = styled(motion.div)`
 
 const Circle = styled(motion.div)`
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background-color: white;
   border-radius: 50%;
-  bottom: -75px;
+  bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
 `;
@@ -45,7 +44,7 @@ const Circle = styled(motion.div)`
 const HeroImage1 = styled.img`
   position: absolute;
   bottom: 0%;
-  left: 55%;
+  left: 50%;
   right: 50%;
   transform: translateX(-50%) scale(0.7) rotate(20deg) translateY(20%);
   z-index: 2;
@@ -56,9 +55,9 @@ const HeroImage1 = styled.img`
 const HeroImage2 = styled.img`
   position: absolute;
   bottom: -5%;
-  left: 52%;
+  left: 50%;
   right: 55%;
-  transform: translateX(-80%) scale(0.5) rotate(-30deg) translateY(20%);
+  transform: translateX(-50%) scale(0.5) rotate(-30deg) translateY(20%);
   z-index: 1;
   max-width: 100%;
   height: auto;

@@ -1,14 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import useObserver from "../../../Hooks/useObserver";
 import { setIsHome } from "../../../App/generalSlice/generalSlice";
 import { StyledSectionOne } from "../../../UI/HomeStyle/SectionOne";
-import { MainHeading as StyledMainHeading } from "./StyledComponents/MainHeading";
+import { MainHeading as StyledMainHeading, SubHeading } from "./StyledComponents/MainHeading";
 import { StyledProteinBanner } from "./StyledComponents/ProteinBanner";
 import { motion } from "framer-motion";
 import BottomCircle from "./BottomCircle";
 import styled from 'styled-components';
+import { FaCircleArrowRight } from "react-icons/fa6";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
 // import 
 
@@ -22,7 +23,7 @@ const ContentWrapper = styled.div`
   z-index: 2;
 `;
 
-const AnimatedText = ({ text, delay }) => {
+const AnimatedText = ({ text, delay, isChanging = false }) => {
   const words = text.split(" ");
 
   const container = {
@@ -56,7 +57,13 @@ const AnimatedText = ({ text, delay }) => {
 
   return (
     <motion.h1
-      style={{ display: "flex", justifyContent: "center",  }}
+      style={{ 
+        display: "flex", 
+        justifyContent: "center",
+        fontSize: "inherit",
+        lineHeight: "inherit",
+        margin: 0,
+      }}
       variants={container}
       initial="hidden"
       animate="visible"
@@ -64,7 +71,10 @@ const AnimatedText = ({ text, delay }) => {
       {words.map((word, index) => (
         <motion.span
           key={index}
-          style={{ marginRight: "0.25em", display: "inline-block" }}
+          style={{ 
+            marginRight: "0.25em", // Restored normal word spacing
+            display: "inline-block",
+          }}
           variants={child}
         >
           {word}
@@ -87,7 +97,7 @@ const CurlingText = ({ text }) => {
   };
 
   const child = {
-    hidden: { 
+    hidden: {
       y: 0,
       rotateX: 0,
       scale: 1,
@@ -147,6 +157,18 @@ const colors = [
   "#8ec8a4",
 ];
 
+const ChangingText = ({ colorIndex }) => {
+  const phrases = [
+    "Crunchy Energy",
+    "Nutty Goodness",
+    "Protein Power",
+  ];
+
+  return (
+    <AnimatedText text={phrases[colorIndex]} delay={0} isChanging={true} key={colorIndex} />
+  );
+};
+
 function HomeSectionOne() {
   const targetRef = useRef(null);
   const dispatch = useDispatch();
@@ -155,18 +177,20 @@ function HomeSectionOne() {
   const [prevColor, setPrevColor] = useState(colors[0]);
   const [curColor, setCurColor] = useState(colors[0]);
   const [isChangingColor, setIsChangingColor] = useState(false);
+  const [colorIndex, setColorIndex] = useState(0);
 
   const handleColorChange = useCallback((newColor, oldColor) => {
     setPrevColor(oldColor);
     setCurColor(newColor);
     setIsChangingColor(true);
-    
+    setColorIndex((prevIndex) => (prevIndex + 1) % 3);
+
     // Reset isChangingColor after animation completes
     setTimeout(() => setIsChangingColor(false), 500);
   }, []);
 
   return (
-    <StyledSectionOne 
+    <StyledSectionOne
       ref={targetRef}
       $prevColor={prevColor}
       $curColor={curColor}
@@ -175,34 +199,31 @@ function HomeSectionOne() {
       <ContentWrapper>
         <StyledMainHeading>
           <AnimatedText text="Boost your Day" delay={0.2} />
-          <AnimatedText text="With Crunchy Energy" delay={0.8} />
-        </StyledMainHeading>
-        
-        <StyledProteinBanner>
-          <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
-          <div className="banner-stripe"></div>
-          
-          
-          <div className="banner-content">
-            <p className="banner-text">Packed with Protein, Powered by Peanut Butter.</p>
-            <button className="shop-button">
-              <span className="button-text">
-                <CurlingText text="Shop Now" />
-              </span>
-              <span className="arrow-circle">
-                <span className="arrow"></span>
-              </span>
-            </button>
+          <div style={{ 
+            display: "flex", 
+            justifyContent: "center", 
+            alignItems: "center", 
+            gap: "0.1em",
+            fontSize: "inherit",
+            lineHeight: "inherit",
+          }}>
+            <AnimatedText text="with" delay={0.4} />
+            <ChangingText colorIndex={colorIndex} />
           </div>
-        </StyledProteinBanner>
+        </StyledMainHeading>
+        <div style={{ position: "absolute", top: "40%", fontSize: "2.3rem", display: "flex", gap: "2rem", width: "100%", justifyContent: "center", alignItems: "center" }}>
+          <p>Packed with Protein, Powered by Peanut Butter.</p>
+          <button style={{ backgroundColor: "#4a8f3c", border: "none", padding: "1rem 4rem", fontSize: "2.5rem", color: "white", borderRadius: "2rem" }}>
+            <span style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"1rem"}}>
+              Shop Now
+              <FaCircleArrowRight />
+            </span>
+          </button>
+        </div>
+
+
+
       </ContentWrapper>
-      
-      
       <BottomCircle onColorChange={handleColorChange} />
       {/* <StyledCircleDummy/> */}
     </StyledSectionOne>

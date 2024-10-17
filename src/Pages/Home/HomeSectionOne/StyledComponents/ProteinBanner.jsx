@@ -30,9 +30,11 @@ export const StyledProteinBanner = styled.div`
   }
 
   .banner-text {
+    // font-size: clamp(14px, 100vw, 18px);
     font-size: 18px;
     font-weight: bold;
     color: #333;
+    text-align: center;
   }
 
   .shop-button {
@@ -99,7 +101,7 @@ export const StyledProteinBanner = styled.div`
   @media (max-width: 768px) {
     .banner-content {
       flex-direction: column;
-      align-items: stretch;
+      // align-items: stretch;
     }
 
     .banner-text {
@@ -109,6 +111,12 @@ export const StyledProteinBanner = styled.div`
 
     .shop-button {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .banner-text {
+      font-size: clamp(12px, 3vw, 16px);
     }
   }
 `;

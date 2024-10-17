@@ -8,6 +8,9 @@ const dontMove = css`
 `;
 
 export const StyledHeader = styled.header`
+@media (max-width: 768px) {
+   display:none;
+}
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -21,6 +24,7 @@ export const StyledHeader = styled.header`
   transition: transform 0.5s ease;
   ${(props) => (props.$isHome ? move : dontMove)};
   overflow: hidden;
+  
 `;
 
 const hide = css`
@@ -31,6 +35,9 @@ const visible = css`
 `;
 
 export const HeaderBg = styled.div`
+@media (max-width: 768px) {
+   display:none;
+}
   background-color: white;
   z-index: 99;
   position: fixed;
@@ -41,4 +48,5 @@ export const HeaderBg = styled.div`
   border-bottom-left-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
   ${(props) => (props.$isHome ? hide : visible)};
+  
 `;
