@@ -1,28 +1,32 @@
-import React from 'react'
-import { Contactpage } from '../Component.jsx/Contactpage'
-import { Bill } from '../Component.jsx/Bill'
+import React from "react";
+import { Contactpage } from "../Component.jsx/Contactpage";
+import { Bill } from "../Component.jsx/Bill";
+import { css } from "styled-components";
 
 export const Contact = () => {
   return (
     <div>
-        <style>
-        {`
+      <style>
+        {css`
           .formone {
+            padding-top: 10rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10rem;
+            background-color: #f3f1e8;
+          }
+
+          .formone > * {
             display: flex;
-            background-color: #ffffe6;
-            justify-content: space-around;
-            padding: 20px;
-            gap: 20px; 
-            padding-top:150px
+            padding: 10rem;
           }
         `}
       </style>
-      
+
       <div className="formone">
-        <Contactpage/>
-        <Bill/>
+        <Contactpage />
+        <Bill />
       </div>
-        
     </div>
-  )
-}
+  );
+};

@@ -10,10 +10,10 @@ export const SelectedItem = () => {
         {`
           .formone {
             display: flex;
-            background-color: #ffffe6;
-            // justify-content: space-around;
+            background-color: #f3f1e8;
+            justify-content: space-around;
             padding: 20px;
-            gap: 20px; 
+            gap: 10px; 
             padding-top:150px
           }
         `}

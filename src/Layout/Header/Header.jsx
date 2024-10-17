@@ -5,27 +5,52 @@ import HeaderButtonsContainer from "./HeaderButtonsContainer";
 import styles from "./Header.module.css";
 import { Navbar } from "../../Component/Navbar";
 import { Link, NavLink } from "react-router-dom";
-
+import { useEffect } from "react";
 
 function Header() {
   const { isHome } = useSelector((state) => state.general);
+
+  const scrollToTarget = (id) => {
+    return () => {
+      // Get the target element by its ID and scroll into view
+      const targetElement = document.getElementById(id);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+  };
+
   return (
     <>
       <HeaderBg $isHome={isHome} />
       <StyledHeader $isHome={isHome}>
         <div className={styles.headerText}>
-          <Link to="/shop" className={styles.headerLinks}>
+          <button
+            onClick={scrollToTarget("grid")}
+            className={`btn ${styles.headerLinks}`}
+          >
             Shop
-          </Link>
+          </button>
 
-          <a className={styles.headerLinks}>Order</a>
+          <button
+            onClick={scrollToTarget("community")}
+            className={`btn ${styles.headerLinks}`}
+          >
+            Community
+          </button>
         </div>
         <Link to="/">
           <Logo />
         </Link>
         <div className={styles.headerRight}>
           <a className={styles.headerLinks}></a>
-          <a className={styles.headerLinks}></a>
+          <button
+            onClick={scrollToTarget("contact")}
+            className={`btn ${styles.headerLinks}`}
+          >
+            Contact
+          </button>
           <HeaderButtonsContainer />
         </div>
       </StyledHeader>

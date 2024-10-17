@@ -33,6 +33,11 @@ const GlobalStyles = createGlobalStyle`
  body{
   font-family: "SUSE", sans-serif;
  }
+ .btn{
+    border: none;
+    background-color: transparent;
+    
+ }
 
 `;
 

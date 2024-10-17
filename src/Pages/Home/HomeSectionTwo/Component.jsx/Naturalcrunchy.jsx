@@ -10,17 +10,18 @@ export const ProductDisplay = () => {
       <style>
         {`
           .container-main {
-            background-color: #fff9f2;
+            // background-color: #fff9f2;
             padding: 20px;
             
           }
 
           .container {
-            max-width: 400px;
+            max-width: 419px;
             margin: 0 auto;
             padding: 40px;
             background-color: white;
             border-radius: 20px;
+            background-color:#ffffff
 
           }
 

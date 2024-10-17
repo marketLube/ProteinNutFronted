@@ -1,5 +1,6 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { css } from "styled-components";
 
 export const FormOne = () => {
   const form = useForm();
@@ -12,13 +13,13 @@ export const FormOne = () => {
   return (
     <div>
       <style>
-        {`
+        {css`
           .form-container {
             max-width: 100%;
             margin: auto;
             padding: 1px;
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            // width: 100vw;
             // background-color:#ff6666;
           }
           .form-container label {
@@ -35,7 +36,7 @@ export const FormOne = () => {
             border-radius: 5px;
           }
           .form-container input::placeholder {
-            color: #00004d; 
+            color: #00004d;
             font-weight: bold;
           }
           .form-container button {
@@ -78,7 +79,7 @@ export const FormOne = () => {
             }
           }
           @media (min-width: 1024px) {
-          .form-container {
+            .form-container {
               max-width: 100%;
               width: 100%;
             }
@@ -97,10 +98,18 @@ export const FormOne = () => {
       <div className="form-container">
         <form onSubmit={handleSubmit(onSubmitftn)}>
           <label>Payment</label>
-          <input type="text" placeholder="UPI" {...register("payment", { required: "Payment is required" })} />
+          <input
+            type="text"
+            placeholder="UPI"
+            {...register("payment", { required: "Payment is required" })}
+          />
           <label>Or</label>
           <div>
-            <input type="text" placeholder="Card Payment" {...register("card")} />
+            <input
+              type="text"
+              placeholder="Card Payment"
+              {...register("card")}
+            />
             <span aria-hidden="true"></span>
           </div>
           <button type="submit">Payment</button>

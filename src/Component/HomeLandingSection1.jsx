@@ -4,7 +4,7 @@ import { HiArrowCircleRight } from "react-icons/hi";
 
 export const HomeLandingSection1 = () => {
   return (
-    <div className={styles.healthyflavr}>
+    <div className={styles.healthyflavr} id="community">
       <h1 className={styles.head}>Healthy flavours. Infinite possibilities</h1>
       <p className={styles.note}>
         Packed with Protein, Powered by Peanut Butter.

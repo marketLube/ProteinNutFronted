@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 export const Community = () => {
@@ -240,27 +240,38 @@ export const Community = () => {
         `}
       </style>
       <div className="container-main">
-        <div className="container">
+        <div className="container" id="contact">
           <div className="container-items">
             <div className="content">
               <div className="left-section">
                 <h1 className="title">Join our community</h1>
                 <p className="description">
-                  Get access to new recipes, exciting updates, and grab Rs.50 off on a pack of peanuts
+                  Get access to new recipes, exciting updates, and grab Rs.50
+                  off on a pack of peanuts
                 </p>
                 <div className="form">
-                  <input type="email" placeholder="Email address" className="input" />
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    className="input"
+                  />
                   <button className="button">Sign up</button>
                 </div>
               </div>
             </div>
 
             <nav className="nav">
-              <img src="./Image/Logo.svg" alt="nutslogs" className='logo' />
+              <img src="./Image/Logo.svg" alt="nutslogs" className="logo" />
               <div className="menu">
-                <div className='icons'><FaFacebookF /></div>
-                <div className='icons'><FaInstagram /></div>
-                <div className='icons'><FaWhatsapp /></div>
+                <div className="icons">
+                  <FaFacebookF />
+                </div>
+                <div className="icons">
+                  <FaInstagram />
+                </div>
+                <div className="icons">
+                  <FaWhatsapp />
+                </div>
               </div>
             </nav>
           </div>
@@ -268,4 +279,4 @@ export const Community = () => {
       </div>
     </div>
   );
-}
+};
