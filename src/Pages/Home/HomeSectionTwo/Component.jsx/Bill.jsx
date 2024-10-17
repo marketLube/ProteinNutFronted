@@ -1,5 +1,5 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 
 export const Bill = () => {
   const form = useForm();
@@ -28,7 +28,7 @@ export const Bill = () => {
           
           .checkout__content {
             width: 100%;
-            background-color:#ff6666;
+            // background-color:#ff6666;
             
           }
           
@@ -177,7 +177,11 @@ export const Bill = () => {
             </div>
 
             <div className="checkout__coupon">
-              <input type="text" placeholder="Coupon Code" {...register("coupon")} />
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                {...register("coupon")}
+              />
               <button>Apply</button>
             </div>
             <div className="checkout__subtotal">

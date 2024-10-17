@@ -12,10 +12,12 @@ function Home() {
   return (
     <Main>
       <HomeSectionOne />
+
       <GridDisplay />
+
       <Landingimg />
       <HomeLandingSection1 />
-      <Reels/>
+      <Reels />
       <Community />
     </Main>
   );

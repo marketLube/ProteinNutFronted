@@ -1,0 +1,24 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: aquamarine;
+  max-width: 400rem;
+  height: 100vh;
+}
+.main img {
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+}
+.firstsection {
+  display: flex;
+  justify-content: center;
+  /* background-color: blanchedalmond; */
+  gap: 50px;
+  margin-top: 40px;
+}
+.firstsection img {
+  width: 100px;
+}

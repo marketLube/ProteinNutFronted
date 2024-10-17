@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import { Star, Plus, Minus } from 'lucide-react';
 
 export const ProductDisplay = () => {
@@ -174,7 +175,7 @@ export const ProductDisplay = () => {
         <div className="container">
           <span className="category-tag">Peanut Butter</span>
           <h1 className="product-title">Natural Crunchy Peanut Butter 1KG</h1>
-          
+
           <div className="rating-container">
             {/* {[...Array(4)].map((_, i) => (
               <Star key={i} className="star" fill="#ffd700" />
@@ -194,36 +195,46 @@ export const ProductDisplay = () => {
           </div>
 
           <div className="location-container">
-            <div className='location-container-num'>
-            <span>673019</span></div>
-            <div className='location-container-text'>
-            <span>Olavanna,Kozhikode</span>
+            <div className="location-container-num">
+              <span>673019</span>
+            </div>
+            <div className="location-container-text">
+              <span>Olavanna,Kozhikode</span>
             </div>
           </div>
 
           <div className="quantity-container">
-            <button className="quantity-button" onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+            <button
+              className="quantity-button"
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+            >
               -
             </button>
             <span className="quantity-display">{quantity}</span>
-            <button className="quantity-button" onClick={() => setQuantity(quantity + 1)}>
-                +
+            <button
+              className="quantity-button"
+              onClick={() => setQuantity(quantity + 1)}
+            >
+              +
             </button>
             <button className="size-button">1 KG</button>
           </div>
 
           <div className="button-container">
             <button className="add-to-cart">Add to cart</button>
-            <button className="buy-now">Buy Now</button>
+            <Link to="/homesectiontwo">
+              <button className="buy-now">Buy Now</button>
+            </Link>
           </div>
 
           <p className="description">
-            Enjoy the rich taste of 100% natural, roasted peanuts with a satisfying crunch. 
-            Packed with protein and free from preservatives, added sugars, or artificial flavors, 
-            Proteinuts is the perfect healthy snack for any time of day. Fuel your body naturally!
+            Enjoy the rich taste of 100% natural, roasted peanuts with a
+            satisfying crunch. Packed with protein and free from preservatives,
+            added sugars, or artificial flavors, Proteinuts is the perfect
+            healthy snack for any time of day. Fuel your body naturally!
           </p>
         </div>
       </div>
     </div>
   );
-}
+};
