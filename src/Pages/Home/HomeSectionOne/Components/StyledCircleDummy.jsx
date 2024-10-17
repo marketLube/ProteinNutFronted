@@ -10,6 +10,9 @@ export const StyledCircleDummy = styled.div`
   position: absolute;
   bottom: -70%;
   left: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   transform: translateX(-50%);`
 ;
 

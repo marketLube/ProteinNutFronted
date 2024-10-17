@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import styled from "styled-components";
+import React, { useEffect } from "react";
+import { motion, useAnimation, useCycle } from "framer-motion";
+import styled, { keyframes } from "styled-components";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
 import heroImage from "../../../../public/assets/hero-image.png";
 import heroImage2 from "../../../../public/assets/hero-image-2.png";
 import heroImage3 from "../../../../public/assets/hero-image-3.png";
 
-const colors = [
-  "#c6de48",
-  "#c2e0c2",
-  "#f9d160",
-];
+const colors = ["#c6de48", "#c2e0c2", "#f9d160"];
+const heroImages = [heroImage, heroImage2, heroImage3];
 
 const StyledCircle = styled(motion.div)`
   width: 100%;
@@ -38,7 +35,47 @@ const Circle = styled(motion.div)`
   border-radius: 50%;
   bottom: -100px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-100%);
+`;
+
+const fadeIn1 = keyframes`
+0% {
+  transform: translateX(-120%) scale(0.9) rotate(-10deg) translateY(200%);
+  }
+  25% {
+  transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(40%);
+  }
+  70% {
+  transform: translateX(-80%) scale(0.6) rotate(-20deg) translateY(40%);
+  }
+  
+  90% {
+  transform: translateX(-80%) scale(0.65)  rotate(-20deg) translateY(40%);
+  }
+ 100% {
+    transform: translateX(-90%) scale(0.8)  rotate(-20deg) translateY(120%);
+  }
+`;
+
+const fadeIn2 = keyframes`
+  0% {
+  transform: translateX(-35%) scale(0.9) rotate(0deg) translateY(200%);
+  }
+  25% {
+  transform: translateX(-35%) scale(0.8) rotate(30deg) translateY(150%);
+  }
+  40% {
+  transform: translateX(-35%) scale(0.8) rotate(30deg) translateY(20%);
+  }
+  70% {
+  transform: translateX(-35%) scale(0.85) rotate(30deg) translateY(20%);
+  }
+  90% {
+  transform: translateX(-35%) scale(0.8) rotate(10deg) translateY(20%);
+  }
+ 100% {
+    transform: translateX(-35%) scale(0.8) rotate(30deg) translateY(120%);
+  }
 `;
 
 const HeroImage1 = styled.img`
@@ -46,8 +83,9 @@ const HeroImage1 = styled.img`
   bottom: 0%;
   left: 50%;
   right: 50%;
-  transform: translateX(-50%) scale(0.7) rotate(20deg) translateY(20%);
-  z-index: 2;
+  transform: translateX(-80%) scale(0.6) rotate(-35deg) translateY(40%);
+  z-index: 1;
+   animation: ${fadeIn1} 4s ease infinite ; /* Animation repeats twice every 4 seconds */
   max-width: 100%;
   height: auto;
 `;
@@ -57,35 +95,34 @@ const HeroImage2 = styled.img`
   bottom: -5%;
   left: 50%;
   right: 55%;
-  transform: translateX(-50%) scale(0.5) rotate(-30deg) translateY(20%);
-  z-index: 1;
+  transform: translateX(-35%) scale(0.7) rotate(30deg) translateY(20%);
+  animation: ${fadeIn2} 4s ease infinite ; /* Animation repeats once only every 4 seconds */
+  z-index: 2;
   max-width: 100%;
   height: auto;
 `;
 
-const heroImages = [heroImage, heroImage2, heroImage3];
 
 function BottomCircle({ onColorChange }) {
-  const [colorIndex, setColorIndex] = useState(0);
-  const [imageIndex, setImageIndex] = useState(0);
+  const [colorIndex, cycleColorIndex] = useCycle(0, 1, 2);
+  const [imageIndex, cycleImageIndex] = useCycle(0, 1, 2);
   const circleControls = useAnimation();
   const backgroundControls = useAnimation();
 
+  // Handle circle animation
   const animateCircle = async () => {
     // Expand without fading
     await circleControls.start({
-      scale: 30,
-      y: "-48.33%",
-      transition: { 
-        duration: 1.2,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+      scale: 20,
+      y: "-50%",
+      x: "-10%",
+      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] },
     });
 
     // Fade out after expansion
     await circleControls.start({
       opacity: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "ease" },
     });
 
     // Reset the circle
@@ -97,6 +134,7 @@ function BottomCircle({ onColorChange }) {
     });
   };
 
+  // Change the background color
   const changeBackground = async () => {
     await backgroundControls.start({
       backgroundColor: colors[colorIndex],
@@ -104,52 +142,47 @@ function BottomCircle({ onColorChange }) {
     });
   };
 
+  // Use useEffect to set animation timings
   useEffect(() => {
-    // Set up the 4-second interval for circle expansion
-    const circleInterval = setInterval(() => {
+    const interval = setInterval(() => {
       animateCircle();
+      cycleColorIndex(); // Change color every 4 seconds
+      cycleImageIndex(); // Change image every 4 seconds
     }, 4000);
 
-    // Set up the 4-second interval for color change
-    const colorInterval = setInterval(() => {
-      setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
-    }, 4000);
-
-    // Set up the 4-second interval for image change
-    const imageInterval = setInterval(() => {
-      setImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 4000);
-
-    return () => {
-      clearInterval(circleInterval);
-      clearInterval(colorInterval);
-      clearInterval(imageInterval);
-    };
-  }, []);
+    return () => clearInterval(interval);
+  }, [cycleColorIndex, cycleImageIndex]);
 
   useEffect(() => {
     changeBackground();
-    onColorChange(colors[colorIndex], colors[(colorIndex - 1 + colors.length) % colors.length]);
+    onColorChange(
+      colors[colorIndex],
+      colors[(colorIndex - 1 + colors.length) % colors.length]
+    );
   }, [colorIndex, onColorChange]);
 
   const getCurrentImage = () => heroImages[imageIndex];
-  const getNextImage = () => {
-    if (imageIndex === 0) return heroImages[0];
-    return heroImages[imageIndex];
-  };
+  const getNextImage = () => heroImages[imageIndex];
 
   return (
     <StyledCircle>
-      <Background 
-        animate={backgroundControls} 
-        initial={{ backgroundColor: colors[0] }} 
+      <Background
+        animate={backgroundControls}
+        initial={{ backgroundColor: colors[0] }}
       />
-      <Circle animate={circleControls} />
       <div>
-        <HeroImage1 src={getCurrentImage()} alt={`Hero-img-1-${imageIndex + 1}`} />
-        <HeroImage2 src={getNextImage()} alt={`Hero-img-2-${imageIndex + 1}`} />
+        <HeroImage1
+          src={getCurrentImage()}
+          alt={`Hero-img-1-${imageIndex + 1}`}
+        />
+        <HeroImage2
+          src={getNextImage()}
+          alt={`Hero-img-2-${imageIndex + 1}`}
+        />
       </div>
-      <StyledCircleDummy/>
+      <StyledCircleDummy>
+        <Circle animate={circleControls} />
+      </StyledCircleDummy>
     </StyledCircle>
   );
 }
