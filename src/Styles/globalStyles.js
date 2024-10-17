@@ -16,6 +16,8 @@ const GlobalStyles = createGlobalStyle`
     --radius-sm:5px;
     --radius-md:8px;
     --radius-lg:4rem;
+
+    --scroll-behavior: smooth;
 }
     
 *{
@@ -27,17 +29,26 @@ const GlobalStyles = createGlobalStyle`
 }
 
  html{
+  
   font-size: 10px;
+  /* scroll-behavior: var(--scroll-behavior);
+  -webkit-overflow-scrolling: touch;  */
  }
 
  body{
   font-family: "SUSE", sans-serif;
+  /* overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
  }
  .btn{
     border: none;
     background-color: transparent;
     
  }
+
+ 
 
 `;
 

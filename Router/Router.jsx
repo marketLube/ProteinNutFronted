@@ -15,7 +15,6 @@ import { Checkouts } from "../src/Component/Checkout/Checkouts";
 import { Counter } from "../src/Component/Counter/Counter";
 import { ProductDetails } from "../src/Component/ProductDisplay/ProductDetails";
 import { GridDisplay } from "../src/Component/ProductDisplayGrid/GridDisplay";
-import { Green } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Green";
 import { Addresses } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Addresses";
 import { FormOne } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/FormOne";
 import { Bill } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Bill";
@@ -107,10 +106,6 @@ const router = createBrowserRouter([
       {
         path: "productgrid",
         element: <GridDisplay />,
-      },
-      {
-        path: "greencard",
-        element: <Green />,
       },
       {
         path: "selecteditem",

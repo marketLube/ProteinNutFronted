@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { css } from "styled-components";
 // import { Star, Plus, Minus } from 'lucide-react';
 
 export const ProductDisplay = () => {
@@ -8,11 +9,10 @@ export const ProductDisplay = () => {
   return (
     <div>
       <style>
-        {`
+        {css`
           .container-main {
             // background-color: #fff9f2;
             padding: 20px;
-            
           }
 
           .container {
@@ -21,8 +21,7 @@ export const ProductDisplay = () => {
             padding: 40px;
             background-color: white;
             border-radius: 20px;
-            background-color:#ffffff
-
+            background-color: #ffffff;
           }
 
           .category-tag {
@@ -31,8 +30,8 @@ export const ProductDisplay = () => {
             background-color: #fff9f2;
             border-radius: 20px;
             margin-bottom: 16px;
-            color:#00004d;
-            font-weight:bold;
+            color: #00004d;
+            font-weight: bold;
           }
 
           .product-title {
@@ -58,7 +57,7 @@ export const ProductDisplay = () => {
           }
 
           .top-rated {
-            color: #4CAF50;
+            color: #4caf50;
             font-weight: bold;
             margin-bottom: 16px;
           }
@@ -82,30 +81,28 @@ export const ProductDisplay = () => {
           }
 
           .discount {
-            color: #4CAF50;
-            font-size:14px
+            color: #4caf50;
+            font-size: 14px;
           }
 
           .location-container {
             display: flex;
             justify-content: space-between;
             margin-bottom: 24px;
-            
           }
-            .location-container-num{
-            color:#666;
-            }
+          .location-container-num {
+            color: #666;
+          }
 
           .quantity-container {
             display: flex;
             align-items: center;
             gap: 16px;
             margin-bottom: 24px;
-            
           }
-            .location-container-text{
-            color:#4CAF50;
-            }
+          .location-container-text {
+            color: #4caf50;
+          }
 
           .quantity-button {
             display: flex;
@@ -129,27 +126,25 @@ export const ProductDisplay = () => {
             border: none;
             border-radius: 4px;
             margin-left: 16px;
-            font-weight:bold;
-            
+            font-weight: bold;
           }
 
           .button-container {
             display: flex;
             gap: 16px;
             margin-bottom: 24px;
-            
           }
 
           .add-to-cart {
             flex: 1;
             padding: 12px;
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
             border: none;
             border-radius: 50px;
             font-size: 16px;
             cursor: pointer;
-            font-weight:bold;
+            font-weight: bold;
           }
 
           .buy-now {
@@ -160,7 +155,7 @@ export const ProductDisplay = () => {
             border-radius: 50px;
             font-size: 16px;
             cursor: pointer;
-            font-weight:bold;
+            font-weight: bold;
             color: 00004d;
           }
 

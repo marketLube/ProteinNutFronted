@@ -1,0 +1,17 @@
+.card {
+  background-color: #f3f1e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 40rem;
+  margin: 0 auto;
+}
+
+.parallax {
+  background-color: #5c8e55;
+  height: 40rem;
+  width: 80%;
+
+  border-radius: 8rem;
+
+  margin: 0 auto;
+  z-index: 2;
+}

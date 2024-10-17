@@ -7,10 +7,11 @@ import styles from "./Reels.module.css";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Parallax } from "react-scroll-parallax";
 
 export const Reels = () => {
   return (
-    <div className={styles.bg}>
+    <Parallax className={styles.bg}>
       <Swiper
         modules={[Navigation, Pagination, Mousewheel, A11y]}
         spaceBetween={1}
@@ -43,6 +44,6 @@ export const Reels = () => {
         {/* <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide> */}
       </Swiper>
-    </div>
+    </Parallax>
   );
 };
