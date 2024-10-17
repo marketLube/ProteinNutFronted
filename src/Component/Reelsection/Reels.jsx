@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y } from 'swiper/modules';
-import { Swipercomponent } from './Swipercomponent';
-import styles from './Reels.module.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Swipercomponent } from "./Swipercomponent";
+import { Navigation, Pagination, Mousewheel, A11y } from "swiper/modules";
+import styles from "./Reels.module.css";
 
-import 'swiper/css';
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export const Reels = () => {
   const swiperRef = useRef(null);
@@ -44,22 +46,38 @@ export const Reels = () => {
   }, [isScrollLocked]);
 
   return (
-    <div className={`${styles.bg} ${isScrollLocked ? styles.locked : ''}`}>
+    <div className={styles.bg}>
       <Swiper
-        ref={swiperRef}
-        loop={true}
-        modules={[A11y]}
+        modules={[Navigation, Pagination, Mousewheel, A11y]}
         spaceBetween={1}
         slidesPerView={4}
-        onSlideChange={() => console.log('slide change')}
+        navigation
+        // loop={true}
+        pagination={{ clickable: true }}
+        mousewheel={{ invert: false }}
+        onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide><Swipercomponent /></SwiperSlide>
-        <SwiperSlide><Swipercomponent /></SwiperSlide>
-        <SwiperSlide><Swipercomponent /></SwiperSlide>
-        <SwiperSlide><Swipercomponent /></SwiperSlide>
-        <SwiperSlide><Swipercomponent /></SwiperSlide>
-        <SwiperSlide><Swipercomponent /></SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        {/* <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide> */}
       </Swiper>
     </div>
   );

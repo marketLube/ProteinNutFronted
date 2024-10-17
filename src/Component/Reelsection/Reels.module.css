@@ -1,77 +1,18 @@
-.reels{
-    width: 100%;
-    padding: 15rem;
-    background-color: #efdbc4;
+.reels {
+  width: 100%;
+  padding: 15rem;
+  background-color: #efdbc4;
 }
-.reelsdisplay{
-    width: 100%;
-    height: 75%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 59px;
-    background-color:#cf8a3a ;
-    flex:1;
-    padding: 2rem 0;
+.reelsdisplay {
+  width: 100%;
+  height: 75%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 59px;
+  background-color: #cf8a3a;
+  flex: 1;
+  padding: 2rem 0;
 }
-.bg{
-    background-color: #f1d371;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
+.bg {
+  background-color: #f1d371;
 }
-.locked {
-    /* height: 100vh; */
-    overflow: hidden;
-  }
-
-
-
-  /* .bg {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-  } */
-  
-  /* .locked {
-    overflow: hidden;
-  } */
-  
-  /* Add some styling to indicate the end of Swiper content */
-  /* .bg::after {
-    content: 'Scroll down for more';
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  } */
-/*   
-  .bg:not(.locked)::after {
-    opacity: 1;
-  } */
-
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
