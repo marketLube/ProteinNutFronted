@@ -6,9 +6,9 @@ export const StyledCircleDummy = styled.div`
   height: 0;
   padding-bottom: 50%;
   border-radius: 50%;
-  background-color: var(--white);
+  background-color: white;
   position: absolute;
-  bottom: -60%;
+  bottom: -70%;
   left: 50%;
   transform: translateX(-50%);`
 ;

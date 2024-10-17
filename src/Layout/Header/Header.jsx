@@ -6,6 +6,7 @@ import styles from "./Header.module.css";
 import { Navbar } from "../../Component/Navbar";
 import { Link, NavLink } from "react-router-dom";
 
+
 function Header() {
   const { isHome } = useSelector((state) => state.general);
   return (

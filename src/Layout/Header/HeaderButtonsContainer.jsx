@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
 import { RoundButton } from "../../UI/Buttons";
 import styles from "./HeaderButtonsContainer.module.css";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 function HeaderButtonsContainer() {
   const isLoggin = true;
 
   return (
     <div className={styles.headerBtnContainer}>
-      <Link to={isLoggin ? "Myaccount" : "login"}>
+      <Link to="myaccount">
         <motion.div
           className="your-class-name"
           initial={{ scale: 0 }}
-          animate={{ rotate: 180, scale: 1 }}
+          animate={{ scale: 1 }}
           whileTap={{ scale: 0.8 }}
           whileHover={{ scale: 1.2 }}
           transition={{
@@ -21,14 +22,18 @@ function HeaderButtonsContainer() {
             damping: 20,
           }}
         >
-          <RoundButton />
+          <RoundButton>
+            <FaRegUserCircle fontSize="2rem" />
+          </RoundButton>
+          {/* <MdOutlineShoppingCart /> */}
+          {/* <div style={{borderRadius:"50%",backgroundColor:"green",width:"10rem",height:"10rem"}}></div> */}
         </motion.div>
       </Link>
       <Link to="cartpage">
         <motion.div
           className="your-class-name"
           initial={{ scale: 0 }}
-          animate={{ rotate: 180, scale: 1 }}
+          animate={{ scale: 1 }}
           whileTap={{ scale: 0.8 }}
           whileHover={{ scale: 1.2 }}
           transition={{
@@ -37,7 +42,9 @@ function HeaderButtonsContainer() {
             damping: 20,
           }}
         >
-          <RoundButton />
+          <RoundButton>
+            <MdOutlineShoppingCart fontSize="2rem" />
+          </RoundButton>
         </motion.div>
       </Link>
     </div>

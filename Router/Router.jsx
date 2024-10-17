@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "Myaccount",
+        path: "myaccount",
         element: <Myaccounts />,
       },
       {
