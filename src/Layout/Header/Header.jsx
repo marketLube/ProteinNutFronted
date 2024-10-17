@@ -4,6 +4,7 @@ import Logo from "../../Utils/Logo/Logo";
 import HeaderButtonsContainer from "./HeaderButtonsContainer";
 import styles from "./Header.module.css";
 import { Navbar } from "../../Component/Navbar";
+import { Link } from "react-router-dom";
 
 function Header() {
   const { isHome } = useSelector((state) => state.general);
