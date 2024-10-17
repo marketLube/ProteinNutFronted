@@ -1,0 +1,8 @@
+/* src/fonts.css */
+@font-face {
+    font-family: 'Degular';
+    src: url('/fonts/Degular-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  

@@ -11,14 +11,14 @@ import BottomCircle from "./BottomCircle";
 import styled from 'styled-components';
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
-// import 
+import { BannerWrapper, BannerText, ShopNowButton, ButtonContent } from "./StyledComponents/BannerComponents";
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 110%;
+  height: 100%;
   position: relative;
   z-index: 2;
 `;
@@ -150,11 +150,9 @@ const CurlingText = ({ text }) => {
 
 const colors = [
   "#ffd45f",
-  "#ff9a9e",
-  "#e2a4b6",
-  "#a2c2e3",
-  "#fcb045",
-  "#8ec8a4",
+  "#fbbb97",
+  "#ffcb80",
+
 ];
 
 const ChangingText = ({ colorIndex }) => {
@@ -211,18 +209,15 @@ function HomeSectionOne() {
             <ChangingText colorIndex={colorIndex} />
           </div>
         </StyledMainHeading>
-        <div style={{ position: "absolute", top: "40%", fontSize: "2.3rem", display: "flex", gap: "2rem", width: "100%", justifyContent: "center", alignItems: "center" }}>
-          <p>Packed with Protein, Powered by Peanut Butter.</p>
-          <button style={{ backgroundColor: "#4a8f3c", border: "none", padding: "1rem 4rem", fontSize: "2.5rem", color: "white", borderRadius: "2rem" }}>
-            <span style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"1rem"}}>
+        <BannerWrapper>
+          <BannerText>Packed with Protein, Powered by Peanut Butter.</BannerText>
+          <ShopNowButton>
+            <ButtonContent>
               Shop Now
-              <FaCircleArrowRight />
-            </span>
-          </button>
-        </div>
-
-
-
+              <FaCircleArrowRight style={{ fontSize: '0.8em' }} />
+            </ButtonContent>
+          </ShopNowButton>
+        </BannerWrapper>
       </ContentWrapper>
       <BottomCircle onColorChange={handleColorChange} />
       {/* <StyledCircleDummy/> */}

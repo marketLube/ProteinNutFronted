@@ -4,6 +4,7 @@ import Footer from "./Layout/Footer";
 import { StyledApp } from "./UI/MainComponents/MainComponents";
 import { Outlet } from "react-router-dom";
 import { Green } from "./Pages/Home/HomeSectionTwo/Component.jsx/Green";
+
 function App() {
   return (
     <>
