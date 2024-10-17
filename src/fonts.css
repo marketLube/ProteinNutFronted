@@ -1,8 +1,24 @@
-/* src/fonts.css */
+/* Degular Black */
 @font-face {
-    font-family: 'Degular';
-    src: url('/fonts/Degular-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
+  font-family: "Degular";
+  src: url("/fonts/Degular-Black.otf") format("opentype");
+  font-weight: 900; /* Assuming this is the heaviest weight */
+  font-style: normal;
+}
+
+/* Add other weights similarly */
+@font-face {
+  font-family: "Degular";
+  src: url("/fonts/Degular-Regular.otf") format("opentype");
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular";
+  src: url("/fonts/Degular-Medium.otf") format("opentype");
+  font-weight: 500; /* Medium weight */
+  font-style: normal;
+}
+
+/* If you have more weights, add them similarly */
