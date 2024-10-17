@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation, useCycle } from "framer-motion";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
 import heroImage from "../../../../public/assets/hero-image.png";
 import heroImage2 from "../../../../public/assets/hero-image-2.png";
 import heroImage3 from "../../../../public/assets/hero-image-3.png";
 
-const colors = ["#c6de48", "#c2e0c2", "#f9d160"];
+const colors = [
+  "#bedf38",
+  "#fbbb97",
+  "#ffcb80",
+
+];
 const heroImages = [heroImage, heroImage2, heroImage3];
 
 const StyledCircle = styled(motion.div)`
@@ -40,41 +45,113 @@ const Circle = styled(motion.div)`
 
 const fadeIn1 = keyframes`
 0% {
-  transform: translateX(-120%) scale(0.9) rotate(-10deg) translateY(200%);
+  transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(120%);
   }
   25% {
-  transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(40%);
+  transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(150%);
+  }
+  40% {
+  transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
   }
   70% {
-  transform: translateX(-80%) scale(0.6) rotate(-20deg) translateY(40%);
+  transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
+  }
+  80% {
+  transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
   }
   
   90% {
-  transform: translateX(-80%) scale(0.65)  rotate(-20deg) translateY(40%);
+  transform: translateX(-70%) scale(0.6)  rotate(-20deg) translateY(20%);
   }
  100% {
-    transform: translateX(-90%) scale(0.8)  rotate(-20deg) translateY(120%);
+    transform: translateX(-70%) scale(0.6)  rotate(-20deg) translateY(120%);
   }
 `;
 
 const fadeIn2 = keyframes`
   0% {
-  transform: translateX(-35%) scale(0.9) rotate(0deg) translateY(200%);
+  transform: translateX(-35%) scale(0.9) rotate(0deg) translateY(120%);
   }
   25% {
-  transform: translateX(-35%) scale(0.8) rotate(30deg) translateY(150%);
+  transform: translateX(-35%) scale(0.8) rotate(10deg) translateY(150%);
   }
   40% {
-  transform: translateX(-35%) scale(0.8) rotate(30deg) translateY(20%);
-  }
+  transform: translateX(-38%) scale(0.8) rotate(12deg) translateY(20%);
+  }  
   70% {
-  transform: translateX(-35%) scale(0.85) rotate(30deg) translateY(20%);
+  transform: translateX(-35%) scale(0.8) rotate(15deg) translateY(20%);
+  }80%{
+  transform: translateX(-35%) scale(0.8) rotate(12deg) translateY(28%);
   }
+
   90% {
-  transform: translateX(-35%) scale(0.8) rotate(10deg) translateY(20%);
+  transform: translateX(-35%) scale(0.8) rotate(12deg) translateY(20%);
   }
  100% {
-    transform: translateX(-35%) scale(0.8) rotate(30deg) translateY(120%);
+    transform: translateX(-35%) scale(0.8) rotate(10deg) translateY(100%);
+  }
+`;
+
+const mobileFadeIn1 = keyframes`
+  0% {
+    transform: translateX(-50%) scale(0.4) rotate(-10deg) translateY(120%);
+  }
+  25% {
+    transform: translateX(-50%) scale(0.4) rotate(-10deg) translateY(130%);
+  }
+  40% {
+    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(40%);
+  }
+  70% {
+    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(40%);
+  }
+  90% {
+    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(40%);
+  }
+  100% {
+    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(120%);
+  }
+`;
+
+const mobileFadeIn2 = keyframes`
+  0% {
+    transform: translateX(-20%) scale(0.6) rotate(0deg) translateY(120%);
+  }
+  25% {
+    transform: translateX(-20%) scale(0.5) rotate(5deg) translateY(130%);
+  }
+  40% {
+    transform: translateX(-22%) scale(0.5) rotate(7deg) translateY(40%);
+  }
+  70% {
+    transform: translateX(-20%) scale(0.5) rotate(10deg) translateY(40%);
+  }
+  90% {
+    transform: translateX(-20%) scale(0.5) rotate(7deg) translateY(40%);
+  }
+  100% {
+    transform: translateX(-20%) scale(0.5) rotate(5deg) translateY(120%);
+  }
+`;
+
+const StyledCircleWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
+
+const AnimatedCircle = styled(StyledCircle)`
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  animation: ${props => props.$isFirst ? css`${fadeIn1} 10s ease-in-out infinite` : css`${fadeIn2} 10s ease-in-out infinite`};
+  animation-delay: ${props => props.$isFirst ? "0s" : "0.5s"};
+
+  @media (max-width: 768px) {
+    animation: ${props => props.$isFirst ? css`${mobileFadeIn1} 10s ease-in-out infinite` : css`${mobileFadeIn2} 10s ease-in-out infinite`};
   }
 `;
 
@@ -85,7 +162,7 @@ const HeroImage1 = styled.img`
   right: 50%;
   transform: translateX(-80%) scale(0.6) rotate(-35deg) translateY(40%);
   z-index: 1;
-   animation: ${fadeIn1} 4s ease infinite ; /* Animation repeats twice every 4 seconds */
+   animation: ${fadeIn1} 4s infinite cubic-bezier(.37,.74,.69,.96); /* Animation repeats twice every 4 seconds */
   max-width: 100%;
   height: auto;
 `;
@@ -96,7 +173,7 @@ const HeroImage2 = styled.img`
   left: 50%;
   right: 55%;
   transform: translateX(-35%) scale(0.7) rotate(30deg) translateY(20%);
-  animation: ${fadeIn2} 4s ease infinite ; /* Animation repeats once only every 4 seconds */
+  animation: ${fadeIn2} 4s  infinite cubic-bezier(.37,.74,.69,.96) ; /* Animation repeats once only every 4 seconds */
   z-index: 2;
   max-width: 100%;
   height: auto;
@@ -122,7 +199,7 @@ function BottomCircle({ onColorChange }) {
     // Fade out after expansion
     await circleControls.start({
       opacity: 0,
-      transition: { duration: 0.3, ease: "ease" },
+      transition: { duration: 0.2, ease: "ease" },
     });
 
     // Reset the circle
