@@ -9,24 +9,24 @@
 
 @media (max-width: 1200px) {
   .logoContainer {
-    height: 5rem;
+    height: 9rem;
   }
 }
 
 @media (max-width: 992px) {
   .logoContainer {
-    height: 4rem;
+    height: 8rem;
   }
 }
 
 @media (max-width: 768px) {
   .logoContainer {
-    height: 3.5rem;
+    height: 9rem;
   }
 }
 
 @media (max-width: 576px) {
   .logoContainer {
-    height: 3rem;
+    height: 5rem;
   }
 }

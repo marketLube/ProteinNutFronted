@@ -3,7 +3,7 @@ import { HeaderBg, StyledHeader } from "../../UI/MainComponents/StyledHeader";
 import Logo from "../../Utils/Logo/Logo";
 import HeaderButtonsContainer from "./HeaderButtonsContainer";
 import styles from "./Header.module.css";
-import { Navbar } from "../../Component/Navbar";
+import { Navbar } from "../../Component/Navigation/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { useEffect } from "react";
 
