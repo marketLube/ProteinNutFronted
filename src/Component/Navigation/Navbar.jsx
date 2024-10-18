@@ -8,7 +8,7 @@ const navItems = ["Shop", "Community", "Contact", "Profile", "Cart"];
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: ` circle(${height * 2 + 200}px at calc(100% - 40px) 40px)`, // Adjusted for right
+    clipPath: `circle(${height * 2 + 200}px at calc(100% - 40px) 40px)`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -16,7 +16,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(30px at calc(100% - 40px) 40px)", // Adjusted for right
+    clipPath: "circle(30px at calc(100% - 40px) 40px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -68,10 +68,11 @@ export const Navbar = () => {
         style={{
           position: "absolute",
           top: 0,
-          right: 0, // Changed from left to right
+          right: 0,
           bottom: 0,
-          margin: 0,
-          width: "300px",
+          left: 0, // Ensuring it starts from the left
+          width: "100vw", // Full width of the screen
+          height: "100vh", // Full height of the screen
         }}
       >
         <motion.div
@@ -80,10 +81,11 @@ export const Navbar = () => {
           style={{
             position: "absolute",
             top: 0,
-            right: 0, // Changed from left to right
+            right: 0,
             bottom: 0,
-            width: "100vw",
-            height: "100vh",
+            left: 0,
+            width: "100vw", // Full width of the screen
+            height: "100vh", // Full height of the screen
             background: "#ffffff",
           }}
         />
@@ -94,7 +96,7 @@ export const Navbar = () => {
             padding: "25px",
             position: "absolute",
             top: "100px",
-            width: "100vw",
+            width: "100vw", // Full width of the screen
             margin: 0,
           }}
         >
@@ -146,7 +148,7 @@ export const Navbar = () => {
             cursor: "pointer",
             position: "absolute",
             top: "15px",
-            right: "15px", // Changed from left to right
+            right: "15px",
             width: "50px",
             height: "50px",
             borderRadius: "50%",
