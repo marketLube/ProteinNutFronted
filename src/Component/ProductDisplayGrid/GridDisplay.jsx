@@ -3,84 +3,49 @@ import styles from "./GridDisplay.module.css";
 import { ProductContainer } from "../ProductContainer/ProductContainer";
 import { useIsMobile } from "../../Hooks/useIsMobile"; // Import your custom hook
 import { Parallax } from "react-scroll-parallax";
+import { motion, useInView } from "framer-motion";
 
 export const GridDisplay = () => {
   const targetRef = useRef(null);
-  const isInView = true; // Set a default value for isMobile fallback
   const isMobile = useIsMobile(); // Using the custom hook
-   
+  const isInView = useInView(targetRef, { once: true }); // Track if the target is in view
 
   return (
-    <>
-      {!isMobile ? (
-        <Parallax speed={-5} className={styles.display} id="grid">
-          <p ref={targetRef} className={styles.heading}>
-            Simple{" "}
-            <span className={styles.headingFirstSpan}>
-              Delicious
-              <span
-                className={styles.headingFirstSpanBg}
-                style={
-                  isInView
-                    ? {
-                        animation: "headingFirstSpanBg 1s linear forwards .5s",
-                      }
-                    : {}
-                }
-              ></span>
-            </span>
-          </p>
-          <span
-            className={styles.headingSpan}
+    <Parallax speed={-5} className={styles.display} id="grid">
+      <p ref={targetRef} className={styles.heading}>
+        Simple{" "}
+        <span className={styles.headingFirstSpan}>
+          <motion.span
+            animate={{ x: 100 }} // Move 100 pixels to the right
+            transition={{ duration: 1 }} // Duration of 1 second
+          >
+            Delicious
+          </motion.span>
+          <motion.span
+            className={styles.headingFirstSpanBg}
             style={
               isInView
-                ? { animation: "headingSpan 1s linear forwards 1s" }
-                : { animation: "none" }
+                ? {
+                    animation: "headingFirstSpanBg 1s linear forwards .5s",
+                  }
+                : {}
             }
-          >
-            Nutricious
-          </span>
+          ></motion.span>
+        </span>
+      </p>
 
-          <div className={styles.detailsproduct}>
-            <ProductContainer />
-            
-          </div>
-        </Parallax>
-      ) : (
-        <div className={styles.display} id="grid">
-          <p ref={targetRef} className={styles.heading}>
-            Simple{" "}
-            <span className={styles.headingFirstSpan}>
-              Delicious
-              <span
-                className={styles.headingFirstSpanBg}
-                style={
-                  isInView
-                    ? {
-                        animation: "headingFirstSpanBg 1s linear forwards .5s",
-                      }
-                    : {}
-                }
-              ></span>
-            </span>
-          </p>
-          <span
-            className={styles.headingSpan}
-            style={
-              isInView
-                ? { animation: "headingSpan 1s linear forwards 1s" }
-                : { animation: "none" }
-            }
-          >
-            Nutricious
-          </span>
+      <motion.span
+        className={styles.headingSpan}
+        initial={{ opacity: 0, scaleX: 0, x: -50 }} // Initial state
+        animate={isInView ? { opacity: 1, scaleX: 1, x: 0 } : {}} // Animate on view
+        transition={{ duration: 5, ease: "easeOut" }}
+      >
+        Nutricious
+      </motion.span>
 
-          <div className={styles.detailsproduct}>
-            <ProductContainer />
-          
-          </div>
-        </div>
-      )}
-    </>
+      <div className={styles.detailsproduct}>
+        <ProductContainer />
+      </div>
+    </Parallax>
   );
 };
