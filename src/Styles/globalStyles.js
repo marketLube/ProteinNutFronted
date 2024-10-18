@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
  }
 
  body{
-  font-family: "Degular", sans-serif;
+  font-family: "SUSE", sans-serif;
   background-color: #f3f1e8;
   /* overflow-y: auto;
   overscroll-behavior-y: contain;

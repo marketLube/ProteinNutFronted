@@ -9,7 +9,7 @@ import heroImage2 from "/assets/hero-image-2.png";
 import heroImage3 from "/assets/hero-image-3.png";
 
 const colors = [
-  "#03B303",
+  "#C7F009",
   "#fbbb97",
   "#ffcb80",
 
@@ -46,27 +46,26 @@ const Circle = styled(motion.div)`
 `;
 
 const fadeIn1 = keyframes`
-0% {
-  transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(120%);
+  0% {
+    transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(120%);
   }
   25% {
-  transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(150%);
+    transform: translateX(-70%) scale(0.6) rotate(-10deg) translateY(150%);
   }
   40% {
-  transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
+    transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
   }
   70% {
-  transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
+    transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
   }
   80% {
-  transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
+    transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
   }
-  
   90% {
-  transform: translateX(-70%) scale(0.6)  rotate(-20deg) translateY(20%);
+    transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(20%);
   }
- 100% {
-    transform: translateX(-70%) scale(0.6)  rotate(-20deg) translateY(120%);
+  100% {
+    transform: translateX(-70%) scale(0.6) rotate(-20deg) translateY(120%);
   }
 `;
 
@@ -155,7 +154,7 @@ function BottomCircle({ onColorChange }) {
       scale: 20,
       y: "-50%",
       x: "-10%",
-      transition: { duration: 2, ease: [0.25, 0.2, 0.28, .1] },
+      transition: { duration: 2, ease: [0.25, 0.5, 0.28, .1] },
     });
 
     // Fade out after expansion

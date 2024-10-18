@@ -18,10 +18,10 @@ function Home() {
   const { scrollY } = useScroll();
 
   const smoothY = useSpring(scrollY, {
-    stiffness: 100, // Very low stiffness for smooth movement
-    damping: 40, // Higher damping to prevent bouncing
-    mass: 2, // Added mass for more "weight" in movement
-    // restDelta: 0.001, // Small rest delta for smoother stop
+    stiffness: 80, // Very low stiffness for smooth movement
+    damping: 40, // Higher damping to prevent bouncing default - 100  
+    mass: 2, // Added mass for more "weight" in movement default 40
+    // restDelta: 0.001, // Small rest delta for smoother stop default 2
   });
 
   const y = useTransform(smoothY, (value) => value * -1);
