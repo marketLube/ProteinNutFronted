@@ -4,7 +4,7 @@ export const MainHeading = styled.div`
   font-family: "Degular", "Kanit", sans-serif;
   font-size: 12rem; // Increased from 8rem
   width: 70%;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 10rem; // Reduced from 9rem
   letter-spacing: -0.5rem;
   margin: 0 auto;
@@ -48,12 +48,11 @@ export const MainHeading = styled.div`
     top: 15%;
     padding-bottom: 5px;
   }
-     @media (max-width: 375px) {
+  @media (max-width: 375px) {
     font-size: 4rem; // Reduced from 4rem
     line-height: 3.3rem; // Reduced from 3.8rem
     letter-spacing: -0.2rem;
     top: 8rem;
-    
   }
 `;
 
@@ -84,5 +83,4 @@ export const SubHeading = styled.div`
     font-size: 1rem;
     margin-top: 5px;
   }
-    
 `;

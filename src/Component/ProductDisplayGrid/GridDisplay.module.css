@@ -15,11 +15,13 @@
   padding: 15rem;
   flex-direction: column;
   background-color: transparent;
+  font-family: "Degular";
 }
 
 .heading {
   transition: 1.5s transform cubic-bezier(0.21, 0.62, 0.6, 0.81);
   transform-origin: left;
+  line-height: 7.5rem;
 }
 .heading,
 .headingSpan {

@@ -5,6 +5,13 @@
   font-weight: 900; /* Assuming this is the heaviest weight */
   font-style: normal;
 }
+/* Degular Black */
+@font-face {
+  font-family: "Degular";
+  src: url("/fonts/Degular-Bold.otf") format("opentype");
+  font-weight: 700; /* Assuming this is the heaviest weight */
+  font-style: normal;
+}
 
 /* Add other weights similarly */
 @font-face {
@@ -28,4 +35,3 @@
   font-weight: normal; /* Medium weight */
   font-style: normal;
 }
-
