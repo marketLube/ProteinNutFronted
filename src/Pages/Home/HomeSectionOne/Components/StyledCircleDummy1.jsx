@@ -10,7 +10,7 @@ const moveIn = keyframes`
       opacity:1;
     }
 `;
-export const StyledCircleDummy = styled.div`
+export const StyledCircleDummy1 = styled.div`
   width: 70%;
   height: 0;
   padding-bottom: 50%;
@@ -27,4 +27,3 @@ export const StyledCircleDummy = styled.div`
   animation: ${moveIn}moveIn 2s ease-in-out ;
 
 `;
-

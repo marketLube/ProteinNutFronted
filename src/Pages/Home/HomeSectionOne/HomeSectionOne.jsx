@@ -149,7 +149,7 @@ const CurlingText = ({ text }) => {
 };
 
 const colors = [
-  "#ffd45f",
+  "#C7F009",
   "#fbbb97",
   "#ffcb80",
 
@@ -201,7 +201,7 @@ function HomeSectionOne() {
             display: "flex", 
             justifyContent: "center", 
             alignItems: "center", 
-            gap: "0.1em",
+            gap: "10",
             fontSize: "inherit",
             lineHeight: "inherit",
           }}>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledProteinBanner = styled.div`
+font-family: "SUSE", "Kanit", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;

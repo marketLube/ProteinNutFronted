@@ -1,44 +1,54 @@
 .productcard {
-    display: flex;
-    flex-direction: column;
-    align-items: start; /* Change from center to start */
-    padding: 20px;
-    max-width: 400px;
-    /* margin: 0 auto; */
-    /* background-color: #afefe0; */
-    border-radius: 20px;
-    position: relative; /* Added to position the pseudo-element */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Changed from start to center */
+  padding: 20px;
+  max-width: 350px;
+  margin: 0 auto; /* Added back */
+  border-radius: 20px;
+  position: relative;
+  font-family: sophia;
+}
+
   
   .productcard::before {
     content: '';
-    position: absolute;
-    top: 99px; 
-    left: 48%;
-    transform: translateX(-50%);
-    width: 16rem; 
-    height: 14rem; 
+    position: absolute; 
+    margin: 0 auto; /* Added back */
+    width: 19rem; 
+    height: 15rem; 
     background-color: white; 
-    border-radius: 50%;
+    border-radius: 60%;
     z-index: 2;
+    left: 19%;
+    top: 20%;
+    
   }
+  
+
   
   .productimage {
     width: 100%;
     max-width: 300px;
     height: auto;
     margin-bottom: 3px;
-    position: relative; 
+    position: relative;
     z-index: 4;
-    /* background-color: #cbdd63; */
-    padding:-1500px;
+    margin: 0 auto; /* Added to center the image */
+  }
 
+  .productimage:hover {
+    animation: zoom 2s ease-in-out forwards;
   }
   .imgcircle{
     width: 30rem;
     height: 20rem;
     background-color: #48bb78;
     position: relative;
+  }
+
+  .backdrop{
+    display:"none"
   }
   
   .producttitle {
@@ -50,11 +60,7 @@
     padding: 0 30px;
   }
   
-  .ratingcontainer {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 16px;
-  }
+  
   
   .star {
     color: #f6ad55;
@@ -98,4 +104,12 @@
   .addtocartbutton:hover {
     background-color: #38a169;
   }
-  
+
+ 
+
+  @keyframes zoom {
+    0% { transform: scale(1) rotate(10deg); }
+    50% { transform: scale(1)rotate(10deg); }
+    90% { transform: scale(1)rotate(0deg); }
+    100% { transform: scale(1.1)rotate(10deg); }
+  }

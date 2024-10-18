@@ -7,9 +7,7 @@ export const Green = () => {
     <div className={styles.card}>
       <Parallax
         speed={10}
-        scale={[1, 1.2]} // Starts at 100% size and scales to 120%
-        startScroll={0} // Start scaling immediately
-        endScroll={1000} // End scaling at 900px scroll
+        scale={[1, 1.2]} // S.2tarts at 100% size and scales to 120%
         easing={[0.25, 0.1, 0.25, 1]} // Custom easing for a more subtle effect
         className={styles.parallax}
       />
