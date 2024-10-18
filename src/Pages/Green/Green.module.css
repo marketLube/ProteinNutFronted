@@ -14,4 +14,12 @@
 
   margin: -5rem auto;
   z-index: 2;
+  position: relative;
+}
+.parallax img {
+  width: 20%;
+  height: 20%;
+}
+.imgone {
+  padding-top: 10%;
 }
