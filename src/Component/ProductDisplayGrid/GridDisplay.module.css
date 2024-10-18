@@ -3,7 +3,7 @@
   height: 75%;
   display: grid;
   font-family: "Degular";
-  grid-template-columns: repeat(4, 1fr);
+  
   gap: 2px;
   /* background-color:#f2b773 ; */
   flex: 1;

@@ -77,9 +77,7 @@ export const GridDisplay = () => {
 
           <div className={styles.detailsproduct}>
             <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
+          
           </div>
         </div>
       )}

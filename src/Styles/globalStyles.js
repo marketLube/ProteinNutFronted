@@ -24,15 +24,11 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
-    /* transition: all 0.3s ease; */
 }
 
  html{
   
   font-size: 10px;
-  /* scroll-behavior: var(--scroll-behavior);
-  -webkit-overflow-scrolling: touch;  */
  }
 
  body{

@@ -8,15 +8,100 @@
     <link rel="stylesheet" href="./src/fonts.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/utility.css" />
-
-
-  
-
     <title>Protein Nut</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
+    <script>
+      function smoothScroll() {
+        let scrollAmount = 0;
+        let isScrolling = false;
+        let lastTouchY = 0;
+        let lastScrollTime = 0;
+        const throttleDelay = 16; // Approximately 60fps
+
+        function throttle(callback, delay) {
+          let timeoutId;
+          let lastCallTime = 0;
+
+          return function (...args) {
+            const currentTime = Date.now();
+
+            if (currentTime - lastCallTime < delay) {
+              clearTimeout(timeoutId);
+              timeoutId = setTimeout(() => {
+                lastCallTime = currentTime;
+                callback.apply(this, args);
+              }, delay);
+              return;
+            }
+
+            lastCallTime = currentTime;
+            callback.apply(this, args);
+          };
+        }
+
+        function handleScroll(delta) {
+          scrollAmount += delta * 0.5; // Reduced multiplier for more subtle scrolling
+
+          if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(smoothStep);
+          }
+        }
+
+        function smoothStep() {
+          if (Math.abs(scrollAmount) > 0.1) {
+            const currentTime = Date.now();
+            const elapsed = currentTime - lastScrollTime;
+            const scrollStep = scrollAmount * 0.15; // Reduced for smoother movement
+
+            window.scrollBy(0, scrollStep);
+            scrollAmount -= scrollStep;
+            lastScrollTime = currentTime;
+
+            requestAnimationFrame(smoothStep);
+          } else {
+            scrollAmount = 0;
+            isScrolling = false;
+          }
+        }
+
+        const throttledScroll = throttle((delta) => {
+          handleScroll(delta);
+        }, throttleDelay);
+
+        // Wheel event handler
+        window.addEventListener(
+          "wheel",
+          (event) => {
+            event.preventDefault();
+            throttledScroll(event.deltaY);
+          },
+          { passive: false }
+        );
+
+        // Touch event handlers with throttling
+        window.addEventListener("touchstart", (event) => {
+          lastTouchY = event.touches[0].clientY;
+        });
+
+        window.addEventListener("touchmove", (event) => {
+          const currentTouchY = event.touches[0].clientY;
+          const deltaY = lastTouchY - currentTouchY;
+          throttledScroll(deltaY);
+          lastTouchY = currentTouchY;
+        });
+
+        window.addEventListener("touchend", () => {
+          lastTouchY = 0;
+        });
+      }
+
+      // Only initialize on desktop
+      window.innerWidth >= 768 && smoothScroll();
+    </script>
   </body>
 </html>

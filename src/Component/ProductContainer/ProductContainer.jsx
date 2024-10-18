@@ -11,7 +11,7 @@ export const ProductContainer = () => {
       id: 1,
       name: "Pineapple Flavoured Peanut Butter",
       image: heroImage,
-      rating: 5,
+      rating: 3.5,
       price: 349,
       originalPrice: 449
     },
@@ -19,7 +19,7 @@ export const ProductContainer = () => {
       id: 2,
       name: "Pineapple Flavoured Peanut Butter",
       image: heroImage,
-      rating: 5,
+      rating: 3,
       price: 349,
       originalPrice: 449
     },
@@ -27,7 +27,7 @@ export const ProductContainer = () => {
       id: 3,
       name: "Pineapple Flavoured Peanut Butter",
       image: heroImage,
-      rating: 5,
+      rating: 4.5,
       price: 349,
       originalPrice: 449
     },
@@ -69,7 +69,7 @@ export const ProductContainer = () => {
   };
 
   return (
-    <div className={styles.productGrid} >
+    <div className={styles.productGrid}>
       {products.map((product) => (
         <div key={product.id} className={styles.productcard} style={{ display: "flex", alignItems: "center" }}>
           <Link style={{ textDecoration: "none" }} to={`/product/${product.id}`}>
