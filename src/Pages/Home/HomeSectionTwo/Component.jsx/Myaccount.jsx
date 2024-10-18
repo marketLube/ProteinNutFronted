@@ -1,10 +1,11 @@
 import React from "react";
+import { css } from "styled-components";
 
 export const Myaccount = () => {
   return (
     <div>
       <style>
-        {`
+        {css`
           .account-container {
             max-width: 900px;
             margin: auto;
@@ -21,7 +22,7 @@ export const Myaccount = () => {
             position: relative;
           }
           .account-header span {
-            background-color: #FFD700;
+            background-color: #ffd700;
             padding: 0 10px;
           }
           .logout-button {
@@ -49,34 +50,33 @@ export const Myaccount = () => {
             display: flex;
             // justify-content: space-between;
             align-items: center;
-            gap:2rem;
+            gap: 2rem;
             padding: 15px;
             // background-color: #fff;
             border-radius: 8px;
             // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
           }
-          
-          .order-image {
-          width: 55px;
-          height:50px;
-          background-color: #fff;
-          border-radius: 10px;
 
+          .order-image {
+            width: 55px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 10px;
           }
 
           .order-item span {
             font-size: 16px;
             color: #00004d;
-            padding-right:10px;
+            padding-right: 10px;
           }
 
-          .order-detail{
-          margin-right:80px;
-          
-          background-color:#ac0d0d;
+          .order-detail {
+            margin-right: 80px;
+
+            background-color: #ac0d0d;
           }
-          
+
           .order-status-track {
             background-color: #00004d;
             color: white;
@@ -88,7 +88,7 @@ export const Myaccount = () => {
             outline: none; /* Remove outline */
           }
           .order-status-delivered {
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
             padding: 5px 10px;
             border-radius: 20px;

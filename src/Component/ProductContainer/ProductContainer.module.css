@@ -98,4 +98,16 @@
   .addtocartbutton:hover {
     background-color: #38a169;
   }
+
+  @keyframes hoverAnimation {
+    0% { transform: scale(1) rotate(0); }
+    25% { transform: scale(1.05) rotate(5deg); }
+    50% { transform: scale(1.03) rotate(3deg); }
+    75% { transform: scale(1.01) rotate(1deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+  
+  .productimage:hover {
+    animation: hoverAnimation 1s ease-in-out;
+  }
   

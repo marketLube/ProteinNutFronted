@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation, useCycle } from "framer-motion";
 import styled, { keyframes, css } from "styled-components";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
-import heroImage from "../../../../public/assets/hero-image.png";
-import heroImage2 from "../../../../public/assets/hero-image-2.png";
-import heroImage3 from "../../../../public/assets/hero-image-3.png";
+import { StyledCircleDummy1 } from "./Components/StyledCircleDummy1"
+
+import heroImage from "/assets/hero-image.png";
+import heroImage2 from "/assets/hero-image-2.png";
+import heroImage3 from "/assets/hero-image-3.png";
 
 const colors = [
   "#03B303",
@@ -92,47 +94,7 @@ const fadeIn2 = keyframes`
   }
 `;
 
-const mobileFadeIn1 = keyframes`
-  0% {
-    transform: translateX(-50%) scale(0.4) rotate(-10deg) translateY(120%);
-  }
-  25% {
-    transform: translateX(-50%) scale(0.4) rotate(-10deg) translateY(130%);
-  }
-  40% {
-    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(40%);
-  }
-  70% {
-    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(40%);
-  }
-  90% {
-    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(40%);
-  }
-  100% {
-    transform: translateX(-50%) scale(0.4) rotate(-15deg) translateY(120%);
-  }
-`;
 
-const mobileFadeIn2 = keyframes`
-  0% {
-    transform: translateX(-20%) scale(0.6) rotate(0deg) translateY(120%);
-  }
-  25% {
-    transform: translateX(-20%) scale(0.5) rotate(5deg) translateY(130%);
-  }
-  40% {
-    transform: translateX(-22%) scale(0.5) rotate(7deg) translateY(40%);
-  }
-  70% {
-    transform: translateX(-20%) scale(0.5) rotate(10deg) translateY(40%);
-  }
-  90% {
-    transform: translateX(-20%) scale(0.5) rotate(7deg) translateY(40%);
-  }
-  100% {
-    transform: translateX(-20%) scale(0.5) rotate(5deg) translateY(120%);
-  }
-`;
 
 const StyledCircleWrapper = styled.div`
   position: absolute;
@@ -193,7 +155,7 @@ function BottomCircle({ onColorChange }) {
       scale: 20,
       y: "-50%",
       x: "-10%",
-      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] },
+      transition: { duration: 2, ease: [0.25, 0.2, 0.28, .1] },
     });
 
     // Fade out after expansion
@@ -237,6 +199,7 @@ function BottomCircle({ onColorChange }) {
       colors[(colorIndex - 1 + colors.length) % colors.length]
     );
   }, [colorIndex, onColorChange]);
+  
 
   const getCurrentImage = () => heroImages[imageIndex];
   const getNextImage = () => heroImages[imageIndex];
@@ -260,7 +223,10 @@ function BottomCircle({ onColorChange }) {
       <StyledCircleDummy>
         <Circle animate={circleControls} />
       </StyledCircleDummy>
+        {/* <StyledCircleDummy1 /> */}
+      
     </StyledCircle>
+    
   );
 }
 

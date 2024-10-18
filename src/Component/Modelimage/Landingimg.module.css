@@ -1,7 +1,45 @@
-.modelimg{
-    width:100%;
+.imgsection {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+
+  height: 100vh;
 }
-.imgsection{
-    background-color: #ffffff;
-    
+
+.yellowBg {
+  background-color: #f1d371;
+  position: absolute;
+  width: 80vw;
+  height: 80vh;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  z-index: -15;
+}
+
+.parallaxImgContainer {
+  width: 60vw;
+  height: 60vh;
+  transform-origin: center;
+  overflow: hidden; /* Ensure content doesn't overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 0;
+}
+.imageContainer {
+  background-image: url("./Image/BGbYellowfnl.jpg");
+  background-size: cover;
+  width: 80vw;
+  height: 50vh;
+  border-radius: 10rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modelimg {
+  width: 100%; /* Start with full width and let Parallax control scaling */
+  height: auto;
+  transition: transform 0.3s ease; /* Smooth transitions */
 }

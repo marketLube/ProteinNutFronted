@@ -9,7 +9,7 @@ export const ProductContainer = () => {
         <img
           src="./Image/Untitled-8-01.png"
           alt="Pineapple Peanut Butter"
-          className={styles.productimage}
+          className={styles.productimage  + " hover-animation"}
         />
         <div className="imgcircle"></div>
 
