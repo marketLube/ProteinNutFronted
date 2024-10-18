@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
+export const bannerAnim ={
+  
+}
+
 export const BannerWrapper = styled.div`
   position: absolute;
   top: 40%;
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   display: flex;
   margin-top: 2rem;
   gap: 2rem;
   width: 100%;
   justify-content: center;
   align-items: center;
+  font-family:"Sophia";
 
   @media (max-width: 1200px) {
     font-size: 2rem;
@@ -32,6 +37,10 @@ export const BannerWrapper = styled.div`
     font-size: 1.8rem;
     margin-top: 1rem;
   }
+     @media (max-width: 375px) {
+    margin-top:0; 
+  }
+    
 `;
 
 export const BannerText = styled.p`
@@ -46,13 +55,20 @@ export const BannerText = styled.p`
   @media (max-width: 576px) {
     max-width: 95%;
   }
+     @media (max-width: 375px) {
+    font-size: 1.7rem; // Reduced from 4rem
+    line-height: 3.3rem; // Reduced from 3.8rem
+    margin-top:0;
+    
+    
+  }
 `;
 
 export const ShopNowButton = styled.button`
   background-color: #4a8f3c;
   border: none;
-  padding: 2rem 4rem;
-  font-size: 2.5rem;
+  padding: 2rem 6rem;
+  font-size: 1.8rem;
   color: white;
   border-radius: 3rem;
   cursor: pointer;
@@ -82,6 +98,10 @@ export const ShopNowButton = styled.button`
     padding: 2rem 4rem;
     border-radius: 4rem;
   }
+     @media (max-width: 375px) {
+    font-size: 1.5rem; 
+    padding: 1.5rem 5rem;
+  }
 `;
 
 export const ButtonContent = styled.span`
@@ -89,6 +109,18 @@ export const ButtonContent = styled.span`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+   &:hover {
+    
+    @keyframes flipText {
+      0% { transform: perspective(400px) rotateX(0deg) rotateY(0deg); }
+      50% { transform: perspective(400px) rotateX(180deg) rotateY(180deg); }
+      100% { transform: perspective(400px) rotateX(360deg) rotateY(360deg); }
+    }
+
+    animation-name: flipText;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
 
   @media (max-width: 576px) {
     gap: 0.5rem;

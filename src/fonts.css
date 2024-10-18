@@ -22,3 +22,10 @@
 }
 
 /* If you have more weights, add them similarly */
+@font-face {
+  font-family: "Sophia";
+  src: url("/fonts/Sofia Pro Regular Az.otf") format("opentype");
+  font-weight: normal; /* Medium weight */
+  font-style: normal;
+}
+
