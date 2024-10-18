@@ -5,4 +5,11 @@
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: 'Sophia';
+    src: url('/fonts/Sophia-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   

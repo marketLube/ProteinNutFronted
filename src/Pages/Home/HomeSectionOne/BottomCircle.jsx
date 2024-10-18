@@ -7,7 +7,7 @@ import heroImage2 from "../../../../public/assets/hero-image-2.png";
 import heroImage3 from "../../../../public/assets/hero-image-3.png";
 
 const colors = [
-  "#bedf38",
+  "#03B303",
   "#fbbb97",
   "#ffcb80",
 
