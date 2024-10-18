@@ -1,19 +1,17 @@
 import React from "react";
-import { css } from "styled-components";
 
 export const Myaccount = () => {
   return (
     <div>
       <style>
-        {css`
+        {`
           .account-container {
             max-width: 900px;
             margin: auto;
             padding: 2px;
-            // background-color: #2ec780;
             font-family: Arial, sans-serif;
-            width: 50rem;
-            height: 100vh;
+            width: 100%;
+            height: auto;
           }
           .account-header {
             font-size: 36px;
@@ -22,7 +20,7 @@ export const Myaccount = () => {
             position: relative;
           }
           .account-header span {
-            background-color: #ffd700;
+            background-color: #FFD700;
             padding: 0 10px;
           }
           .logout-button {
@@ -48,53 +46,103 @@ export const Myaccount = () => {
           }
           .order-item {
             display: flex;
-            // justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
             gap: 2rem;
             padding: 15px;
-            // background-color: #fff;
             border-radius: 8px;
-            // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
           }
-
+          
           .order-image {
             width: 55px;
             height: 50px;
-            background-color: #fff;
+            background-color: #00004d;
             border-radius: 10px;
           }
 
           .order-item span {
             font-size: 16px;
             color: #00004d;
-            padding-right: 10px;
+            flex-grow: 1;
           }
 
           .order-detail {
-            margin-right: 80px;
-
             background-color: #ac0d0d;
+          }
+
+          .order-status-track, .order-status-delivered {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            width: 80px;
+            border: none;
+            outline: none;
           }
 
           .order-status-track {
             background-color: #00004d;
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 14px;
-            width: 80px;
-            border: none; /* Remove border */
-            outline: none; /* Remove outline */
           }
+
           .order-status-delivered {
-            background-color: #4caf50;
+            background-color: #4CAF50;
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 14px;
-            border: none; /* Remove border */
-            outline: none; /* Remove outline */
+          }
+
+          @media (max-width: 768px) {
+            .account-header {
+              font-size: 28px;
+            }
+
+            .logout-button {
+              font-size: 16px;
+              padding: 8px 16px;
+            }
+
+            .order-history h3 {
+              font-size: 20px;
+            }
+
+            .order-item span {
+              font-size: 14px;
+            }
+
+            .order-status-track, .order-status-delivered {
+              font-size: 12px;
+              width: 70px;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .account-header {
+              font-size: 24px;
+            }
+
+            .logout-button {
+              font-size: 14px;
+              padding: 6px 12px;
+            }
+
+            .order-history h3 {
+              font-size: 18px;
+            }
+
+            .order-item {
+              // flex-direction: column;
+              // align-items: flex-start;
+              gap: 1rem;
+            }
+
+            .order-item span {
+              font-size: 12px;
+            }
+
+            .order-status-track, .order-status-delivered {
+              font-size: 10px;
+              width: 60px;
+            }
           }
         `}
       </style>

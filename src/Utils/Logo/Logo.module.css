@@ -1,5 +1,5 @@
 .logoContainer {
-  height: 7rem;
+  height: 5rem;
 }
 
 .logoContainer img {
@@ -9,24 +9,24 @@
 
 @media (max-width: 1200px) {
   .logoContainer {
-    height: 6rem;
+    height: 5rem;
   }
 }
 
 @media (max-width: 992px) {
   .logoContainer {
-    height: 5rem;
+    height: 4rem;
   }
 }
 
 @media (max-width: 768px) {
   .logoContainer {
-    height: 4.5rem;
+    height: 3.5rem;
   }
 }
 
 @media (max-width: 576px) {
   .logoContainer {
-    height: 4rem;
+    height: 3rem;
   }
 }

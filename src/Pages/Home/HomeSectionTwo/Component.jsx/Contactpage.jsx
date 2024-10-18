@@ -18,7 +18,7 @@ export const Contactpage = () => {
             max-width: 600px;
             margin: auto;
             padding: 20px;
-            height: 100vh;
+            height: 100%;
             // background-color: #f5f5e9;
             font-family: Arial, sans-serif;
             position: relative; /* Ensure form-container is the positioning context */

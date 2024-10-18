@@ -2,26 +2,30 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Swipercomponent } from "./Swipercomponent";
-import { Navigation, Pagination, Mousewheel, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  FreeMode,
+  Mousewheel,
+  A11y,
+} from "swiper/modules";
 import styles from "./Reels.module.css";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Parallax } from "react-scroll-parallax";
 
 export const Reels = () => {
   return (
-    <Parallax className={styles.bg}>
+    <div className={styles.bg}>
       <Swiper
-        modules={[Navigation, Pagination, Mousewheel, A11y]}
-        spaceBetween={1}
         slidesPerView={4}
-        navigation
-        // loop={true}
-        pagination={{ clickable: true }}
-        mousewheel={{ invert: false }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        spaceBetween={2}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className="mySwiper"
       >
         <SwiperSlide>
           <Swipercomponent />
@@ -41,9 +45,13 @@ export const Reels = () => {
         <SwiperSlide>
           <Swipercomponent />
         </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+
         {/* <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide> */}
       </Swiper>
-    </Parallax>
+    </div>
   );
 };

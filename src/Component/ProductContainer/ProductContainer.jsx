@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const ProductContainer = () => {
   return (
     <div className={styles.productcard}>
-      <Link style={{ textDecoration: "none" }} to="/naturalcrunchy">
+      <Link style={{ textDecoration: "none" }} to="/select">
         <img
           src="./Image/Untitled-8-01.png"
           alt="Pineapple Peanut Butter"

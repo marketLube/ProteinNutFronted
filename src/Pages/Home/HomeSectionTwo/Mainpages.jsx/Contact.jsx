@@ -18,7 +18,30 @@ export const Contact = () => {
 
           .formone > * {
             display: flex;
-            padding: 10rem;
+            padding: 7rem;
+          }
+
+          @media (max-width: 768px) {
+            .formone {
+              grid-template-columns: 1fr;
+              gap: 3rem;
+              padding-top: 5rem;
+            }
+
+            .formone > * {
+              padding: 4rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .formone {
+              padding-top: 3rem;
+              gap: 2rem;
+            }
+
+            .formone > * {
+              padding: 1rem;
+            }
           }
         `}
       </style>
