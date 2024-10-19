@@ -20,6 +20,7 @@ import {
   ShopNowButton,
   ButtonContent,
 } from "./StyledComponents/BannerComponents";
+import ShopButton from "../../../Component/ShopButton/ShopButton";
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -228,12 +229,8 @@ function HomeSectionOne() {
           <BannerText>
             Packed with Protein, Powered by Peanut Butter.
           </BannerText>
-          <ShopNowButton>
-            <ButtonContent>
-              Shop Now
-              <FaCircleArrowRight style={{ fontSize: "0.8em" }} />
-            </ButtonContent>
-          </ShopNowButton>
+
+          <ShopButton style={{ width: "18rem" }} />
         </BannerWrapper>
       </ContentWrapper>
       <BottomCircle onColorChange={handleColorChange} />

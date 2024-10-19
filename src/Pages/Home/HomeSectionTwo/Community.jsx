@@ -116,6 +116,7 @@ export const Community = () => {
             height: auto;
             margin-bottom: 20px;
             transition: 0.5s all;
+            cursor: pointer;
           }
           .logo:hover {
             transform: scale(1.1);
@@ -127,6 +128,7 @@ export const Community = () => {
             // background-color: #00004d;
             padding: 10px;
             border-radius: 25px;
+            cursor: pointer;
           }
           .icons:hover {
             transform: scale(1.1);
