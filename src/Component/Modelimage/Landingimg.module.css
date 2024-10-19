@@ -1,7 +1,51 @@
-.modelimg{
-    width:100%;
+.imgsection {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+  height: 100vh;
 }
-.imgsection{
-    background-color: #ffffff;
-    
+
+.yellowBg {
+  background-color: #f1d371;
+  position: absolute;
+  width: 60vw;
+  height: 80vh;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-radius: 50%;
+  z-index: -15;
+}
+
+.parallaxImgContainer {
+  width: 60vw;
+  height: 60vh;
+  max-width: 100vw;
+  transform-origin: center;
+  overflow: hidden !important; /* Ensure content doesn't overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 0;
+  border-radius: 8%;
+}
+.imageContainer {
+  width: 80vw;
+  max-width: 100vw;
+  height: 50vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out;
+}
+.modalimg {
+  width: 100%;
+  max-width: 100rem !important;
 }

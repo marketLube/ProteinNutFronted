@@ -1,9 +1,9 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 
 export const Contactpage = () => {
-  const form = useForm();
-  const { register, handleSubmit} = form;
+  const form = useForm({});
+  const { register, handleSubmit } = form;
 
   const onSubmitftn = (data) => {
     console.log(data);
@@ -90,72 +90,72 @@ export const Contactpage = () => {
       </style>
 
       <div className="form-container">
-        <a href="#" className="login-link">Log in</a>
+        <a href="#" className="login-link">
+          Log in
+        </a>
         <form onSubmit={handleSubmit(onSubmitftn)}>
           <label>Contact</label>
-          <input 
-            type="email" 
-            placeholder="Email" 
-            {...register("email")}
-          />
+          <input type="email" placeholder="Email" {...register("email")} />
           {/* {errors.email && <span className="error">{errors.email.message}</span>} */}
 
           <div className="form-delivery">
             <label>Delivery</label>
 
             <div className="row">
-              <input 
-                type="text" 
-                placeholder="First name" 
-                className="input-small" 
-                {...register("firstName", { required: "First name is required" })}
+              <input
+                type="text"
+                placeholder="First name"
+                className="input-small"
+                {...register("firstName", {
+                  required: "First name is required",
+                })}
               />
-              <input 
-                type="text" 
-                placeholder="Last name" 
-                className="input-small" 
+              <input
+                type="text"
+                placeholder="Last name"
+                className="input-small"
                 {...register("lastName", { required: "Last name is required" })}
               />
             </div>
             {/* {errors.firstName && <span className="error">{errors.firstName.message}</span>}
             {errors.lastName && <span className="error">{errors.lastName.message}</span>} */}
 
-            <input 
-              type="text" 
-              placeholder="Address Line 1" 
+            <input
+              type="text"
+              placeholder="Address Line 1"
               {...register("addressLine1", { required: "Address is required" })}
             />
             {/* {errors.addressLine1 && <span className="error">{errors.addressLine1.message}</span>} */}
 
-            <input 
-              type="text" 
-              placeholder="Address Line 2" 
+            <input
+              type="text"
+              placeholder="Address Line 2"
               {...register("addressLine2")}
             />
 
             <div className="row">
-              <input 
-                type="text" 
-                placeholder="City" 
-                className="input-small" 
+              <input
+                type="text"
+                placeholder="City"
+                className="input-small"
                 {...register("city", { required: "City is required" })}
               />
-              <input 
-                type="text" 
-                placeholder="State" 
-                className="input-small" 
+              <input
+                type="text"
+                placeholder="State"
+                className="input-small"
                 {...register("state", { required: "State is required" })}
               />
-              <input 
-                type="text" 
-                placeholder="ZIP code" 
-                className="input-small" 
-                {...register("zipCode", { 
+              <input
+                type="text"
+                placeholder="ZIP code"
+                className="input-small"
+                {...register("zipCode", {
                   required: "ZIP code is required",
                   pattern: {
                     // value: /^\d{5}(-\d{4})?$/,
-                    message: "Invalid ZIP code"
-                  }
+                    message: "Invalid ZIP code",
+                  },
                 })}
               />
             </div>
@@ -163,15 +163,15 @@ export const Contactpage = () => {
             {errors.state && <span className="error">{errors.state.message}</span>}
             {errors.zipCode && <span className="error">{errors.zipCode.message}</span>} */}
 
-            <input 
-              type="tel" 
-              placeholder="Phone" 
-              {...register("phone", { 
+            <input
+              type="tel"
+              placeholder="Phone"
+              {...register("phone", {
                 required: "Phone number is required",
                 pattern: {
                   value: /^\d{10}$/,
-                  message: "Invalid phone number"
-                }
+                  message: "Invalid phone number",
+                },
               })}
             />
             {/* {errors.phone && <span className="error">{errors.phone.message}</span>} */}

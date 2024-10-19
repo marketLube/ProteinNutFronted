@@ -16,23 +16,36 @@ const GlobalStyles = createGlobalStyle`
     --radius-sm:5px;
     --radius-md:8px;
     --radius-lg:4rem;
+
+    --scroll-behavior: smooth;
 }
     
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
-    /* transition: all 0.3s ease; */
 }
 
  html{
+  
   font-size: 10px;
  }
 
  body{
   font-family: "SUSE", sans-serif;
+  background-color: #f3f1e8;
+  /* overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
  }
+ .btn{
+    border: none;
+    background-color: transparent;
+    
+ }
+
+ 
 
 `;
 

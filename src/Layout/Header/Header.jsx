@@ -3,26 +3,54 @@ import { HeaderBg, StyledHeader } from "../../UI/MainComponents/StyledHeader";
 import Logo from "../../Utils/Logo/Logo";
 import HeaderButtonsContainer from "./HeaderButtonsContainer";
 import styles from "./Header.module.css";
-import { Navbar } from "../../Component/Navbar";
-import { NavLink } from "react-router-dom";
+import { Navbar } from "../../Component/Navigation/Navbar";
+import { Link, NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 function Header() {
   const { isHome } = useSelector((state) => state.general);
+
+  const scrollToTarget = (id) => {
+    return () => {
+      // Get the target element by its ID and scroll into view
+      const targetElement = document.getElementById(id);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+  };
+
   return (
     <>
       <HeaderBg $isHome={isHome} />
       <StyledHeader $isHome={isHome}>
         <div className={styles.headerText}>
-          <NavLink to="productgrid">
-            <a className={styles.headerLinks}>Shop</a>
-          </NavLink>
+          <button
+            onClick={scrollToTarget("grid")}
+            className={`btn ${styles.headerLinks}`}
+          >
+            Shop
+          </button>
 
-          <a className={styles.headerLinks}>Order</a>
+          <button
+            onClick={scrollToTarget("community")}
+            className={`btn ${styles.headerLinks}`}
+          >
+            Community
+          </button>
         </div>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <div className={styles.headerRight}>
           <a className={styles.headerLinks}></a>
-          <a className={styles.headerLinks}></a>
+          <button
+            onClick={scrollToTarget("contact")}
+            className={`btn ${styles.headerLinks}`}
+          >
+            Contact
+          </button>
           <HeaderButtonsContainer />
         </div>
       </StyledHeader>

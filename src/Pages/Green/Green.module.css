@@ -1,0 +1,93 @@
+.card {
+  background-color: transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 40rem;
+  margin: 0 auto;
+}
+
+.parallax {
+  background-color: #5c8e55;
+  height: 40rem;
+  width: 80%;
+  border-radius: 8rem;
+  margin: -5rem auto;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+.content img {
+  width: 30%;
+}
+
+.textItem {
+  position: absolute;
+  color: #f0f0e0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.protein {
+  top: 13%;
+  left: 8%;
+}
+
+.heart {
+  top: 7%;
+  right: 22%;
+}
+
+.nutrient {
+  bottom: 25%;
+  left: 20%;
+}
+
+.energy {
+  bottom: 30%;
+  right: 12%;
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    width: 80%;
+    height: auto;
+    border-radius: 4rem;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content img {
+    width: 60%;
+    margin-bottom: 1.5rem;
+  }
+
+  .textItem {
+    font-size: 1.2rem;
+    position: relative;
+    margin: 1rem 0;
+  }
+
+  .protein,
+  .heart,
+  .nutrient,
+  .energy {
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+}

@@ -26,13 +26,29 @@ body::-webkit-scrollbar {
     transform: translateY(0rem);
   }
 }
-.anim {
-  visibility: visible;
-  display: inline-block;
-  animation: headingAnim 2s ease;
+
+@keyframes headingSpan {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.hide {
-  visibility: hidden;
-  display: none;
-  animation: headingAnim 2s ease;
+@keyframes headingFirstSpanBg {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes h2amin {
+  0% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
 }

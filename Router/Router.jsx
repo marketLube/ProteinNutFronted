@@ -15,15 +15,16 @@ import { Checkouts } from "../src/Component/Checkout/Checkouts";
 import { Counter } from "../src/Component/Counter/Counter";
 import { ProductDetails } from "../src/Component/ProductDisplay/ProductDetails";
 import { GridDisplay } from "../src/Component/ProductDisplayGrid/GridDisplay";
-import { Green } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Green";
 import { Addresses } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Addresses";
 import { FormOne } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/FormOne";
 import { Bill } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Bill";
 import { HomeLandingSection1 } from "../src/Component/HomeLandingSection1";
-import { Navbar } from "../src/Component/Navbar";
+import { Navbar } from "../src/Component/Navigation/Navbar";
 import { Reels } from "../src/Component/Reelsection/Reels";
 import { Swipercomponent } from "../src/Component/Reelsection/Swipercomponent";
 import { Cartpage } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/Cartpage";
+import { SelectedProduct } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/SelectedProduct";
+import { SelectedItem } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/SelectedItem";
 
 const router = createBrowserRouter([
   {
@@ -40,92 +41,96 @@ const router = createBrowserRouter([
       },
       {
         path: "addresses",
-        element:< Addresses />
+        element: <Addresses />,
       },
       {
         path: "paymentform",
-        element: <FormOne />
+        element: <FormOne />,
       },
       {
-        path:'bill',
-        element:<Bill/>
+        path: "bill",
+        element: <Bill />,
       },
       {
-        path:'myaccountpage',
-        element:<Myaccount />
+        path: "myaccountpage",
+        element: <Myaccount />,
       },
       {
-        path:"formtwo",
-        element:<Contactpage/>
+        path: "formtwo",
+        element: <Contactpage />,
       },
       {
         path: "homesectiontwo",
-        element: <Pages  />,
+        element: <Pages />,
       },
       {
-        path:"Contactpage",
+        path: "contactpage",
         element: <Contact />,
       },
       {
-        path:"Myaccount",
+        path: "myaccount",
         element: <Myaccounts />,
       },
       {
-       path:"login",
-       element:<Login/>,
+        path: "login",
+        element: <Login />,
       },
       {
-        path:"joincommunity",
-        element:<Community/>,
+        path: "joincommunity",
+        element: <Community />,
       },
       {
-        path:"naturalcrunchy",
-        element:<ProductDisplay/>,
+        path: "naturalcrunchy",
+        element: <ProductDisplay />,
       },
       {
-        path:"productcontainer",
-        element:<ProductContainer/>
+        path: "productcontainer",
+        element: <ProductContainer />,
       },
       {
-        path:"button",
-        element:<Buttons/>
+        path: "button",
+        element: <Buttons />,
       },
       {
-        path:"checkoutcard",
-        element:<Checkouts/>
+        path: "checkoutcard",
+        element: <Checkouts />,
       },
       {
-        path:"counter",
-        element:<Counter/>
+        path: "counter",
+        element: <Counter />,
       },
       {
-        path:"productdetails",
-        element:<ProductDetails/>
+        path: "product-details",
+        element: <ProductDetails />,
       },
       {
-        path:"productgrid",
-        element:<GridDisplay/>
+        path: "productgrid",
+        element: <GridDisplay />,
       },
       {
-        path:"greencard",
-        element:<Green/>
+        path: "selecteditem",
+        element: <SelectedProduct />,
       },
       {
-         path:"homesectioncontent",
-         element:<HomeLandingSection1/>
+        path: "homesectioncontent",
+        element: <HomeLandingSection1 />,
       },
       {
-        path:"naavbar",
-        element:<Navbar/>
+        path: "naavbar",
+        element: <Navbar />,
       },
       {
-         path:"reels",
-         element:<Swipercomponent />
+        path: "reels",
+        element: <Swipercomponent />,
       },
       {
-        path:"cartpage",
-        element:<Cartpage/>
-      }
+        path: "cartpage",
+        element: <Cartpage />,
+      },
+      {
+        path: "select",
+        element: <SelectedItem />,
+      },
     ],
   },
 ]);

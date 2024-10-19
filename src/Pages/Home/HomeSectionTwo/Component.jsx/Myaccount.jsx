@@ -1,15 +1,16 @@
-import React from 'react';
+import React from "react";
+import { css } from "styled-components";
 
 export const Myaccount = () => {
   return (
     <div>
       <style>
-        {`
+        {css`
           .account-container {
             max-width: 900px;
             margin: auto;
             padding: 2px;
-            // background-color: #f5f5e9;
+            // background-color: #2ec780;
             font-family: Arial, sans-serif;
             width: 50rem;
             height: 100vh;
@@ -21,7 +22,7 @@ export const Myaccount = () => {
             position: relative;
           }
           .account-header span {
-            background-color: #FFD700;
+            background-color: #ffd700;
             padding: 0 10px;
           }
           .logout-button {
@@ -47,27 +48,35 @@ export const Myaccount = () => {
           }
           .order-item {
             display: flex;
-            justify-content: space-between;
+            // justify-content: space-between;
             align-items: center;
+            gap: 2rem;
             padding: 15px;
             // background-color: #fff;
             border-radius: 8px;
             // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
           }
-          
-          .order-image {
-          width: 55px;
-          height:50px;
-          background-color: #fff;
-          border-radius: 10px;
 
+          .order-image {
+            width: 55px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 10px;
           }
 
           .order-item span {
             font-size: 16px;
             color: #00004d;
+            padding-right: 10px;
           }
+
+          .order-detail {
+            margin-right: 80px;
+
+            background-color: #ac0d0d;
+          }
+
           .order-status-track {
             background-color: #00004d;
             color: white;
@@ -79,7 +88,7 @@ export const Myaccount = () => {
             outline: none; /* Remove outline */
           }
           .order-status-delivered {
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
@@ -91,27 +100,28 @@ export const Myaccount = () => {
       </style>
 
       <div className="account-container">
-        <h1 className="account-header"><span>My Account</span></h1>
+        <h1 className="account-header">
+          <span>My Account</span>
+        </h1>
 
         <button className="logout-button">Log Out</button>
-
         <div className="order-history">
           <h3>Order History</h3>
 
           <div className="order-item">
-            <div className='order-image'></div>
+            <div className="order-image"></div>
             <span>Cruchey Peanut Butter 500g x 1</span>
             <button className="order-status-track">Track</button>
           </div>
 
           <div className="order-item">
-            <div className='order-image'></div>
+            <div className="order-image"></div>
             <span>Creamy Peanut Butter 1KG x 3</span>
             <button className="order-status-delivered">Delivered</button>
           </div>
 
           <div className="order-item">
-            <div className='order-image'></div>
+            <div className="order-image"></div>
             <span>Pineapple Peanut Butter 500g x 1</span>
             <button className="order-status-delivered">Delivered</button>
           </div>
@@ -119,5 +129,4 @@ export const Myaccount = () => {
       </div>
     </div>
   );
-}
-
+};

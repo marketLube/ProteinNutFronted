@@ -1,5 +1,6 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { css } from "styled-components";
 
 export const Bill = () => {
   const form = useForm();
@@ -12,33 +13,28 @@ export const Bill = () => {
   return (
     <div>
       <style>
-        {`
-          // .checkout__container {
-          //   display: flex;
-          //   flex-direction: column;
-          //   width: 100%;
-          //   max-width: 500px;
-          //   margin: auto;
-          //   border-radius: 8px;
-          //   overflow: hidden;
-          //   padding: 20px;
-          //   height: auto;
-          //   background-color:white;
-          // }
-          
+        {css`
+          .checkout__container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 20px;
+            height: auto;
+          }
+
           .checkout__content {
             width: 100%;
-            background-color:#ff6666;
-            
           }
-          
+
           .checkout__item,
           .checkout__details > div {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
           }
-          
+
           .checkout__coupon {
             display: flex;
             flex-direction: row;
@@ -46,14 +42,14 @@ export const Bill = () => {
             margin-bottom: 20px;
             margin-top: 40px;
           }
-          
+
           .checkout__coupon input {
             flex: 1;
             padding: 15px;
             border: 1px solid #00004d;
             border-radius: 4px;
           }
-          
+
           .checkout__coupon button {
             color: #00004d;
             border: 1px solid #00004d;
@@ -61,7 +57,7 @@ export const Bill = () => {
             cursor: pointer;
             border-radius: 4px;
           }
-          
+
           .checkout__total {
             display: flex;
             justify-content: space-between;
@@ -69,8 +65,9 @@ export const Bill = () => {
             margin-top: 20px;
             font-size: 20px;
           }
-          
-          .checkout__shipping, .checkout__subtotal {
+
+          .checkout__shipping,
+          .checkout__subtotal {
             display: flex;
             justify-content: space-between;
             color: #00004d;
@@ -104,7 +101,7 @@ export const Bill = () => {
             margin: 0;
           }
 
-          @media (min-width: 600px) {
+          @media (max-width: 600px) {
             .checkout__container {
               flex-direction: row;
               height: 100vh;
@@ -120,7 +117,7 @@ export const Bill = () => {
             }
           }
 
-          @media (min-width: 768px) {
+          @media (max-width: 768px) {
             .checkout__container {
               max-width: 700px;
             }
@@ -137,12 +134,13 @@ export const Bill = () => {
             .checkout__total {
               font-size: 24px;
             }
-            .checkout__shipping, .checkout__subtotal {
+            .checkout__shipping,
+            .checkout__subtotal {
               font-size: 20px;
             }
           }
 
-          @media (min-width: 1024px) {
+          @media (max-width: 1024px) {
             .checkout__container {
               max-width: 900px;
             }
@@ -159,7 +157,8 @@ export const Bill = () => {
             .checkout__total {
               font-size: 26px;
             }
-            .checkout__shipping, .checkout__subtotal {
+            .checkout__shipping,
+            .checkout__subtotal {
               font-size: 22px;
             }
           }
@@ -177,7 +176,11 @@ export const Bill = () => {
             </div>
 
             <div className="checkout__coupon">
-              <input type="text" placeholder="Coupon Code" {...register("coupon")} />
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                {...register("coupon")}
+              />
               <button>Apply</button>
             </div>
             <div className="checkout__subtotal">

@@ -7,6 +7,7 @@ import styles from "./Reels.module.css";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Parallax } from "react-scroll-parallax";
 
 export const Reels = () => {
   const swiperRef = useRef(null);
@@ -46,13 +47,13 @@ export const Reels = () => {
   }, [isScrollLocked]);
 
   return (
-    <div className={styles.bg}>
+    <Parallax className={styles.bg}>
       <Swiper
         modules={[Navigation, Pagination, Mousewheel, A11y]}
         spaceBetween={1}
         slidesPerView={4}
-        navigation
-        // loop={true}
+        // navigation
+        loop={true}
         pagination={{ clickable: true }}
         mousewheel={{ invert: false }}
         onSlideChange={() => console.log("slide change")}
@@ -76,9 +77,12 @@ export const Reels = () => {
         <SwiperSlide>
           <Swipercomponent />
         </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
         {/* <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide> */}
       </Swiper>
-    </div>
+    </Parallax>
   );
 };

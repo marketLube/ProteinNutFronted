@@ -1,9 +1,10 @@
-import React from 'react'
-import styles from './Buttons.module.css'
+import React from "react";
+import styles from "./Buttons.module.css";
 
-
-export const Buttons = () => {
+export const Buttons = ({ onClick }) => {
   return (
-    <div className={styles.buttoncheckout}>Check Out</div>
-  )
-}
+    <button onClick={onClick} className={styles.buttoncheckout}>
+      Check Out
+    </button>
+  );
+};

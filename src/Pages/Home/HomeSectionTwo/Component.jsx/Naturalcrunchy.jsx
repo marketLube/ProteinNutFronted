@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { css } from "styled-components";
 // import { Star, Plus, Minus } from 'lucide-react';
 
 export const ProductDisplay = () => {
@@ -7,20 +9,19 @@ export const ProductDisplay = () => {
   return (
     <div>
       <style>
-        {`
+        {css`
           .container-main {
-            background-color: #fff9f2;
+            // background-color: #fff9f2;
             padding: 20px;
-            
           }
 
           .container {
-            max-width: 400px;
+            max-width: 419px;
             margin: 0 auto;
             padding: 40px;
             background-color: white;
             border-radius: 20px;
-
+            background-color: #ffffff;
           }
 
           .category-tag {
@@ -29,8 +30,8 @@ export const ProductDisplay = () => {
             background-color: #fff9f2;
             border-radius: 20px;
             margin-bottom: 16px;
-            color:#00004d;
-            font-weight:bold;
+            color: #00004d;
+            font-weight: bold;
           }
 
           .product-title {
@@ -56,7 +57,7 @@ export const ProductDisplay = () => {
           }
 
           .top-rated {
-            color: #4CAF50;
+            color: #4caf50;
             font-weight: bold;
             margin-bottom: 16px;
           }
@@ -80,30 +81,28 @@ export const ProductDisplay = () => {
           }
 
           .discount {
-            color: #4CAF50;
-            font-size:14px
+            color: #4caf50;
+            font-size: 14px;
           }
 
           .location-container {
             display: flex;
             justify-content: space-between;
             margin-bottom: 24px;
-            
           }
-            .location-container-num{
-            color:#666;
-            }
+          .location-container-num {
+            color: #666;
+          }
 
           .quantity-container {
             display: flex;
             align-items: center;
             gap: 16px;
             margin-bottom: 24px;
-            
           }
-            .location-container-text{
-            color:#4CAF50;
-            }
+          .location-container-text {
+            color: #4caf50;
+          }
 
           .quantity-button {
             display: flex;
@@ -127,27 +126,25 @@ export const ProductDisplay = () => {
             border: none;
             border-radius: 4px;
             margin-left: 16px;
-            font-weight:bold;
-            
+            font-weight: bold;
           }
 
           .button-container {
             display: flex;
             gap: 16px;
             margin-bottom: 24px;
-            
           }
 
           .add-to-cart {
             flex: 1;
             padding: 12px;
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
             border: none;
             border-radius: 50px;
             font-size: 16px;
             cursor: pointer;
-            font-weight:bold;
+            font-weight: bold;
           }
 
           .buy-now {
@@ -158,7 +155,7 @@ export const ProductDisplay = () => {
             border-radius: 50px;
             font-size: 16px;
             cursor: pointer;
-            font-weight:bold;
+            font-weight: bold;
             color: 00004d;
           }
 
@@ -174,7 +171,7 @@ export const ProductDisplay = () => {
         <div className="container">
           <span className="category-tag">Peanut Butter</span>
           <h1 className="product-title">Natural Crunchy Peanut Butter 1KG</h1>
-          
+
           <div className="rating-container">
             {/* {[...Array(4)].map((_, i) => (
               <Star key={i} className="star" fill="#ffd700" />
@@ -194,36 +191,46 @@ export const ProductDisplay = () => {
           </div>
 
           <div className="location-container">
-            <div className='location-container-num'>
-            <span>673019</span></div>
-            <div className='location-container-text'>
-            <span>Olavanna,Kozhikode</span>
+            <div className="location-container-num">
+              <span>673019</span>
+            </div>
+            <div className="location-container-text">
+              <span>Olavanna,Kozhikode</span>
             </div>
           </div>
 
           <div className="quantity-container">
-            <button className="quantity-button" onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+            <button
+              className="quantity-button"
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+            >
               -
             </button>
             <span className="quantity-display">{quantity}</span>
-            <button className="quantity-button" onClick={() => setQuantity(quantity + 1)}>
-                +
+            <button
+              className="quantity-button"
+              onClick={() => setQuantity(quantity + 1)}
+            >
+              +
             </button>
             <button className="size-button">1 KG</button>
           </div>
 
           <div className="button-container">
             <button className="add-to-cart">Add to cart</button>
-            <button className="buy-now">Buy Now</button>
+            <Link to="/homesectiontwo">
+              <button className="buy-now">Buy Now</button>
+            </Link>
           </div>
 
           <p className="description">
-            Enjoy the rich taste of 100% natural, roasted peanuts with a satisfying crunch. 
-            Packed with protein and free from preservatives, added sugars, or artificial flavors, 
-            Proteinuts is the perfect healthy snack for any time of day. Fuel your body naturally!
+            Enjoy the rich taste of 100% natural, roasted peanuts with a
+            satisfying crunch. Packed with protein and free from preservatives,
+            added sugars, or artificial flavors, Proteinuts is the perfect
+            healthy snack for any time of day. Fuel your body naturally!
           </p>
         </div>
       </div>
     </div>
   );
-}
+};

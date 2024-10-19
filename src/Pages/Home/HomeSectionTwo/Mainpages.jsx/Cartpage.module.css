@@ -1,16 +1,16 @@
-.sectionone{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap:50px;
+.sectionone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  /* background-color: rgb(156, 224, 241); */
 }
-.maindiv{
-    
-    padding:130px 120px;
+.maindiv {
+  padding: 130px 120px;
 }
-.maindiv h1{
-    font-size: 5rem;
-    color: #220d4e;
+.maindiv h1 {
+  font-size: 5rem;
+  color: #220d4e;
 }
-
-
