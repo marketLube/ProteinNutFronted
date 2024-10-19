@@ -3,22 +3,20 @@ import styles from "./GridDisplay.module.css";
 import { ProductContainer } from "../ProductContainer/ProductContainer";
 import { Parallax } from "react-scroll-parallax";
 import { motion, useInView } from "framer-motion";
+import useObserver from "../../Hooks/useObserver";
 
 export const GridDisplay = () => {
   const targetRef = useRef(null);
   const isInView = useInView(targetRef);
 
+  console.log(isInView, "is in view");
+
   return (
     <Parallax speed={-5} className={styles.display} id="grid">
-      <p ref={targetRef} className={styles.heading}>
+      {/* <p ref={targetRef} className={styles.heading}>
         Simple{" "}
         <span className={styles.headingFirstSpan}>
-          <motion.span
-            animate={{ x: 100 }} // Move 100 pixels to the right
-            transition={{ duration: 1 }} // Duration of 1 second
-          >
-            Delicious
-          </motion.span>
+          <span className={styles.delicious}>Delicious</span>
           <motion.span
             className={styles.headingFirstSpanBg}
             style={
@@ -31,14 +29,24 @@ export const GridDisplay = () => {
           ></motion.span>
         </span>
       </p>
-      <motion.span
-        className={styles.headingSpan}
-        initial={{ opacity: 0, scaleX: 0, x: -50 }} // Initial state
-        animate={isInView ? { opacity: 1, scaleX: 1, x: 0 } : {}} // Animate on view
-        transition={{ duration: 5, ease: "easeOut" }} // Transition settings
-      >
-        Nutricious
-      </motion.span>
+      <span className={styles.headingSpan}>Nutricious</span> */}
+
+      <h2 ref={targetRef} className={styles.headingSecondary}>
+        <div className={styles.headingFirst}>
+          <div className={styles.simple}>Simple</div>
+          <div
+            className={styles.delicious}
+            style={
+              isInView
+                ? { transform: "translateY(100)" }
+                : { transform: "translateY(-100)" }
+            }
+          >
+            Delicious
+          </div>
+        </div>
+        <div className={styles.nutircious}>Nutricious</div>
+      </h2>
 
       <div className={styles.detailsproduct}>
         <ProductContainer />

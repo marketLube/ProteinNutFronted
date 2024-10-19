@@ -43,3 +43,12 @@ body::-webkit-scrollbar {
     transform: scaleX(1);
   }
 }
+
+@keyframes h2amin {
+  0% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}

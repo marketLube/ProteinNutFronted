@@ -6,8 +6,6 @@ import Main from "../../Layout/Main";
 import { Green } from "../Green/Green";
 import HomeSectionOne from "./HomeSectionOne/HomeSectionOne";
 import { Community } from "./HomeSectionTwo/Community";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import styled from "styled-components";
 
 function Home() {
   return (
