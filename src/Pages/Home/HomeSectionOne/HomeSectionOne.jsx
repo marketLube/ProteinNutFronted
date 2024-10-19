@@ -4,14 +4,22 @@ import { useDispatch } from "react-redux";
 import useObserver from "../../../Hooks/useObserver";
 import { setIsHome } from "../../../App/generalSlice/generalSlice";
 import { StyledSectionOne } from "../../../UI/HomeStyle/SectionOne";
-import { MainHeading as StyledMainHeading, SubHeading } from "./StyledComponents/MainHeading";
+import {
+  MainHeading as StyledMainHeading,
+  SubHeading,
+} from "./StyledComponents/MainHeading";
 import { StyledProteinBanner } from "./StyledComponents/ProteinBanner";
 import { motion } from "framer-motion";
 import BottomCircle from "./BottomCircle";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
-import { BannerWrapper, BannerText, ShopNowButton, ButtonContent } from "./StyledComponents/BannerComponents";
+import {
+  BannerWrapper,
+  BannerText,
+  ShopNowButton,
+  ButtonContent,
+} from "./StyledComponents/BannerComponents";
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -57,8 +65,8 @@ const AnimatedText = ({ text, delay, isChanging = false }) => {
 
   return (
     <motion.h1
-      style={{ 
-        display: "flex", 
+      style={{
+        display: "flex",
         justifyContent: "center",
         fontSize: "inherit",
         lineHeight: "inherit",
@@ -70,9 +78,14 @@ const AnimatedText = ({ text, delay, isChanging = false }) => {
     >
       {words.map((word, index) => (
         <motion.span
+          layout={{ duration: 5 }}
           key={index}
-          style={{ 
-            marginRight: "0.25em", // Restored normal word spacing
+          animate={{ x: 0, opacity: 1, y: 0 }}
+          initial={{ x: 100, opacity: -1, y: 100 }}
+          transition={{ duration: 1 }}
+          type="tween"
+          style={{
+            marginRight: "0.25em",
             display: "inline-block",
           }}
           variants={child}
@@ -102,7 +115,7 @@ const CurlingText = ({ text }) => {
       rotateX: 0,
       scale: 1,
     },
-    visible: i => ({
+    visible: (i) => ({
       y: Math.sin(i * 0.5) * 10,
       rotateX: -360,
       scale: [1, 1.2, 1],
@@ -148,22 +161,18 @@ const CurlingText = ({ text }) => {
   );
 };
 
-const colors = [
-  "#C7F009",
-  "#fbbb97",
-  "#ffcb80",
-
-];
+const colors = ["#C7F009", "#fbbb97", "#ffcb80"];
 
 const ChangingText = ({ colorIndex }) => {
-  const phrases = [
-    "Crunchy Energy",
-    "Nutty Goodness",
-    "Protein Power",
-  ];
+  const phrases = ["Crunchy Energy", "Nutty Goodness", "Protein Power"];
 
   return (
-    <AnimatedText text={phrases[colorIndex]} delay={0} isChanging={true} key={colorIndex} />
+    <AnimatedText
+      text={phrases[colorIndex]}
+      delay={0}
+      isChanging={true}
+      key={colorIndex}
+    />
   );
 };
 
@@ -196,25 +205,33 @@ function HomeSectionOne() {
     >
       <ContentWrapper>
         <StyledMainHeading>
-          <AnimatedText text="Boost your Day" delay={0.2} />
-          <div style={{ 
-            display: "flex", 
-            justifyContent: "center", 
-            alignItems: "center", 
-            gap: "10",
-            fontSize: "inherit",
-            lineHeight: "inherit",
-          }}>
-            <AnimatedText text="with" delay={0.4} />
+          <motion.div layout>
+            <AnimatedText text="Boost your Day" delay={0.2} />
+          </motion.div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10",
+              fontSize: "inherit",
+              lineHeight: "inherit",
+            }}
+          >
+            <motion.div layout>
+              <AnimatedText text="with" delay={0.4} />
+            </motion.div>
             <ChangingText colorIndex={colorIndex} />
           </div>
         </StyledMainHeading>
         <BannerWrapper>
-          <BannerText>Packed with Protein, Powered by Peanut Butter.</BannerText>
+          <BannerText>
+            Packed with Protein, Powered by Peanut Butter.
+          </BannerText>
           <ShopNowButton>
             <ButtonContent>
               Shop Now
-              <FaCircleArrowRight style={{ fontSize: '0.8em' }} />
+              <FaCircleArrowRight style={{ fontSize: "0.8em" }} />
             </ButtonContent>
           </ShopNowButton>
         </BannerWrapper>
