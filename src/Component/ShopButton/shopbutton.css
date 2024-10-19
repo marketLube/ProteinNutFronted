@@ -1,10 +1,10 @@
 /* From Uiverse.io by KINGFRESS */
 .shop-btn {
   color: white;
-  border-radius: 2rem;
+  border-radius: 4rem;
   cursor: pointer;
-  width: 18rem;
-  height: 42.66px;
+  width: 20rem;
+  height: 60px;
   border: none;
   background-color: #5c8e55;
   display: flex;

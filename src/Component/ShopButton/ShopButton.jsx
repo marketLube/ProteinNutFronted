@@ -1,5 +1,6 @@
 import { BiArrowBack, BiArrowToRight } from "react-icons/bi";
 import "./shopbutton.css";
+import { IoArrowForwardCircle } from "react-icons/io5";
 
 function ShopButton({ style }) {
   return (
@@ -25,7 +26,7 @@ function ShopButton({ style }) {
           <span>o</span>
           <span>w</span>
         </span>
-        <BiArrowToRight className="shop-now-arrow" />
+        <IoArrowForwardCircle className="shop-now-arrow" />
       </button>
     </div>
   );
