@@ -113,6 +113,10 @@ export const Community = () => {
             width: 120px;
             height: auto;
             margin-bottom: 20px;
+            transition: 0.5s all;
+          }
+          .logo:hover {
+            transform: scale(1.1);
           }
 
           .menu {
@@ -121,6 +125,10 @@ export const Community = () => {
             // background-color: #00004d;
             padding: 10px;
             border-radius: 25px;
+          }
+          .icons:hover {
+            transform: scale(1.1);
+            background-color: #185c1b;
           }
 
           .icons {
@@ -134,6 +142,7 @@ export const Community = () => {
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: 0.1s all;
           }
 
           /* Media Queries */

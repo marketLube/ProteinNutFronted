@@ -8,7 +8,7 @@ const navItems = ["Shop", "Community", "Contact", "Profile", "Cart"];
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at calc(100% - 40px) 40px)`, // Adjusted for right
+    clipPath: `circle(${height + 160}px at calc(100% - 40px) 40px)`, // Adjusted for right
     transition: {
       type: "spring",
       stiffness: 20,
@@ -16,7 +16,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(30px at calc(100% - 40px) 40px)", // Adjusted for right
+    clipPath: "circle(25px at calc(100% - 40px) 40px)", // Adjusted for right
     transition: {
       delay: 0.5,
       type: "spring",
@@ -147,12 +147,15 @@ export const Navbar = () => {
             border: "none",
             cursor: "pointer",
             position: "absolute",
-            top: "15px",
-            right: "15px", // Changed from left to right
+            top: "5px",
+            right: "6px", // Changed from left to right
             width: "50px",
             height: "50px",
             borderRadius: "50%",
             background: "transparent",
+            display: "flex", // Use flexbox
+            justifyContent: "center", // Center horizontally
+            alignItems: "center",
           }}
         >
           <FaGripLines size={30} color="#43bb0b" />
