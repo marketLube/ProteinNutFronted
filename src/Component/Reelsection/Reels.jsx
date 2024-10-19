@@ -16,13 +16,22 @@ export const Reels = () => {
         modules={[Navigation, Pagination, Mousewheel, A11y]}
         spaceBetween={1}
         slidesPerView={4}
-        navigation
+        // navigation
         // loop={true}
         pagination={{ clickable: true }}
         mousewheel={{ invert: false }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Swipercomponent />
+        </SwiperSlide>
         <SwiperSlide>
           <Swipercomponent />
         </SwiperSlide>
