@@ -85,7 +85,7 @@ const AnimatedText = ({ text, delay, isChanging = false }) => {
           transition={{ duration: 1 }}
           type="tween"
           style={{
-            marginRight: "0.25em", // Restored normal word spacing
+            marginRight: "0.25em",
             display: "inline-block",
           }}
           variants={child}
