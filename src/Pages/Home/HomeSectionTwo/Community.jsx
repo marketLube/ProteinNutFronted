@@ -50,12 +50,14 @@ export const Community = () => {
             font-weight: bold;
             color: #00004d;
             margin-bottom: 16px;
+            font-family: "Degular";
           }
 
           .description {
             font-size: 16px;
-            color: #00004d;
+            color: #4e4e87;
             margin-bottom: 24px;
+            font-family: "Sophia";
           }
 
           .form {

@@ -16,8 +16,8 @@ export const Reels = () => {
         modules={[Navigation, Pagination, Mousewheel, A11y]}
         spaceBetween={1}
         slidesPerView={4}
-        navigation
-        // loop={true}
+        // navigation
+        loop={true}
         pagination={{ clickable: true }}
         mousewheel={{ invert: false }}
         onSlideChange={() => console.log("slide change")}
