@@ -8,14 +8,15 @@ const Landingimg = () => {
   const isInView = useInView(targetRef);
 
   return (
-    <Parallax speed={20} className={styles.imgsection}>
+    <Parallax speed={0} className={styles.imgsection}>
       <Parallax
         ref={targetRef}
         className={styles.parallaxImgContainer}
-        speed={10}
-        scale={[1, 2.5]}
+        speed={20}
+        scale={[0.8, 1]}
+        easing={[0.25, 0.1, 0.25, 1]}
       >
-        <Parallax scale={[1, 1.5]} className={styles.imageContainer}>
+        <Parallax speed={10} scale={[1, 1.5]} className={styles.imageContainer}>
           <img
             src="./Image/BGbYellowfnl.jpg"
             alt=""

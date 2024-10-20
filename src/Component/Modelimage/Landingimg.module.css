@@ -1,11 +1,12 @@
 .imgsection {
   background-color: transparent;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   position: relative;
   z-index: -1;
-  height: 100vh;
+  height: 90vh;
+  border-radius: 5%;
 }
 
 .yellowBg {
@@ -20,32 +21,35 @@
 }
 
 .parallaxImgContainer {
-  width: 60vw;
-  height: 60vh;
-  max-width: 100vw;
-  transform-origin: center;
-  overflow: hidden !important; /* Ensure content doesn't overflow */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10rem 0;
-  border-radius: 8%;
-}
-.imageContainer {
-  width: 80vw;
-  max-width: 100vw;
-  height: 50vh;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  width: 100vw;
+  height: 100vh;
   position: relative;
-
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-out;
+  overflow: hidden;
+  max-width: 100vw;
+  border-radius: 5%;
 }
-.modalimg {
+
+.imageContainer {
   width: 100%;
-  max-width: 100rem !important;
+  height: 100%;
+  border-radius: 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalimg {
+  width: 100vw;
+  /* object-fit: cover; */
+  max-width: 100vw;
+  max-height: 100vh;
+  /* Ensure smooth scaling */
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+/* Optional media query to adjust initial size on smaller screens */
+@media (max-width: 768px) {
+  .parallaxImgContainer {
+    width: 80vw; /* Adjusted for better mobile viewing */
+  }
 }
