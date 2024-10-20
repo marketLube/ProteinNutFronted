@@ -50,7 +50,10 @@ const AnimatedText = ({ text, delay, isChanging = false }) => {
       transition: {
         type: "spring",
         damping: 12,
+        duration: 0.6,
         stiffness: 200,
+        ease: [0.43, 0.13, 0.23, 0.96],
+        delay: 0.1,
       },
     },
     hidden: {
@@ -59,10 +62,34 @@ const AnimatedText = ({ text, delay, isChanging = false }) => {
       transition: {
         type: "spring",
         damping: 12,
+        duration: 0.6,
         stiffness: 200,
+        ease: [0.43, 0.13, 0.23, 0.96],
+        delay: 0.1,
       },
     },
   };
+
+  // const child = {
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: {
+  //       duration: 0.6,
+  //       ease: [0.43, 0.13, 0.23, 0.96], // Smooth ease-out curve
+  //       delay: 0.1,
+  //     },
+  //   },
+  //   hidden: {
+  //     opacity: 0,
+  //     y: 20,
+  //     transition: {
+  //       duration: 0.6,
+  //       ease: [0.43, 0.13, 0.23, 0.96],
+  //       delay: 0.1,
+  //     },
+  //   },
+  // };
 
   return (
     <motion.h1

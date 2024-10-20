@@ -60,6 +60,15 @@
   gap: 2rem;
 }
 .delicious {
-  overflow: hidden;
-  transition: 2s all ease;
+  position: relative;
+}
+.yellowBg {
+  position: absolute;
+  width: 100%;
+  background-color: #f1d371;
+  right: 0;
+  bottom: 1.5rem;
+  top: 0;
+  z-index: -1;
+  clip-path: polygon(0 13%, 100% 0, 100% 100%, 0% 100%);
 }

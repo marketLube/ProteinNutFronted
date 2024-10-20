@@ -11,7 +11,37 @@
 .head {
   font-size: 90px;
   width: 80%;
-  text-align: center;
+}
+
+.headingFirst {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-family: "Degular";
+}
+.infinite {
+  position: relative;
+}
+
+.whiteBg {
+  position: absolute;
+  width: 100%;
+  background-color: #f6f6f6;
+  right: 0;
+  left: 0;
+  height: 6rem;
+  bottom: 3rem;
+  border-radius: 3px;
+
+  z-index: -1;
+  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0% 100%);
+}
+.possibilities {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .note {
