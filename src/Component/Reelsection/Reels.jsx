@@ -2,34 +2,67 @@ import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Swipercomponent } from "./Swipercomponent";
-import { Navigation, Pagination, Mousewheel, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Mousewheel,
+  A11y,
+  Autoplay,
+  EffectFade,
+} from "swiper/modules";
 import styles from "./Reels.module.css";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import { Parallax } from "react-scroll-parallax";
+
 import InstagramPost from "../Instagram/InstagramPost";
 
 export const Reels = () => {
   return (
-    <Parallax className={styles.bg}>
-      <Swiper
-        modules={[Navigation, Pagination, Mousewheel, A11y]}
-        spaceBetween={1}
-        slidesPerView={4}
-        loop={false}
-        pagination={{ clickable: true }}
-        mousewheel={{ invert: true }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        <SwiperSlide>
-          <InstagramPost url="https://www.instagram.com/reel/C-xOQQoI5SQ/embed" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <InstagramPost url="https://www.instagram.com/reel/C_2-HKXIiTW/embed" />
-        </SwiperSlide>
-      </Swiper>
-    </Parallax>
+    <Swiper
+      modules={[Navigation, Pagination, Mousewheel, A11y, Autoplay]}
+      spaceBetween={1}
+      slidesPerView={3}
+      autoplay={{
+        delay: 1000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }}
+      speed={1500}
+      className={styles.reels}
+      loop={false}
+      mousewheel={false}
+      pagination={{ clickable: true }}
+      onSwiper={(swiper) => {
+        // Add event listeners for mouse enter and leave
+        swiper.el.addEventListener("mouseenter", () => {
+          swiper.autoplay.stop(); // Pause autoplay on hover
+        });
+        swiper.el.addEventListener("mouseleave", () => {
+          swiper.autoplay.start(); // Resume autoplay on mouse leave
+        });
+      }}
+    >
+      <SwiperSlide>
+        <InstagramPost />
+      </SwiperSlide>
+      <SwiperSlide>
+        <InstagramPost />
+      </SwiperSlide>
+      <SwiperSlide>
+        <InstagramPost />
+      </SwiperSlide>
+      <SwiperSlide>
+        <InstagramPost />
+      </SwiperSlide>
+      <SwiperSlide>
+        <InstagramPost />
+      </SwiperSlide>
+      <SwiperSlide>
+        <InstagramPost />
+      </SwiperSlide>
+    </Swiper>
   );
 };

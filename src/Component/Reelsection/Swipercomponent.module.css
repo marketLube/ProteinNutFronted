@@ -1,15 +1,3 @@
-.reelsdisplay {
-  width: 35rem;
-  height: 55rem;
-  overflow: hidden;
-  /* display: grid; */
-  /* grid-template-columns: repeat(4,1fr); */
-  /* gap: 59px; */
-  background-color: #ffffff;
-  border-radius: 30px;
-  margin: 70px 80px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.reelsdisplay:hover {
+  transform: scale(1.1);
 }

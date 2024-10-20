@@ -23,13 +23,14 @@
         let isScrolling = false;
         let lastTouchY = 0;
         let lastScrollTime = Date.now();
-        const throttleDelay = 30; // Adjusted throttle for delayed responsiveness
+        const throttleDelay = 33;
 
-        // Momentum constants
-        const FRICTION = 0.9; // Lower friction for gradual slowing down
-        const MOMENTUM_MULTIPLIER = 0.8; // Adjusted for smoother deceleration
-        const VELOCITY_THRESHOLD = 0.1; // Lower threshold to stop when near-zero
-        const SCROLL_MULTIPLIER = 0.5; // Reduced for smoother initial scroll
+        // Adjusted momentum constants
+        const FRICTION = 0.6; // Increased friction for longer continuation (closer to 1 = less friction)
+        const MOMENTUM_MULTIPLIER = 0.2; // Increased for more momentum
+        const VELOCITY_THRESHOLD = 0.1; // Lowered threshold to allow longer continuation
+        const SCROLL_MULTIPLIER = 0.8; // Increased for stronger initial scroll
+        const CONTINUATION_BOOST = 0.5; // Added boost factor for end-of-scroll continuation
 
         function throttle(callback, delay) {
           let timeoutId;
@@ -56,10 +57,10 @@
           const currentTime = Date.now();
           const elapsed = currentTime - lastScrollTime;
 
-          // Calculate new velocity based on delta and elapsed time
+          // Enhanced velocity calculation with smoother acceleration
           const newVelocity =
             (delta * SCROLL_MULTIPLIER) / Math.max(elapsed, 16);
-          scrollVelocity = scrollVelocity * 0.5 + newVelocity * 0.5;
+          scrollVelocity = scrollVelocity * 0.7 + newVelocity * 0.3; // Smoother velocity blending
 
           // Add to scroll amount
           scrollAmount += delta * SCROLL_MULTIPLIER;
@@ -73,14 +74,21 @@
         }
 
         function applyMomentum() {
-          // Apply momentum to scroll amount
-          scrollAmount += scrollVelocity * MOMENTUM_MULTIPLIER;
-          // Apply friction to velocity and ensure it reduces to 0
+          // Enhanced momentum application
+          if (Math.abs(scrollVelocity) > VELOCITY_THRESHOLD * 2) {
+            // Apply continuation boost when velocity is significant
+            scrollAmount +=
+              scrollVelocity * MOMENTUM_MULTIPLIER * CONTINUATION_BOOST;
+          } else {
+            scrollAmount += scrollVelocity * MOMENTUM_MULTIPLIER;
+          }
+
+          // Gradual velocity reduction
           scrollVelocity *= FRICTION;
 
-          // Prevent infinite small scrolling by checking velocity threshold
+          // Prevent infinite small scrolling
           if (Math.abs(scrollVelocity) < VELOCITY_THRESHOLD) {
-            scrollVelocity = 0;
+            scrollVelocity *= 0.95; // Gradual fadeout
           }
         }
 
@@ -89,23 +97,30 @@
             Math.abs(scrollAmount) > 0.01 ||
             Math.abs(scrollVelocity) > VELOCITY_THRESHOLD
           ) {
-            const scrollStep = scrollAmount * 0.2;
+            // More gradual scroll step calculation
+            const scrollStep = scrollAmount * 0.15; // Reduced from 0.2 for smoother movement
 
             // Apply the scroll
             window.scrollBy(0, scrollStep);
 
-            // Reduce scroll amount
+            // Gradual scroll amount reduction
             scrollAmount -= scrollStep;
 
-            // Apply momentum effects
+            // Apply enhanced momentum effects
             applyMomentum();
 
             requestAnimationFrame(smoothStep);
           } else {
-            // Reset values when scrolling ends
-            scrollAmount = 0;
-            scrollVelocity = 0;
-            isScrolling = false;
+            // Apply final continuation when scrolling ends
+            if (Math.abs(scrollVelocity) > VELOCITY_THRESHOLD * 0.5) {
+              scrollAmount += scrollVelocity * CONTINUATION_BOOST;
+              requestAnimationFrame(smoothStep);
+            } else {
+              // Reset values when scrolling truly ends
+              scrollAmount = 0;
+              scrollVelocity = 0;
+              isScrolling = false;
+            }
           }
         }
 
@@ -113,7 +128,7 @@
           handleScroll(delta);
         }, throttleDelay);
 
-        // Enhanced wheel event handler
+        // Wheel event handler
         window.addEventListener(
           "wheel",
           (event) => {
@@ -123,11 +138,11 @@
           { passive: false }
         );
 
-        // Enhanced touch event handlers
+        // Touch event handlers with enhanced momentum
         window.addEventListener("touchstart", (event) => {
           lastTouchY = event.touches[0].clientY;
-          // Reset velocity on touch start
-          scrollVelocity = 0;
+          // Preserve some velocity on touch start for smoother transitions
+          scrollVelocity *= 0.5;
         });
 
         window.addEventListener("touchmove", (event) => {
@@ -138,8 +153,8 @@
         });
 
         window.addEventListener("touchend", () => {
-          // Add final momentum on touch end
-          scrollVelocity *= MOMENTUM_MULTIPLIER;
+          // Enhanced final momentum on touch end
+          scrollVelocity *= MOMENTUM_MULTIPLIER * CONTINUATION_BOOST;
           lastTouchY = 0;
         });
       }

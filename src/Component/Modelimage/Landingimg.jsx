@@ -16,7 +16,11 @@ const Landingimg = () => {
         scale={[0.8, 1]}
         easing={[0.25, 0.1, 0.25, 1]}
       >
-        <Parallax speed={10} scale={[1, 1.5]} className={styles.imageContainer}>
+        <Parallax
+          speed={20}
+          scale={[1.3, 1.5]}
+          className={styles.imageContainer}
+        >
           <img
             src="./Image/BGbYellowfnl.jpg"
             alt=""

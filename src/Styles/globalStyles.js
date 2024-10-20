@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --light-yellow:#fdf3c6;
 
     --white:#f3f1e8;
-    --font-gray:#343a4a;
+    --font-gray:rgb(49, 59, 78);
     --gray:#93969e;
 
     --radius-tiny:2px;
@@ -38,12 +38,20 @@ const GlobalStyles = createGlobalStyle`
   overscroll-behavior-y: contain;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  overflow: hidden;
+  overflow-x: hidden;
  }
  .btn{
     border: none;
     background-color: transparent;
     
+ }
+
+ h2{
+    color: rgb(49, 59, 78) !important;
+ }
+
+ h1{
+    color: rgb(49, 59, 78) !important;
  }
 
  
