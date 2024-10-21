@@ -40,7 +40,6 @@
   clip-path: polygon(0 13%, 100% 0, 100% 100%, 0% 100%);
 }
 
-
 @media (max-width: 1024px) {
   .detailsproduct {
     grid-template-columns: repeat(1fr);
@@ -67,7 +66,9 @@
   .delicious {
     position: relative;
   }
-  
+  .yellowBg {
+    bottom: 1rem;
+  }
 }
 
 /* Media Query for mobile screens */
@@ -97,7 +98,7 @@
   .delicious {
     position: relative;
   }
-  
-  
+  .yellowBg {
+    bottom: 1rem;
+  }
 }
-

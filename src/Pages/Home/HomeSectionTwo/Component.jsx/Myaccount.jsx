@@ -94,7 +94,7 @@ export const Myaccount = () => {
             border-radius: 20px;
             font-size: 14px;
             border: none; /* Remove border */
-            outline: none; /* Remove outline */
+            outline: none; 
           }
         `}
       </style>

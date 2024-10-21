@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   font-family: "Degular";
 }
 .infinite {
@@ -31,6 +31,7 @@
   background-color: #f6f6f6;
   right: 0;
   left: 0;
+
   height: 6rem;
   bottom: 3rem;
   border-radius: 3px;
@@ -42,6 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 5rem;
 }
 
 .note {
@@ -67,6 +69,10 @@
 .shopnow h2 {
   margin: 0;
 }
+.subhead {
+  font-size: 30px;
+  margin-top: 60px;
+}
 
 /* Media Queries */
 
@@ -88,6 +94,18 @@
     height: 4rem;
     font-size: 1rem;
     gap: 1rem;
+  }
+  .headingFirst {
+    flex-direction: column;
+    gap: 1px;
+  }
+  .infinite {
+    line-height: 3rem;
+  }
+  .whiteBg {
+    /* bottom: 70px; */
+    height: 2rem;
+    top: 6px;
   }
 }
 

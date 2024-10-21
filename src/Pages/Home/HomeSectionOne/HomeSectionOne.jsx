@@ -4,22 +4,13 @@ import { useDispatch } from "react-redux";
 import useObserver from "../../../Hooks/useObserver";
 import { setIsHome } from "../../../App/generalSlice/generalSlice";
 import { StyledSectionOne } from "../../../UI/HomeStyle/SectionOne";
-import {
-  MainHeading as StyledMainHeading,
-  SubHeading,
-} from "./StyledComponents/MainHeading";
-import { StyledProteinBanner } from "./StyledComponents/ProteinBanner";
+import { MainHeading as StyledMainHeading } from "./StyledComponents/MainHeading";
+
 import { motion } from "framer-motion";
 import BottomCircle from "./BottomCircle";
 import styled from "styled-components";
-import { FaCircleArrowRight } from "react-icons/fa6";
-import { StyledCircleDummy } from "./Components/StyledCircleDummy";
-import {
-  BannerWrapper,
-  BannerText,
-  ShopNowButton,
-  ButtonContent,
-} from "./StyledComponents/BannerComponents";
+
+import { BannerWrapper, BannerText } from "./StyledComponents/BannerComponents";
 import ShopButton from "../../../Component/ShopButton/ShopButton";
 
 const ContentWrapper = styled.div`
@@ -69,27 +60,6 @@ const AnimatedText = ({ text, delay, isChanging = false }) => {
       },
     },
   };
-
-  // const child = {
-  //   visible: {
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: {
-  //       duration: 0.6,
-  //       ease: [0.43, 0.13, 0.23, 0.96], // Smooth ease-out curve
-  //       delay: 0.1,
-  //     },
-  //   },
-  //   hidden: {
-  //     opacity: 0,
-  //     y: 20,
-  //     transition: {
-  //       duration: 0.6,
-  //       ease: [0.43, 0.13, 0.23, 0.96],
-  //       delay: 0.1,
-  //     },
-  //   },
-  // };
 
   return (
     <motion.h1

@@ -44,6 +44,8 @@
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   .parallaxImgContainer {
-    width: 80vw;
+    width: 100vw;
+    height: 30vh;
+    margin-top: 30rem;
   }
 }

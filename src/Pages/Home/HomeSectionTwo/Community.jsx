@@ -10,7 +10,8 @@ export const Community = () => {
         {css`
           .container-main {
             background-color: transparent;
-            padding: 20px;
+            padding: 10px;
+            /* margin-top: 5px; */
           }
 
           .container {
@@ -21,7 +22,7 @@ export const Community = () => {
             border-radius: 25px;
             max-width: 100%;
             height: auto;
-            margin: 0 auto;
+            margin: 95px auto;
             align-items: center;
             justify-content: center;
             opacity: 2;
@@ -75,6 +76,7 @@ export const Community = () => {
             outline: none;
             width: 100%;
             z-index: 5;
+            position: relative;
             background-color: transparent;
           }
 
@@ -98,8 +100,8 @@ export const Community = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: -1;
-            opacity: 1;
+            z-index: 0;
+            opacity: 0.8;
           }
 
           .nav {

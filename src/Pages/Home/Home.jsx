@@ -10,8 +10,6 @@ import { Community } from "./HomeSectionTwo/Community";
 import api from "../../services/api";
 
 function Home() {
-
-  
   // api to fetch the products
   const {
     data: products,
