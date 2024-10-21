@@ -8,7 +8,6 @@ import {
   Mousewheel,
   A11y,
   Autoplay,
-  EffectFade,
 } from "swiper/modules";
 import styles from "./Reels.module.css";
 
