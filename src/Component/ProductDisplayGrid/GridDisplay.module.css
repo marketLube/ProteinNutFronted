@@ -32,7 +32,7 @@
 .yellowBg {
   position: absolute;
   width: 100%;
-  background-color: #f1d371;
+  background-color: rgb(254, 209, 65);
   right: 0;
   bottom: 1.5rem;
   top: 0;

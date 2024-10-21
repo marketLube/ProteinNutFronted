@@ -30,7 +30,7 @@ function Home() {
       <Green />
       <GridDisplay products={products} />
       <Landingimg />
-      <div style={{ backgroundColor: " rgb(254, 209, 65);" }}>
+      <div style={{ backgroundColor: "rgb(254,209,65)" }}>
         <HomeLandingSection1 />
         <Reels />
         <Community />
