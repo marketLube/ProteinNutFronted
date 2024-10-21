@@ -8,10 +8,10 @@ export const Community = () => {
     <div>
       <style>
         {css`
-          /* .container-main {
-            background-color: #f1d371;
+          .container-main {
+            background-color: transparent;
             padding: 20px;
-          } */
+          }
 
           .container {
             display: flex;
@@ -88,7 +88,7 @@ export const Community = () => {
             transform: translateY(-50%);
             width: 50px;
             height: 50px;
-            background-color: #ffd54f;
+            background-color: rgb(254, 209, 65);
             border: none;
             border-radius: 50%;
             font-size: 14px;
