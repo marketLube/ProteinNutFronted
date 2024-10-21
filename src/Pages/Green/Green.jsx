@@ -20,7 +20,7 @@ export const Green = () => {
           <img
             src="./Image/1pr-04.svg"
             alt="image"
-            className={`${styles.textItem} ${styles.heart}`}
+            className={`${styles.textItem} ${styles.heart} ${styles.sizeheart}`}
           />
           <img
             src="./Image/1pr-02.svg"
@@ -30,7 +30,7 @@ export const Green = () => {
           <img
             src="./Image/1pr.svg"
             alt="image"
-            className={`${styles.textItem} ${styles.energy}`}
+            className={`${styles.textItem} ${styles.energy} ${styles.size}`}
           />
         </div>
       </Parallax>

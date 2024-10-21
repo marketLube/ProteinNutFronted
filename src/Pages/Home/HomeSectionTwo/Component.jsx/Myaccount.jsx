@@ -100,7 +100,7 @@ export const Myaccount = () => {
       </style>
 
       <div className="account-container">
-        <h1 className="account-header">
+        <h1 className="account-header" id="account">
           <span>My Account</span>
         </h1>
 

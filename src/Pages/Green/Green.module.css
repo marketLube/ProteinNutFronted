@@ -32,25 +32,31 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+.size {
+  height: 15rem;
+}
+.sizeheart {
+  height: 6.4rem;
+}
 
 .protein {
-  top: 13%;
+  top: 19%;
   left: 8%;
 }
 
 .heart {
-  top: 7%;
+  top: 16%;
   right: 22%;
 }
 
 .nutrient {
-  bottom: 25%;
+  bottom: 21%;
   left: 20%;
 }
 
 .energy {
-  bottom: 30%;
-  right: 12%;
+  bottom: 13%;
+  right: 11%;
 }
 
 @media (max-width: 768px) {

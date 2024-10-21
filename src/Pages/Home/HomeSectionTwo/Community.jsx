@@ -8,10 +8,10 @@ export const Community = () => {
     <div>
       <style>
         {css`
-          .container-main {
+          /* .container-main {
             background-color: #f1d371;
             padding: 20px;
-          }
+          } */
 
           .container {
             display: flex;
@@ -24,7 +24,7 @@ export const Community = () => {
             margin: 0 auto;
             align-items: center;
             justify-content: center;
-            opacity: 0.8;
+            opacity: 2;
           }
 
           .container-items {
@@ -74,7 +74,7 @@ export const Community = () => {
             font-size: 16px;
             outline: none;
             width: 100%;
-            z-index: 0;
+            z-index: 1;
           }
 
           .input:focus {
@@ -97,7 +97,7 @@ export const Community = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1;
+            z-index: 9;
             opacity: 0.8;
           }
 
@@ -264,12 +264,12 @@ export const Community = () => {
                   off on a pack of peanuts
                 </p>
                 <div className="form">
+                  <button className="button">Sign up</button>
                   <input
                     type="email"
                     placeholder="Email address"
                     className="input"
                   />
-                  <button className="button">Sign up</button>
                 </div>
               </div>
             </div>

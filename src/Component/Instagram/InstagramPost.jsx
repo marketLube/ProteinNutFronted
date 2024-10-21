@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./Instagram.css";
-import YouTube from "react-youtube";
+// import YouTube from "react-youtube";
 
 const InstagramPost = ({ url }) => {
   const ref = useRef(null);
