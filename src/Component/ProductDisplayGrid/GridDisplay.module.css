@@ -42,7 +42,7 @@
   }
 
   .display {
-    padding: 5rem; /* Adjust the padding */
+    padding: 4.5rem; /* Adjust the padding */
   }
 
   .heading {
@@ -52,7 +52,7 @@
 }
 
 .headingSecondary {
-  font-size: 8rem;
+  font-size: 3.8rem;
   line-height: 1;
 }
 .headingFirst {

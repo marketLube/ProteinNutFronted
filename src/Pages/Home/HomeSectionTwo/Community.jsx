@@ -74,7 +74,8 @@ export const Community = () => {
             font-size: 16px;
             outline: none;
             width: 100%;
-            z-index: 0;
+            z-index: 5;
+            background-color:transparent
           }
 
           .input:focus {
@@ -97,8 +98,8 @@ export const Community = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1;
-            opacity: 0.8;
+            z-index: -1;
+            opacity: 1;
           }
 
           .nav {

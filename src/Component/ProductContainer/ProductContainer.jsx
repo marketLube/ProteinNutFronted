@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 import { FaStar, FaStarHalf, FaStarHalfAlt } from "react-icons/fa";
 
-export const ProductContainer = () => {
+export const ProductContainer = ({ item }) => {
+  console.log(item)
+
+
+  console.log("product container");
+  
   return (
     <div
       className={styles.productcard}

@@ -257,7 +257,7 @@ function HomeSectionOne() {
             Packed with Protein, Powered by Peanut Butter.
           </BannerText>
 
-          <ShopButton style={{ width: "18rem" }} />
+          <ShopButton style={{ margin: "3rem" }} />
         </BannerWrapper>
       </ContentWrapper>
       <BottomCircle onColorChange={handleColorChange} />

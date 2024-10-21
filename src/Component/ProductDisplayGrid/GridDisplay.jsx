@@ -3,12 +3,16 @@ import styles from "./GridDisplay.module.css";
 import { ProductContainer } from "../ProductContainer/ProductContainer";
 import { Parallax } from "react-scroll-parallax";
 import { motion, useInView } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
 
-export const GridDisplay = () => {
+export const GridDisplay = ({products}) => {
   const targetRef = useRef(null);
   const isInView = useInView(targetRef, { amount: 0.3 });
 
   console.log(isInView, "is in view");
+
+  console.log(products);
+  
 
   return (
     <Parallax speed={-5} className={styles.display} id="grid">
@@ -66,10 +70,12 @@ export const GridDisplay = () => {
       </motion.h2>
 
       <div className={styles.detailsproduct}>
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
+        {products?.map((product, i)=>{
+          console.log(product);
+          
+          <ProductContainer  />
+        })}
+        
       </div>
     </Parallax>
   );

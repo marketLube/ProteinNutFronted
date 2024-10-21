@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { HomeLandingSection1 } from "../../Component/HomeLandingSection1";
 import Landingimg from "../../Component/Modelimage/Landingimg";
 import { GridDisplay } from "../../Component/ProductDisplayGrid/GridDisplay";
@@ -6,13 +7,28 @@ import Main from "../../Layout/Main";
 import { Green } from "../Green/Green";
 import HomeSectionOne from "./HomeSectionOne/HomeSectionOne";
 import { Community } from "./HomeSectionTwo/Community";
+import api from "../../services/api";
 
 function Home() {
+
+  
+  // api to fetch the products
+  const {
+    data: products,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => api.get("/products").then((res) => res.data.docs),
+  });
+
+  console.log(products);
   return (
     <Main>
       <HomeSectionOne />
       <Green />
-      <GridDisplay />
+      <GridDisplay products={products} />
       <Landingimg />
       <div style={{ backgroundColor: "#f1d371" }}>
         <HomeLandingSection1 />
