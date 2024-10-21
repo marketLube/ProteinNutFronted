@@ -7,10 +7,34 @@
   margin-top: 50px;
   /* background-color: rgb(156, 224, 241); */
 }
-.maindiv {
-  padding: 130px 120px;
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .sectionone {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
-.maindiv h1 {
+
+@media (max-width: 480px) {
+  /* For mobile devices */
+  .sectionone {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .maindiv {
+    margin: 20px;
+  }
+  /* .maindiv h1 {
+    font-size: 3rem; 
+  } */
+}
+
+.maindiv {
+  margin: 20px;
+}
+
+/* .maindiv h1 {
   font-size: 5rem;
   color: #220d4e;
-}
+} */

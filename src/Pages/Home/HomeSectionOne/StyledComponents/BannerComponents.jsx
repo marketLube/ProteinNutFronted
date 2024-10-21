@@ -1,8 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const bannerAnim ={
-  
-}
+export const bannerAnim = {};
 
 export const BannerWrapper = styled.div`
   position: absolute;
@@ -14,7 +12,7 @@ export const BannerWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  font-family:"Sophia";
+  font-family: "Sophia";
 
   @media (max-width: 1200px) {
     font-size: 2rem;
@@ -33,34 +31,33 @@ export const BannerWrapper = styled.div`
   }
 
   @media (max-width: 576px) {
-    top:25%;
+    top: 25%;
     font-size: 1.8rem;
     margin-top: 1rem;
   }
-     @media (max-width: 375px) {
-    margin-top:0; 
+  @media (max-width: 375px) {
+    margin-top: 0;
   }
-    
 `;
 
 export const BannerText = styled.p`
   margin: 0;
   text-align: center;
-  max-width: 80%;
+  max-width: 75%;
 
   @media (max-width: 992px) {
-    max-width: 90%;
+    max-width: 75%;
+    margin-top: 20px;
   }
 
   @media (max-width: 576px) {
-    max-width: 95%;
+    max-width: 80%;
+    margin-top: 15px;
   }
-     @media (max-width: 375px) {
+  @media (max-width: 375px) {
     font-size: 1.7rem; // Reduced from 4rem
-    line-height: 3.3rem; // Reduced from 3.8rem
-    margin-top:0;
-    
-    
+    line-height: 2.8rem; // Reduced from 3.8rem
+    margin-top: 20px;
   }
 `;
 
@@ -98,8 +95,8 @@ export const ShopNowButton = styled.button`
     padding: 2rem 4rem;
     border-radius: 4rem;
   }
-     @media (max-width: 375px) {
-    font-size: 1.5rem; 
+  @media (max-width: 375px) {
+    font-size: 1.5rem;
     padding: 1.5rem 5rem;
   }
 `;
@@ -109,12 +106,17 @@ export const ButtonContent = styled.span`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-   &:hover {
-    
+  &:hover {
     @keyframes flipText {
-      0% { transform: perspective(400px) rotateX(0deg) rotateY(0deg); }
-      50% { transform: perspective(400px) rotateX(180deg) rotateY(180deg); }
-      100% { transform: perspective(400px) rotateX(360deg) rotateY(360deg); }
+      0% {
+        transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+      }
+      50% {
+        transform: perspective(400px) rotateX(180deg) rotateY(180deg);
+      }
+      100% {
+        transform: perspective(400px) rotateX(360deg) rotateY(360deg);
+      }
     }
 
     animation-name: flipText;

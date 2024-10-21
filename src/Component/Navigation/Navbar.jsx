@@ -147,7 +147,7 @@ export const Navbar = () => {
             border: "none",
             cursor: "pointer",
             position: "absolute",
-            top: "5px",
+            top: "-4px",
             right: "6px", // Changed from left to right
             width: "50px",
             height: "50px",

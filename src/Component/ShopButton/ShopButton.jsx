@@ -3,9 +3,23 @@ import "./shopbutton.css";
 import { IoArrowForwardCircle } from "react-icons/io5";
 
 function ShopButton({ style }) {
+  const scrollToTarget = (id) => {
+    return () => {
+      // Get the target element by its ID and scroll into view
+      const targetElement = document.getElementById(id);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+  };
   return (
     <div>
-      <button className="shop-btn" style={style}>
+      <button
+        className="shop-btn"
+        style={style}
+        onClick={scrollToTarget("grid")}
+      >
         <span className="span-mother">
           <span>S</span>
           <span>h</span>

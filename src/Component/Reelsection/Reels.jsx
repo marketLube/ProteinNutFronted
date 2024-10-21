@@ -34,6 +34,17 @@ export const Reels = () => {
       loop={false}
       mousewheel={false}
       pagination={{ clickable: true }}
+      breakpoints={{
+        // Adjust the number of slides for different screen sizes
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          // 1 slide for small screens like phones
+        },
+        768: {
+          slidesPerView: 3, // 3 slides for tablets and larger screens
+        },
+      }}
       onSwiper={(swiper) => {
         // Add event listeners for mouse enter and leave
         swiper.el.addEventListener("mouseenter", () => {

@@ -9,7 +9,7 @@ function HeaderButtonsContainer() {
 
   return (
     <div className={styles.headerBtnContainer}>
-      <Link to="/myaccount#account">
+      <Link to="/myaccount">
         <motion.div
           className="your-class-name"
           initial={{ scale: 0 }}

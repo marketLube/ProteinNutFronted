@@ -31,7 +31,7 @@ function App() {
       <StyledApp>
         <Header></Header>
         <Outlet />
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </StyledApp>
     </>
   );

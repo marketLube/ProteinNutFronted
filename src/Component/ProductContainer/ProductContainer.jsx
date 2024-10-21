@@ -21,12 +21,18 @@ export const ProductContainer = ({ item }) => {
           <div className="imgcircle"></div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginTop: ".5rem",
+          }}
+        >
           <h2 className={styles.producttitle}>
             Pineapple flavoured Peanut Butter
           </h2>
 
-          <div style={{ padding: "1rem 2rem" }}>
+          <div style={{ padding: "1rem 3rem" }}>
             <FaStar size={24} className="star" color="orange" />
             <FaStar size={24} className="star" color="orange" />
             <FaStar size={24} className="star" color="orange" />

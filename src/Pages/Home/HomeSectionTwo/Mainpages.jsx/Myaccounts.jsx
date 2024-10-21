@@ -2,19 +2,22 @@ import React from "react";
 import { Bill } from "../Component.jsx/Bill";
 import { Myaccount } from "../Component.jsx/Myaccount";
 import { Addresses } from "../Component.jsx/Addresses";
+import { css } from "styled-components";
 
 export const Myaccounts = () => {
   return (
     <div>
       <style>
-        {`
+        {css`
           .formone {
             display: flex;
             background-color: #ffffe6;
             justify-content: space-around;
             padding: 20px;
-            gap: 20px; 
+            gap: 20px;
             padding-top: 150px;
+            max-height: 100vh;
+            overflow: hidden;
           }
 
           @media (max-width: 768px) {

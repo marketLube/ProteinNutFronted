@@ -4,10 +4,15 @@ import { HiArrowCircleRight } from "react-icons/hi";
 import { Parallax } from "react-scroll-parallax";
 import ShopButton from "./ShopButton/ShopButton";
 import { motion, useInView } from "framer-motion";
+import {
+  BannerText,
+  BannerWrapper,
+} from "../Pages/Home/HomeSectionOne/StyledComponents/BannerComponents";
 
 export const HomeLandingSection1 = () => {
   const targetRef = useRef(null);
   const isInView = useInView(targetRef, { amount: 0.3 });
+
   return (
     <>
       <Parallax speed={0} className={styles.healthyflavr} id="community">
@@ -48,7 +53,13 @@ export const HomeLandingSection1 = () => {
               </motion.div>
             </div>
           </div>
-          <div style={{ overflow: "hidden", fontFamily: "Degular" }}>
+          <div
+            style={{
+              overflow: "hidden",
+              fontFamily: "Degular",
+              height: "8rem",
+            }}
+          >
             <motion.div
               initial={{ y: 100 }}
               animate={isInView ? { y: 0 } : { y: 100 }}
@@ -63,6 +74,10 @@ export const HomeLandingSection1 = () => {
             </motion.div>
           </div>
         </motion.h2>
+        <div className={styles.subhead}>
+          Packed with Protein, Powered by Peanut Butter.
+        </div>
+
         <ShopButton style={{ margin: "3rem" }} />
       </Parallax>
     </>
