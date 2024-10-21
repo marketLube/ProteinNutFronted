@@ -48,7 +48,7 @@ export const HomeLandingSection1 = () => {
               </motion.div>
             </div>
           </div>
-          <div style={{ overflow: "hidden" }}>
+          <div style={{ overflow: "hidden", fontFamily: "Degular" }}>
             <motion.div
               initial={{ y: 100 }}
               animate={isInView ? { y: 0 } : { y: 100 }}
@@ -59,7 +59,7 @@ export const HomeLandingSection1 = () => {
               }}
               className={styles.possibilities}
             >
-              Possibilities
+              possibilities
             </motion.div>
           </div>
         </motion.h2>
