@@ -70,11 +70,10 @@ export const GridDisplay = ({products}) => {
       </motion.h2>
 
       <div className={styles.detailsproduct}>
-        {products?.map((product, i)=>{
-          console.log(product);
-          
-          <ProductContainer  />
-        })}
+        <ProductContainer/>
+        <ProductContainer/>
+        <ProductContainer/>
+        <ProductContainer/>
         
       </div>
     </Parallax>
