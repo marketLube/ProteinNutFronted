@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation, useCycle } from "framer-motion";
 import styled, { keyframes, css } from "styled-components";
 import { StyledCircleDummy } from "./Components/StyledCircleDummy";
-import { StyledCircleDummy1 } from "./Components/StyledCircleDummy1";
 
 import heroImage from "/assets/hero-image.png";
 import heroImage2 from "/assets/hero-image-2.png";
 import heroImage3 from "/assets/hero-image-3.png";
 
-const colors = ["#C7F009", "#fbbb97", "#ffcb80"];
+const colors = ["#C7F009", "#9b8977", "#ff9500"];
 const heroImages = [heroImage, heroImage2, heroImage3];
 
 const StyledCircle = styled(motion.div)`

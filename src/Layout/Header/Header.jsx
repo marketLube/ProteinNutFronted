@@ -57,7 +57,7 @@ function Header() {
           <HeaderButtonsContainer />
         </div>
       </StyledHeader>
-      {/* <Navbar /> */}
+      <Navbar />
     </>
   );
 }
