@@ -5,17 +5,12 @@ import { Parallax } from "react-scroll-parallax";
 import { motion, useInView } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 
-export const GridDisplay = ({products}) => {
+export const GridDisplay = ({ products }) => {
   const targetRef = useRef(null);
   const isInView = useInView(targetRef, { amount: 0.3 });
 
-  console.log(isInView, "is in view");
-
-  console.log(products);
-  
-
   return (
-    <Parallax speed={-5} className={styles.display} id="grid">
+    <Parallax className={styles.display} id="grid">
       <motion.h2
         ref={targetRef}
         initial={{ y: 50 }}
@@ -70,11 +65,10 @@ export const GridDisplay = ({products}) => {
       </motion.h2>
 
       <div className={styles.detailsproduct}>
-        <ProductContainer/>
-        <ProductContainer/>
-        <ProductContainer/>
-        <ProductContainer/>
-        
+        <ProductContainer />
+        <ProductContainer />
+        <ProductContainer />
+        <ProductContainer />
       </div>
     </Parallax>
   );

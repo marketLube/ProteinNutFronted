@@ -8,6 +8,7 @@ import { Green } from "../Green/Green";
 import HomeSectionOne from "./HomeSectionOne/HomeSectionOne";
 import { Community } from "./HomeSectionTwo/Community";
 import api from "../../services/api";
+import { Parallax } from "react-scroll-parallax";
 
 function Home() {
   // api to fetch the products
@@ -26,8 +27,10 @@ function Home() {
     <Main>
       <HomeSectionOne />
       <Green />
-      <GridDisplay products={products} />
-      <Landingimg />
+      <div style={{ overflow: "hidden" }}>
+        <GridDisplay products={products} />
+        <Landingimg />
+      </div>
       <div style={{ backgroundColor: "rgb(254,209,65)" }}>
         <HomeLandingSection1 />
         <Reels />

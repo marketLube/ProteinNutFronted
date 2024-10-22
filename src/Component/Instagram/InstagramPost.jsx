@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import "./Instagram.css";
+import { useSelector } from "react-redux";
 // import YouTube from "react-youtube";
 
 const InstagramPost = ({ url }) => {
   const ref = useRef(null);
+
+  const { isDesktop } = useSelector((state) => state.endpoint);
 
   const opts = {
     height: "500", // Set your desired height
@@ -18,11 +21,13 @@ const InstagramPost = ({ url }) => {
     },
   };
 
+  const size = isDesktop ? "500px" : "400px";
+
   return (
     <div ref={ref} className="reelsDisplay">
       <iframe
-        width="500px"
-        height="500px"
+        width={size}
+        height={size}
         // className="post"
         src="https://www.youtube.com/embed/-Hvwzm8sJBQ?rel=0"
         title="YouTube video player"

@@ -116,3 +116,10 @@
     transform: scale(1.1) rotate(10deg);
   }
 }
+
+/* Media Query for mobile screens */
+@media (max-width: 768px) {
+  .productcard {
+    padding: 0;
+  }
+}
