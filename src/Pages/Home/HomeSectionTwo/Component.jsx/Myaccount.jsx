@@ -10,7 +10,6 @@ export const Myaccount = () => {
             max-width: 900px;
             margin: auto;
             padding: 2px;
-            // background-color: #2ec780;
             font-family: Arial, sans-serif;
             width: 50rem;
             height: 100vh;
@@ -48,13 +47,9 @@ export const Myaccount = () => {
           }
           .order-item {
             display: flex;
-            // justify-content: space-between;
             align-items: center;
             gap: 2rem;
             padding: 15px;
-            // background-color: #fff;
-            border-radius: 8px;
-            // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
           }
 
@@ -73,7 +68,6 @@ export const Myaccount = () => {
 
           .order-detail {
             margin-right: 80px;
-
             background-color: #ac0d0d;
           }
 
@@ -84,17 +78,93 @@ export const Myaccount = () => {
             border-radius: 20px;
             font-size: 14px;
             width: 80px;
-            border: none; /* Remove border */
-            outline: none; /* Remove outline */
+            border: none;
           }
+
           .order-status-delivered {
             background-color: #4caf50;
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 14px;
-            border: none; /* Remove border */
-            outline: none; 
+            border: none;
+          }
+
+          /* Media Queries for Responsive Design */
+          @media (max-width: 768px) {
+            .account-container {
+              width: 100%;
+              padding: 10px;
+              height: auto;
+            }
+
+            .account-header {
+              font-size: 28px;
+            }
+
+            .logout-button {
+              font-size: 16px;
+              padding: 8px 15px;
+            }
+
+            .order-item {
+              flex-direction: row;
+              align-items: center;
+              gap: 1rem;
+              padding: 10px;
+            }
+
+            .order-image {
+              width: 45px;
+              height: 40px;
+            }
+
+            .order-item span {
+              font-size: 14px;
+            }
+
+            .order-status-track {
+              width: 2rem;
+            }
+            .order-status-delivered {
+              font-size: 12px;
+              padding: 5px;
+              width: auto;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .account-header {
+              font-size: 24px;
+            }
+
+            .logout-button {
+              font-size: 14px;
+              padding: 6px 12px;
+            }
+
+            .order-item {
+              gap: 0.5rem;
+              padding: 8px;
+            }
+
+            .order-image {
+              width: 35px;
+              height: 30px;
+            }
+
+            .order-item span {
+              font-size: 12px;
+            }
+
+            .order-status-track {
+              width: 5rem;
+            }
+            .order-status-delivered {
+              font-size: 10px;
+              padding: 4px;
+              width: auto;
+            }
           }
         `}
       </style>

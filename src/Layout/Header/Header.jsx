@@ -20,18 +20,21 @@ function Header() {
       }
     };
   };
+  console.log(isHome, "iiiiiiiiiiiiiii");
 
   return (
     <>
       <HeaderBg $isHome={isHome} />
       <StyledHeader $isHome={isHome}>
         <div className={styles.headerText}>
-          <button
-            onClick={scrollToTarget("grid")}
-            className={`btn ${styles.headerLinks}`}
-          >
-            Shop
-          </button>
+          <Link to={"/"}>
+            <button
+              onClick={scrollToTarget("grid")}
+              className={`btn ${styles.headerLinks}`}
+            >
+              Shop
+            </button>
+          </Link>
 
           <button
             onClick={scrollToTarget("community")}
@@ -54,7 +57,7 @@ function Header() {
           <HeaderButtonsContainer />
         </div>
       </StyledHeader>
-      <Navbar />
+      {/* <Navbar /> */}
     </>
   );
 }

@@ -1,35 +1,37 @@
 import React from "react";
+import styles from "./Riviews.module.css";
+import { FaArrowCircleRight } from "react-icons/fa";
 
 export const Riviews = () => {
   return (
-    <div className="reviews-and-ratings">
-      <div className="header">
+    <div className={styles.reviewsandratings}>
+      <div className={styles.header}>
         <h2>Reviews & Ratings</h2>
-        <button className="rate-product-btn">
-          {/* Rate Product <ChevronRight className="chevron-icon" /> */}
+        <button className={styles.rateproductbtn}>
+          Rate Product <FaArrowCircleRight className={styles.iicon} />
         </button>
       </div>
-      <div className="rating">
+      <div className={styles.rating}>
         <div className="stars">
           {/* {[1, 2, 3, 4].map((star) => (
             <Star key={star} className="star filled" />
           ))}
           <Star className="star" /> */}
         </div>
-        <span className="review-count">12 Reviews</span>
+        <span className={styles.reviewcount}>12 Reviews</span>
       </div>
-      <div className="review-box">
-        <div className="review-rating">
-          {/* <span className="rating-badge">4★</span> */}
-          <span className="rating-text">Excellent</span>
+      <div className={styles.reviewbox}>
+        <div className={styles.reviewrating}>
+          <span className={styles.ratingbadge}>4★</span>
+          <span className={styles.ratingtext}>Excellent</span>
         </div>
-        <p className="review-text">
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+        <p className={styles.reviewtext}>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
           nonummy nibh euismod tincidunt ut laoreet. Lorem ipsum dolor sit amet,
           consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-          ut laoreet"
+          ut laoreet.
         </p>
-        <p className="reviewer-info">Varun Viswan, Calicut</p>
+        <p className={styles.reviewerinfo}>Varun Viswan, Calicut</p>
       </div>
     </div>
   );

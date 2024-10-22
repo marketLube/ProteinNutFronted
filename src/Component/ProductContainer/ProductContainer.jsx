@@ -18,7 +18,7 @@ export const ProductContainer = ({ item }) => {
             alt="Pineapple Peanut Butter"
             className={styles.productimage + " hover-animation"}
           />
-          <div className="imgcircle"></div>
+          {/* <div className={styles.imgcircle}></div> */}
         </div>
 
         <div

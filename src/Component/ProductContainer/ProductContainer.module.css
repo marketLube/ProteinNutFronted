@@ -13,10 +13,10 @@
 .productcard::before {
   content: "";
   position: absolute;
-  margin: 0 auto; /* Added back */
-  width: 19rem;
-  height: 15rem;
-  background-color: white;
+  margin-left: 2rem; /* Added back */
+  width: 16rem;
+  height: 16rem;
+  background-color: #ffffff;
   border-radius: 60%;
   z-index: 2;
   left: 19%;
@@ -118,8 +118,9 @@
 }
 
 /* Media Query for mobile screens */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .productcard {
     padding: 0;
   }
-}
+  
+} */

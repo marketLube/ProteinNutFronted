@@ -1,9 +1,10 @@
-.reviews-and-ratings {
-  background-color: #fffcf5;
+.reviewsandratings {
+  background-color: #ffffff;
   border: 1px solid #f0e9d6;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  max-width: 42rem;
+  border-radius: 3rem;
+  padding: 6rem;
+  max-width: 85rem;
+  height: 40rem;
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -16,29 +17,32 @@
 }
 
 .header h2 {
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #1f2937;
 }
 
-.rate-product-btn {
+.rateproductbtn {
   background-color: #00a86b;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-weight: 600;
+  width: 15rem;
+  height: 4rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: background-color 0.3s ease;
   border: none;
   cursor: pointer;
 }
 
-.rate-product-btn:hover {
+.rateproductbtn:hover {
   background-color: #008f5d;
 }
 
-.chevron-icon {
+.iicon {
   margin-left: 0.25rem;
   width: 18px;
   height: 18px;
@@ -61,52 +65,58 @@
   color: #d1d5db;
 }
 
-.star.filled {
+.star .filled {
   color: #fbbf24;
   fill: currentColor;
 }
 
-.review-count {
+.reviewcount {
   color: #4b5563;
-  font-size: 0.875rem;
+  font-size: 2rem;
 }
 
-.review-box {
+.reviewbox {
   background-color: #fff;
-  border: 1px solid #f0e9d6;
+  /* border: 1px solid #f0e9d6; */
   border-radius: 0.5rem;
   padding: 1rem;
+  height: 15rem;
+  width: 70%;
+  padding-top: 2rem;
 }
 
-.review-rating {
+.reviewrating {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.rating-badge {
+.ratingbadge {
   background-color: #fbbf24;
-  color: white;
+  color: rgb(10, 10, 10);
   font-weight: bold;
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1.5rem;
   margin-right: 0.5rem;
 }
 
-.rating-text {
+.ratingtext {
   font-weight: 600;
   color: #1f2937;
+  font-size: 1.5rem;
 }
 
-.review-text {
+.reviewtext {
   color: #4b5563;
   margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding-top: 1rem;
 }
 
-.reviewer-info {
+.reviewerinfo {
   color: #6b7280;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  padding-top: 1rem;
 }

@@ -3,6 +3,8 @@ import { motion, useCycle } from "framer-motion";
 import Logo from "../../Utils/Logo/Logo";
 import styles from "./Navbar.module.css";
 import { FaGripLines } from "react-icons/fa6";
+import { useSelector } from "react-redux";
+import { HeaderBg } from "../../UI/MainComponents/StyledHeader";
 
 const navItems = ["Shop", "Community", "Contact", "Profile", "Cart"];
 
@@ -53,6 +55,9 @@ const navItemVariants = {
 };
 
 export const Navbar = () => {
+  // const { isHome } = useSelector((state) => state.general);
+  // console.log(isHome, "888888");
+
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
 

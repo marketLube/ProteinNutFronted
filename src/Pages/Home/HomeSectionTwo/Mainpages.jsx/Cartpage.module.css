@@ -3,12 +3,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 125px;
   margin-top: 50px;
-  /* background-color: rgb(156, 224, 241); */
+  /* background-color: rgb(224, 240, 86); */
+}
+.carthead {
+  /* background-color: aqua; */
+  font-size: 5rem;
+  padding-top: 10rem;
+  padding-left: 10.5rem;
 }
 
-/* Responsive Layout */
 @media (max-width: 768px) {
   .sectionone {
     flex-direction: column;
@@ -17,7 +22,6 @@
 }
 
 @media (max-width: 480px) {
-  /* For mobile devices */
   .sectionone {
     flex-direction: column;
     gap: 20px;

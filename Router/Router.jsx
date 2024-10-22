@@ -25,6 +25,8 @@ import { Swipercomponent } from "../src/Component/Reelsection/Swipercomponent";
 import { Cartpage } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/Cartpage";
 import { SelectedProduct } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/SelectedProduct";
 import { SelectedItem } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/SelectedItem";
+import { Riviews } from "../src/Component/Riviews/Riviews";
+import { RiviewRating } from "../src/Component/Riviews/RiviewRating";
 
 const router = createBrowserRouter([
   {
@@ -130,6 +132,14 @@ const router = createBrowserRouter([
       {
         path: "select",
         element: <SelectedItem />,
+      },
+      {
+        path: "riview",
+        element: <Riviews />,
+      },
+      {
+        path: "rate",
+        element: <RiviewRating />,
       },
     ],
   },

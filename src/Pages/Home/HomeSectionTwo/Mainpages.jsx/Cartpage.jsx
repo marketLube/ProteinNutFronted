@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export const Cartpage = () => {
   return (
     <div className={styles.maindiv}>
-      <h1>Your cart</h1>
+      <h1 className={styles.carthead}>Your cart</h1>
       <div className={styles.sectionone}>
         <div>
           <ProductDetails />

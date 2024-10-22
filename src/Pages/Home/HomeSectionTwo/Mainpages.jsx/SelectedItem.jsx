@@ -2,19 +2,26 @@ import React from "react";
 import { ProductDetails } from "../../../../Component/ProductDisplay/ProductDetails";
 import { ProductDisplay } from "../Component.jsx/Naturalcrunchy";
 import { SelectedProduct } from "../Component.jsx/SelectedProduct";
+import { css } from "styled-components";
+import { Riviews } from "../../../../Component/Riviews/Riviews";
 
 export const SelectedItem = () => {
   return (
     <div>
       <style>
-        {`
-         .formone {
+        {css`
+          .formone {
             display: flex;
-            background-color: #ffffe6;
+
             justify-content: space-around;
             padding: 20px;
-            gap: 20px; 
+            gap: 20px;
             padding-top: 150px;
+          }
+          .total {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffe6;
           }
 
           @media (max-width: 768px) {
@@ -38,9 +45,14 @@ export const SelectedItem = () => {
           }
         `}
       </style>
-      <div className="formone">
-        <SelectedProduct />
-        <ProductDisplay />
+      <div className="total">
+        <div className="formone">
+          <SelectedProduct />
+          <ProductDisplay />
+        </div>
+        <div>
+          <Riviews />
+        </div>
       </div>
     </div>
   );
