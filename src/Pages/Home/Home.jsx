@@ -28,7 +28,7 @@ function Home() {
       <HomeSectionOne />
       <Green />
       <div style={{ overflow: "hidden" }}>
-        <GridDisplay products={products} />
+        <GridDisplay products={products} isLoading={isLoading} error={error} />
         <Landingimg />
       </div>
       <div style={{ backgroundColor: "rgb(254,209,65)" }}>
