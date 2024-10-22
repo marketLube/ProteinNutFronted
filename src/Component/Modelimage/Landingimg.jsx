@@ -26,11 +26,7 @@ const Landingimg = () => {
           scale={isDesktop ? [1.3, 1.5] : [1.2, 1.7]}
           className={styles.imageContainer}
         >
-          <img
-            src="./Image/BGbYellowfnl.jpg"
-            alt=""
-            className={styles.modalimg}
-          />
+          <img src="./Image/WebBanner.svg" alt="" className={styles.modalimg} />
         </Parallax>
       </Parallax>
 

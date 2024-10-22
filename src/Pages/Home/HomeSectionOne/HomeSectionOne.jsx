@@ -159,7 +159,7 @@ const CurlingText = ({ text }) => {
   );
 };
 
-const colors = ["#C7F009", "#fbbb97", "#ffcb80"];
+const colors = ["#C7F009", "#3e2d26", "#ffcb80"];
 
 const ChangingText = ({ colorIndex }) => {
   const phrases = ["Crunchy Energy", "Nutty Goodness", "Protein Power"];
