@@ -13,7 +13,7 @@ export const SelectedItem = () => {
           .formone {
             display: flex;
 
-            justify-content: space-around;
+            justify-content: center;
             padding: 20px;
             gap: 20px;
             padding-top: 150px;
