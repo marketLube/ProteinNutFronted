@@ -1,9 +1,11 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 import { Parallax } from "react-scroll-parallax";
 import { css } from "styled-components";
 
 export const Community = () => {
+  const { isDesktop } = useSelector((state) => state.endpoint);
   return (
     <div>
       <style>
@@ -175,7 +177,7 @@ export const Community = () => {
 
           @media (min-width: 768px) {
             .container-main {
-              padding: 60px;
+              /* padding: 60px; */
             }
 
             .container {
@@ -256,7 +258,7 @@ export const Community = () => {
           }
         `}
       </style>
-      <Parallax speed={20} className="container-main">
+      <Parallax speed={isDesktop ? 20 : 0} className="container-main">
         <div className="container" id="contact">
           <div className="container-items">
             <div className="content">

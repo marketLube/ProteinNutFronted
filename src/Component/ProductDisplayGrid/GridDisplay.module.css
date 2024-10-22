@@ -8,11 +8,13 @@
   /* background-color:#f2b773 ; */
   flex: 1;
   padding: 1rem 0;
+  padding-bottom: -3rem;
 }
 
 .display {
   width: 100%;
-  padding: 15rem;
+  padding: 10rem;
+  padding-bottom: 15rem;
   flex-direction: column;
   background-color: transparent;
   font-family: "Degular";
@@ -21,6 +23,7 @@
 .headingSecondary {
   font-size: 8rem;
   line-height: 1;
+  padding-top: 3rem;
 }
 .headingFirst {
   display: flex;
@@ -75,11 +78,10 @@
 @media (max-width: 768px) {
   .detailsproduct {
     grid-template-columns: 1fr; /* Single column layout */
-    gap: 20px; /* Adjust the gap size */
   }
 
   .display {
-    padding: 4rem; /* Adjust the padding */
+    padding: 2rem; /* Adjust the padding */
   }
 
   .heading {

@@ -3,10 +3,16 @@
   user-select: none;
   position: relative;
   z-index: 2; /* Ensure swiper is above other elements */
-  width: 90%;
+  width: 78%;
 }
 
 .bg {
   overflow: hidden; /* Prevent scroll bleeding */
   touch-action: none;
+}
+@media (max-width: 768px) {
+  .reels {
+    width: 100%;
+    touch-action: cross-slide-x;
+  }
 }

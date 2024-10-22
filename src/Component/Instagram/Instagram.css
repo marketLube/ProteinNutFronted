@@ -20,3 +20,10 @@
   transform: scale(1.1);
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .reelsDisplay {
+    width: 30rem;
+    height: 400px;
+    margin: 70px auto;
+  }
+}

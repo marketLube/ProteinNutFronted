@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./src/fonts.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/utility.css" />
-    <script defer src="//www.instagram.com/embed.js"></script>
     <title>Protein Nut</title>
   </head>
   <body>
@@ -23,14 +22,14 @@
         let isScrolling = false;
         let lastTouchY = 0;
         let lastScrollTime = Date.now();
-        const throttleDelay = 33;
+        const throttleDelay = 35;
 
         // Adjusted momentum constants
-        const FRICTION = 0.6; // Increased friction for longer continuation (closer to 1 = less friction)
+        const FRICTION = 0.99; // Increased friction for longer continuation (closer to 1 = less friction)
         const MOMENTUM_MULTIPLIER = 0.2; // Increased for more momentum
         const VELOCITY_THRESHOLD = 0.1; // Lowered threshold to allow longer continuation
-        const SCROLL_MULTIPLIER = 0.8; // Increased for stronger initial scroll
-        const CONTINUATION_BOOST = 0.5; // Added boost factor for end-of-scroll continuation
+        const SCROLL_MULTIPLIER = 1.6; // Increased for stronger initial scroll
+        const CONTINUATION_BOOST = 0.9; // Added boost factor for end-of-scroll continuation
 
         function throttle(callback, delay) {
           let timeoutId;
@@ -160,7 +159,7 @@
       }
 
       // Only initialize on desktop
-      window.innerWidth >= 768 && smoothScroll();
+      smoothScroll();
     </script>
   </body>
 </html>

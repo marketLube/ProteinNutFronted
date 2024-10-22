@@ -1,13 +1,8 @@
 import React, { useRef } from "react";
 import styles from "./HomeLandingSection1.module.css";
-import { HiArrowCircleRight } from "react-icons/hi";
 import { Parallax } from "react-scroll-parallax";
 import ShopButton from "./ShopButton/ShopButton";
 import { motion, useInView } from "framer-motion";
-import {
-  BannerText,
-  BannerWrapper,
-} from "../Pages/Home/HomeSectionOne/StyledComponents/BannerComponents";
 
 export const HomeLandingSection1 = () => {
   const targetRef = useRef(null);

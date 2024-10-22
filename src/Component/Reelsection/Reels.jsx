@@ -8,7 +8,6 @@ import {
   Mousewheel,
   A11y,
   Autoplay,
-  EffectFade,
 } from "swiper/modules";
 import styles from "./Reels.module.css";
 
@@ -18,18 +17,25 @@ import "swiper/css/autoplay";
 import { Parallax } from "react-scroll-parallax";
 
 import InstagramPost from "../Instagram/InstagramPost";
+import { useSelector } from "react-redux";
 
 export const Reels = () => {
+  const { isMobile } = useSelector((state) => state.endpoint);
+  const slides = isMobile ? 2 : 4;
   return (
     <Swiper
       modules={[Navigation, Pagination, Mousewheel, A11y, Autoplay]}
-      spaceBetween={1}
-      slidesPerView={3}
-      autoplay={{
-        delay: 1000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      }}
+      spaceBetween={0}
+      slidesPerView={slides}
+      autoplay={
+        !isMobile
+          ? {
+              delay: 1000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }
+          : false
+      }
       speed={1500}
       className={styles.reels}
       loop={false}
