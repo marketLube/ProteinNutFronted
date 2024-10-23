@@ -9,9 +9,8 @@ export const ProductDisplay = ({product}) => {
   const salePrice = product.price - (product.price * (product.offer / 100));
   
   const [pincode,setPincode]=useState('')
-  console.log(pincode);
 
-  console.log(quantity);
+  const [weight,setWeight]=useState(500);
   
   
   
@@ -130,12 +129,13 @@ export const ProductDisplay = ({product}) => {
             font-size: 18px;
           }
 
+          
+
           .size-button {
             padding: 8px 16px;
             background-color: #fff9f2;
             border: none;
             border-radius: 4px;
-            margin-left: 16px;
             font-weight: bold;
           }
 
@@ -244,7 +244,12 @@ export const ProductDisplay = ({product}) => {
             >
               +
             </button>
-            <button className="size-button">1 KG</button>
+            <div style={{display:"flex", gap:"1rem"}}>
+              <button className="size-button">250G</button>
+              <button className="size-button">500G</button>
+              <button className="size-button">1KG</button>
+            </div>
+           
           </div>
 
           <div className="button-container">

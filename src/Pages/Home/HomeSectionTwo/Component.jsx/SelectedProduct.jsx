@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./SelectedProduct.module.css";
 
-export const SelectedProduct = ({product}) => {
+export const SelectedProduct = ({ product }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   return (
     <div className={styles.main}>
@@ -13,17 +13,24 @@ export const SelectedProduct = ({product}) => {
       />
 
       <div className={styles.firstsection}>
-      {product?.image.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={product?.name}
-            onClick={() => setSelectedImageIndex(index)}
-            className={index === selectedImageIndex ? styles.selectedImg : ''}
-          />
-        ))}
+        {product?.image.map((img, index) => {
 
-        
+          if(product?.image[index]){
+            return (<img
+              key={index}
+              src={img}
+              alt={product?.name}
+              onClick={() => setSelectedImageIndex(index)}
+              className={index === selectedImageIndex ? styles.selectedImg : ''}
+            />)
+          }
+          else{
+            return null;
+          }
+          
+        })}
+
+
       </div>
     </div>
   );

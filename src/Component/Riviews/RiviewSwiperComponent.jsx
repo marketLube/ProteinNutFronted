@@ -13,7 +13,7 @@ export const RiviewSwiperComponent = ({ review, key }) => {
         </div>
         <p className={styles.reviewtext}>{review.message}</p>
         <p className={styles.reviewerinfo}>
-          {review.user.name} , {review.user.email}
+          {review?.user?.name} , {review?.user?.email}
         </p>
       </div>
     </div>
