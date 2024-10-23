@@ -20,7 +20,6 @@ import { FormOne } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/FormOne"
 import { Bill } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/Bill";
 import { HomeLandingSection1 } from "../src/Component/HomeLandingSection1";
 import { Navbar } from "../src/Component/Navigation/Navbar";
-import { Reels } from "../src/Component/Reelsection/Reels";
 import { Swipercomponent } from "../src/Component/Reelsection/Swipercomponent";
 import { Cartpage } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/Cartpage";
 import { SelectedProduct } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/SelectedProduct";
