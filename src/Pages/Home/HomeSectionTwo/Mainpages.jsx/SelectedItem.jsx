@@ -4,8 +4,14 @@ import { ProductDisplay } from "../Component.jsx/Naturalcrunchy";
 import { SelectedProduct } from "../Component.jsx/SelectedProduct";
 import { css } from "styled-components";
 import { Riviews } from "../../../../Component/Riviews/Riviews";
+import { useLocation } from "react-router-dom";
 
 export const SelectedItem = () => {
+
+  const location = useLocation();
+  const product = location.state?.product;
+  console.log(product);
+  
   return (
     <div>
       <style>
@@ -47,8 +53,8 @@ export const SelectedItem = () => {
       </style>
       <div className="total">
         <div className="formone">
-          <SelectedProduct />
-          <ProductDisplay />
+          <SelectedProduct product={product} />
+          <ProductDisplay product={product} />
         </div>
         <div>
           <Riviews />
