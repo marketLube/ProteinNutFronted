@@ -27,6 +27,7 @@ import { SelectedProduct } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/
 import { SelectedItem } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/SelectedItem";
 import { Riviews } from "../src/Component/Riviews/Riviews";
 import { RiviewRating } from "../src/Component/Riviews/RiviewRating";
+import { RiviewSwiperComponent } from "../src/Component/Riviews/RiviewSwiperComponent";
 
 const router = createBrowserRouter([
   {
@@ -140,6 +141,10 @@ const router = createBrowserRouter([
       {
         path: "rate",
         element: <RiviewRating />,
+      },
+      {
+        path: "ratecomp",
+        element: <RiviewSwiperComponent />,
       },
     ],
   },
