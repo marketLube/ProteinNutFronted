@@ -55,7 +55,7 @@
   font-size: 20px;
   color: #00004d;
   text-align: start;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   /* margin-top: 0px; */
   padding: 0 30px;
 }
@@ -70,7 +70,7 @@
   justify-content: flex-start;
   text-align: start;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .currentprice {

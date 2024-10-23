@@ -3,10 +3,12 @@
   border: 1px solid #f0e9d6;
   border-radius: 3rem;
   padding: 6rem;
-  max-width: 70vw;
-  height: 40rem;
+  max-width: 50vw;
+  height: fit-content;
   margin: 0 auto;
+  margin-bottom: 10rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 1s ease-in-out;
 }
 
 .header {
@@ -21,11 +23,9 @@
   font-weight: bold;
   color: #1f2937;
 }
-.myswiper {
-}
 
 .rateproductbtn {
-  background-color: #00a86b;
+  background-color: #5c8e55;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
@@ -41,7 +41,7 @@
 }
 
 .rateproductbtn:hover {
-  background-color: #008f5d;
+  background-color: #195c10;
 }
 
 .iicon {
@@ -62,14 +62,16 @@
 }
 
 .star {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   color: #d1d5db;
 }
 
 .starfilled {
   color: #fbbf24;
-  fill: currentColor;
+  fill: #fbbf24;
+  width: 30px;
+  height: 30px;
 }
 
 .reviewcount {

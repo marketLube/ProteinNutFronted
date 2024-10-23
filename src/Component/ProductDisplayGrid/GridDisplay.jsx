@@ -4,10 +4,26 @@ import { ProductContainer } from "../ProductContainer/ProductContainer";
 import { Parallax } from "react-scroll-parallax";
 import { motion, useInView } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
+import SkeletonLoader from "../SkeltonLoader/SkeltonLoader";
 
-export const GridDisplay = ({ products }) => {
+export const GridDisplay = ({products,isLoading,error}) => {
   const targetRef = useRef(null);
   const isInView = useInView(targetRef, { amount: 0.3 });
+
+  // const {
+  //   data: products,
+  //   isLoading,
+  //   error,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: ["products"],
+  //   queryFn: () => api.get("/products").then((res) => res?.data.docs),
+  // });
+
+  console.log(products);
+  
+
+  
 
   return (
     <Parallax className={styles.display} id="grid">
@@ -65,10 +81,20 @@ export const GridDisplay = ({ products }) => {
       </motion.h2>
 
       <div className={styles.detailsproduct}>
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
+        {isLoading ? (
+          // Show skeletons while loading
+          Array.from({ length: 4 }).map((_, index) => (
+            <SkeletonLoader key={index} />
+          ))
+        ) : error ? (
+          <div className={styles.error}>Error loading products.</div>
+        ) : products?.length === 0 ? (
+          <div className={styles.noProducts}>No products available.</div>
+        ) : (
+          products.map((product, i) => (
+            <ProductContainer product={product} key={i} />
+          ))
+        )}
       </div>
     </Parallax>
   );
