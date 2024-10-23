@@ -6,13 +6,30 @@ import { Swipercomponent } from "../Reelsection/Swipercomponent";
 import { RiviewSwiperComponent } from "./RiviewSwiperComponent";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { RiviewRating } from "./RiviewRating";
+import { useQuery } from "@tanstack/react-query";
+import api from "../../services/api";
 
-export const Riviews = () => {
+export const Riviews = ({ productid }) => {
   const [isRatingform, setisRatingform] = useState(false);
+  const [isReview, setisReview] = useState();
 
   const handleClick = () => {
     setisRatingform(!isRatingform);
   };
+  const {
+    data: review,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["productriview"],
+    queryFn: () =>
+      api
+        .get(`/reviews/product/${productid}`)
+        .then((res) => res.data.data.reveiws),
+  });
+
+  console.log(review, "data");
   return (
     <div className={styles.reviewsandratings}>
       <div className={styles.header}>
@@ -28,7 +45,7 @@ export const Riviews = () => {
           ))}
           <MdOutlineStarBorder className={styles.star} />
         </div>
-        <span className={styles.reviewcount}>12 Reviews</span>
+        <span className={styles.reviewcount}>{review?.ratingQty} Reviews</span>
       </div>
 
       {isRatingform ? (
@@ -41,11 +58,9 @@ export const Riviews = () => {
         />
       ) : null}
 
-      <RiviewSwiperComponent />
-      <RiviewSwiperComponent />
-      <RiviewSwiperComponent />
-      <RiviewSwiperComponent />
-      <RiviewSwiperComponent />
+      {review?.map((review, id) => (
+        <RiviewSwiperComponent review={review} key={id} />
+      ))}
     </div>
   );
 };
