@@ -38,7 +38,7 @@ export const ProductContainer = ({ product }) => {
 
   return (
     <div className={styles.productcard} style={{ display: "flex", alignItems: "center" }}>
-      <Link style={{ textDecoration: "none" }} to="/select">
+      <Link style={{ textDecoration: "none" }} to="/select" state={{ product }}>
         <div>
           <img
             src={product?.image[0]}
