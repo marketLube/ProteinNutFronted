@@ -1,33 +1,33 @@
+// ProductContainer.jsx
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./ProductContainer.module.css";
-import { Link } from "react-router-dom";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 export const ProductContainer = ({ product }) => {
-  console.log(product);
+  const navigate = useNavigate();
 
   const currentPrice = product.price - (product.price * (product.offer / 100));
-  console.log(currentPrice);
 
-  console.log(product.avgRatings);
+  const handleProductClick = () => {
+    // Navigate programmatically and scroll to top
+    navigate("/select", { state: { product } });
+    window.scrollTo(0, 0);
+  };
 
-  // Function to render stars based on avgRatings
   const renderStars = (avgRatings) => {
     const stars = [];
     const fullStars = Math.floor(avgRatings);
     const hasHalfStar = avgRatings % 1 >= 0.5;
 
-    // Add full stars
     for (let i = 0; i < fullStars; i++) {
       stars.push(<FaStar key={i} size={24} className="star" color="orange" />);
     }
 
-    // Add half star if applicable
     if (hasHalfStar) {
       stars.push(<FaStarHalfAlt key={fullStars} size={24} className="star" color="orange" />);
     }
 
-    // Add empty stars
     const emptyStarsCount = 5 - Math.ceil(avgRatings);
     for (let i = 0; i < emptyStarsCount; i++) {
       stars.push(<FaStar key={fullStars + 1 + i} size={24} className="star" color="lightgray" />);
@@ -38,7 +38,7 @@ export const ProductContainer = ({ product }) => {
 
   return (
     <div className={styles.productcard} style={{ display: "flex", alignItems: "center" }}>
-      <Link style={{ textDecoration: "none" }} to="/select" state={{ product }}>
+      <div onClick={handleProductClick} style={{ cursor: "pointer", textDecoration: "none" }}>
         <div>
           <img
             src={product?.image[0]}
@@ -59,7 +59,7 @@ export const ProductContainer = ({ product }) => {
             <span className={styles.originalprice}>Rs. {product?.price}</span>
           </div>
         </div>
-      </Link>
+      </div>
       <button className={styles.addtocartbutton}>Add To Cart</button>
     </div>
   );
