@@ -70,9 +70,7 @@ export const Navbar = () => {
     // Redirect to specific routes for Profile and Cart
     switch (id) {
       case "profile":
-        toggleOpen();
         window.location.href = '/myaccount';
-        
         break;
       case "cart":
         window.location.href = '/cartpage';
@@ -85,7 +83,7 @@ export const Navbar = () => {
 
   return (
     <div className={styles.naavbar}>
-      <Link to="/"><Logo /></Link>
+      <Link to={'/'}><Logo /></Link>
 
       <motion.nav
         initial={false}

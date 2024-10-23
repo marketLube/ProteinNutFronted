@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledApp = styled.div`
-  max-width: 1800px;
+  max-width: 2000px;
   min-height: 100vh;
   margin: 0 auto;
 
@@ -12,7 +12,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const StyledMain = styled.main`
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 
 `;

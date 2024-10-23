@@ -97,6 +97,8 @@ export const Riviews = ({ product }) => {
               ? { transform: "scaleX(1)" }
               : { transform: "scaleX(0)" }
           }
+
+          handleClick={handleClick}
         />
       ) : null}
 

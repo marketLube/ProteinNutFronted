@@ -7,6 +7,7 @@ export const ProductDisplay = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [location, setLocation] = useState("");
   const [pincode, setPincode] = useState("");
+  const [selectedWeight, setSelectedWeight] = useState("500G"); // Default weight
 
   // Calculate sale price
   const salePrice = product.price - product.price * (product.offer / 100);
@@ -14,15 +15,13 @@ export const ProductDisplay = ({ product }) => {
   // Function to render stars based on rating
   const renderStars = (avgRatings) => {
     const stars = [];
-    const fullStars = Math.floor(avgRatings); // Full stars
-    const hasHalfStar = avgRatings % 1 >= 0.5; // Check for half star
+    const fullStars = Math.floor(avgRatings);
+    const hasHalfStar = avgRatings % 1 >= 0.5;
 
-    // Add full stars
     for (let i = 0; i < fullStars; i++) {
       stars.push(<FaStar key={i} size={24} className="star" color="orange" />);
     }
 
-    // Add half star if applicable
     if (hasHalfStar) {
       stars.push(
         <FaStarHalfAlt
@@ -34,7 +33,6 @@ export const ProductDisplay = ({ product }) => {
       );
     }
 
-    // Add empty stars
     const emptyStarsCount = 5 - Math.ceil(avgRatings);
     for (let i = 0; i < emptyStarsCount; i++) {
       stars.push(
@@ -50,9 +48,14 @@ export const ProductDisplay = ({ product }) => {
     return stars;
   };
 
+  // Handle pincode input change
+  const handlePincodeChange = (e) => {
+    setPincode(e.target.value);
+    setLocation("");
+  };
+
   // Function to handle location check based on pincode
   const checkAvailability = () => {
-    // Mock location check based on pincode
     if (pincode === "673019") {
       setLocation("Olavanna, Kozhikode");
     } else {
@@ -146,7 +149,7 @@ export const ProductDisplay = ({ product }) => {
           .quantity-container {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 10px;
             margin-bottom: 24px;
           }
 
@@ -154,8 +157,8 @@ export const ProductDisplay = ({ product }) => {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border: 1px solid #00004d;
             border-radius: 50%;
             background: none;
@@ -166,15 +169,20 @@ export const ProductDisplay = ({ product }) => {
             font-size: 18px;
           }
 
-          
-
           .size-button {
-            padding: 8px 16px;
+            padding: 5px 10px;
             background-color: #fff9f2;
             border: none;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
           }
+
+          .size-button.active {
+            border: 1px solid #4caf50;
+        }
 
           .button-container {
             display: flex;
@@ -214,7 +222,7 @@ export const ProductDisplay = ({ product }) => {
             font-size: 16px;
             cursor: pointer;
             font-weight: bold;
-            color: 00004d;
+            color: #00004d;
           }
 
           .description {
@@ -249,7 +257,8 @@ export const ProductDisplay = ({ product }) => {
                 type="number"
                 className="pincode"
                 placeholder="Enter the pincode"
-                onChange={(e) => setPincode(e.target.value)}
+                value={pincode}
+                onChange={handlePincodeChange}
                 style={{
                   borderTop: "none",
                   borderRight: "none",
@@ -260,8 +269,8 @@ export const ProductDisplay = ({ product }) => {
               />
             </div>
             <div className="location-container-text">
-              {location ? (
-                <span>{location}</span>
+              {location && pincode ? (
+                <span className="location-container-text" style={{ color: "#4caf50" }}>{location}</span>
               ) : (
                 <button
                   className="check-availability"
@@ -287,12 +296,26 @@ export const ProductDisplay = ({ product }) => {
             >
               +
             </button>
-            <div style={{display:"flex", gap:"1rem"}}>
-              <button className="size-button">250G</button>
-              <button className="size-button">500G</button>
-              <button className="size-button">1KG</button>
+            <div style={{ display: "flex", gap: ".5rem", flexDirection:"wrap" }}>
+              <button
+                className={`size-button ${selectedWeight === "250G" ? "active" : ""}`}
+                onClick={() => setSelectedWeight("250G")}
+              >
+                250G
+              </button>
+              <button
+                className={`size-button ${selectedWeight === "500G" ? "active" : ""}`}
+                onClick={() => setSelectedWeight("500G")}
+              >
+                500G
+              </button>
+              <button
+                className={`size-button ${selectedWeight === "1KG" ? "active" : ""}`}
+                onClick={() => setSelectedWeight("1KG")}
+              >
+                1KG
+              </button>
             </div>
-           
           </div>
 
           <div className="button-container">
@@ -308,3 +331,5 @@ export const ProductDisplay = ({ product }) => {
     </div>
   );
 };
+
+export default ProductDisplay;

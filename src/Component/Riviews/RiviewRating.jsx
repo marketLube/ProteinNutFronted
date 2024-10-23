@@ -6,12 +6,14 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-stars";
 
-export const RiviewRating = ({ style }) => {
+export const RiviewRating = ({ style,handleClick }) => {
   const form = useForm({});
   const { register, handleSubmit, setValue } = form;
 
+  // review submiting logic
   const onSubmitftn = (data) => {
     console.log(data);
+    handleClick()
   };
 
   // const ratingChanged = (newRating) => {
@@ -58,9 +60,15 @@ export const RiviewRating = ({ style }) => {
             {...register("Description")}
           />
         </div>
-        <button className={styles.submitbutton}>
-          Submit <FaArrowCircleRight className={styles.icn} />
-        </button>
+        <div style={{display:"flex",float:"right",gap:"1rem"}}>
+          <button className={styles.cancelbutton} onClick={handleClick}>
+            cancel
+          </button>
+          <button className={styles.submitbutton}>
+            Submit <FaArrowCircleRight className={styles.icn} />
+          </button>
+
+        </div>
       </form>
     </motion.div>
   );
