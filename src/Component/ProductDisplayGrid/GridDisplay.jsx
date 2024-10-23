@@ -87,7 +87,7 @@ export const GridDisplay = ({products,isLoading,error}) => {
             <SkeletonLoader key={index} />
           ))
         ) : error ? (
-          <div className={styles.error}>Error loading products.</div>
+          <div className={styles.error}>{error.message}</div>
         ) : products?.length === 0 ? (
           <div className={styles.noProducts}>No products available.</div>
         ) : (

@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { css } from "styled-components";
 // import { Star, Plus, Minus } from 'lucide-react';
 
-export const ProductDisplay = () => {
+export const ProductDisplay = ({product}) => {
   const [quantity, setQuantity] = useState(1);
+  const salePrice = product.price - (product.price * (product.offer / 100));
+  console.log(salePrice);
+  
 
   return (
     <div>
@@ -169,8 +172,8 @@ export const ProductDisplay = () => {
 
       <div className="container-main">
         <div className="container">
-          <span className="category-tag">Peanut Butter</span>
-          <h1 className="product-title">Natural Crunchy Peanut Butter 1KG</h1>
+          <span className="category-tag">{product?.category}</span>
+          <h1 className="product-title">{product?.name}</h1>
 
           <div className="rating-container">
             {/* {[...Array(4)].map((_, i) => (
@@ -182,12 +185,12 @@ export const ProductDisplay = () => {
             <span className="review-count">12 Reviews</span>
           </div>
 
-          <div className="top-rated">Top Rated</div>
+          <div className="top-rated">{product?.statistic}</div>
 
           <div className="price-container">
-            <span className="current-price">₹349.00</span>
-            <span className="original-price">₹698.00</span>
-            <span className="discount">50% Off</span>
+            <span className="current-price">₹{salePrice}</span>
+            <span className="original-price">₹{product?.price}</span>
+            <span className="discount">{product?.offer}% Off</span>
           </div>
 
           <div className="location-container">
@@ -224,10 +227,7 @@ export const ProductDisplay = () => {
           </div>
 
           <p className="description">
-            Enjoy the rich taste of 100% natural, roasted peanuts with a
-            satisfying crunch. Packed with protein and free from preservatives,
-            added sugars, or artificial flavors, Proteinuts is the perfect
-            healthy snack for any time of day. Fuel your body naturally!
+            {product?.description}
           </p>
         </div>
       </div>
