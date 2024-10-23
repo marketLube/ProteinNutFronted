@@ -2,6 +2,9 @@ import React from "react";
 import { css } from "styled-components";
 
 export const Myaccount = () => {
+  const targetRef = useRef(null);
+  const isInView = useInView(targetRef, { amount: 0.3 });
+
   return (
     <div>
       <style>
@@ -89,6 +92,16 @@ export const Myaccount = () => {
             font-size: 14px;
             border: none;
           }
+          .yllwBg {
+            position: absolute;
+            width: 100%;
+            background-color: rgb(254, 209, 65);
+            right: 0;
+            bottom: 1.5rem;
+            top: 0;
+            z-index: -1;
+            clip-path: polygon(0 13%, 100% 0, 100% 100%, 0% 100%);
+          }
 
           /* Media Queries for Responsive Design */
           @media (max-width: 768px) {
@@ -171,7 +184,19 @@ export const Myaccount = () => {
 
       <div className="account-container">
         <h1 className="account-header" id="account">
-          <span>My Account</span>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{
+              duration: 1.5,
+              ease: [0.43, 0.13, 0.23, 0.96],
+              originX: 0, // Ensures scaling starts from left
+            }}
+            className="yllwBg"
+            style={{
+              transformOrigin: "left", // Backup CSS transform origin
+            }}
+          />
         </h1>
 
         <button className="logout-button">Log Out</button>
