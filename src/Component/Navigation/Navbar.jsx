@@ -10,7 +10,7 @@ const navItems = [
   { name: "Community", id: "community" },
   { name: "Contact", id: "contact" },
   { name: "Profile", id: "profile" },
-  { name: "Cart", id: "cart" }
+  { name: "Cart", id: "cart" },
 ];
 
 const sidebar = {
@@ -72,8 +72,8 @@ export const Navbar = () => {
       setHasScrolled(scrollPosition > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleScrollAndClose = (id) => {
@@ -90,14 +90,14 @@ export const Navbar = () => {
     if (id === "profile") {
       toggleOpen();
       setTimeout(() => {
-        window.location.href = '/myaccount';
+        window.location.href = "/myaccount";
       }, 300);
       return;
     }
     if (id === "cart") {
       toggleOpen();
       setTimeout(() => {
-        window.location.href = '/cartpage';
+        window.location.href = "/cartpage";
       }, 300);
       return;
     }
@@ -105,21 +105,25 @@ export const Navbar = () => {
   };
 
   return (
-    <div 
+    <div
       className={styles.naavbar}
       style={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         zIndex: 1000,
-        transition: 'background-color 0.3s ease',
-        backgroundColor: hasScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-        boxShadow: hasScrolled ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
-        padding: '10px 20px',
+        transition: "background-color 0.3s ease",
+        backgroundColor: hasScrolled
+          ? "rgba(255, 255, 255, 0.95)"
+          : "transparent",
+        boxShadow: hasScrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+        padding: "10px 20px",
       }}
     >
-      <Link to={'/'}><Logo /></Link>
+      <Link to={"/"}>
+        <Logo />
+      </Link>
 
       <motion.nav
         initial={false}
@@ -172,12 +176,12 @@ export const Navbar = () => {
                   textAlign: "center",
                 }}
               >
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <button
                     onClick={() => handleNavClick(item.id)}
                     style={{
-                      background: 'none',
-                      border: 'none',
+                      background: "none",
+                      border: "none",
                       width: "200px",
                       height: "20px",
                       borderRadius: "5px",
