@@ -1,4 +1,5 @@
-import React from "react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 import { css } from "styled-components";
 
 export const Myaccount = () => {
@@ -183,21 +184,23 @@ export const Myaccount = () => {
       </style>
 
       <div className="account-container">
-        <h1 className="account-header" id="account">
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{
-              duration: 1.5,
-              ease: [0.43, 0.13, 0.23, 0.96],
-              originX: 0, // Ensures scaling starts from left
-            }}
-            className="yllwBg"
-            style={{
-              transformOrigin: "left", // Backup CSS transform origin
-            }}
-          />
-        </h1>
+        {/* <h1 className="" id="account"> */}
+        <motion.div
+          className="account-header"
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{
+            duration: 1.5,
+            ease: [0.43, 0.13, 0.23, 0.96],
+            originX: 0, // Ensures scaling starts from left
+          }}
+          style={{
+            transformOrigin: "left", // Backup CSS transform origin
+          }}
+        >
+          <span>acccount</span>
+        </motion.div>
+        {/* </h1> */}
 
         <button className="logout-button">Log Out</button>
         <div className="order-history">
