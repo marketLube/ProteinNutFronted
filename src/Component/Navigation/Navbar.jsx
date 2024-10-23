@@ -10,7 +10,7 @@ const navItems = [
   { name: "Community", id: "community" },
   { name: "Contact", id: "contact" },
   { name: "Profile", id: "profile" },
-  { name: "Cart", id: "cart" }
+  { name: "Cart", id: "cart" },
 ];
 
 const sidebar = {
@@ -70,10 +70,12 @@ export const Navbar = () => {
     // Redirect to specific routes for Profile and Cart
     switch (id) {
       case "profile":
-        window.location.href = '/myaccount';
+        toggleOpen();
+        window.location.href = "/myaccount";
+
         break;
       case "cart":
-        window.location.href = '/cartpage';
+        window.location.href = "/cartpage";
         break;
       default:
         // If there's no ID or it's not recognized, just return
@@ -83,7 +85,9 @@ export const Navbar = () => {
 
   return (
     <div className={styles.naavbar}>
-      <Link to={'/'}><Logo /></Link>
+      <Link to="/">
+        <Logo />
+      </Link>
 
       <motion.nav
         initial={false}
@@ -137,7 +141,7 @@ export const Navbar = () => {
                   textAlign: "center",
                 }}
               >
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <div
                     className="text-placeholder"
                     style={{

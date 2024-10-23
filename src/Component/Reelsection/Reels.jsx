@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Swipercomponent } from "./Swipercomponent";
 import {
   Navigation,
   Pagination,
@@ -10,11 +9,9 @@ import {
   Autoplay,
 } from "swiper/modules";
 import styles from "./Reels.module.css";
-
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import { Parallax } from "react-scroll-parallax";
 
 import InstagramPost from "../Instagram/InstagramPost";
 import { useSelector } from "react-redux";

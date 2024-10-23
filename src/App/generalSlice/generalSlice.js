@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isHome: true,
+  userName: null,
+  isLoggedIn: false,
   curHomeColor: "#5c8e55",
 };
 

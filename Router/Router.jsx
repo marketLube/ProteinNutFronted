@@ -26,11 +26,22 @@ import { SelectedProduct } from "../src/Pages/Home/HomeSectionTwo/Component.jsx/
 import { SelectedItem } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/SelectedItem";
 import { Riviews } from "../src/Component/Riviews/Riviews";
 import { RiviewRating } from "../src/Component/Riviews/RiviewRating";
+import api from "../src/services/api";
+
+async function verify() {
+  try {
+    const res = await api.get("/users/verify");
+    return res.response.data;
+  } catch (e) {
+    return e.response.data;
+  }
+}
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    loader: verify,
     children: [
       {
         path: "/",

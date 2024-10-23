@@ -4,23 +4,11 @@ import Logo from "../../Utils/Logo/Logo";
 import HeaderButtonsContainer from "./HeaderButtonsContainer";
 import styles from "./Header.module.css";
 import { Navbar } from "../../Component/Navigation/Navbar";
-import { Link, NavLink } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { scrollToTarget } from "../../Helper/scrollToTarget";
 
 function Header() {
   const { isHome } = useSelector((state) => state.general);
-
-  const scrollToTarget = (id) => {
-    return () => {
-      // Get the target element by its ID and scroll into view
-      const targetElement = document.getElementById(id);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
-    };
-  };
-  console.log(isHome, "iiiiiiiiiiiiiii");
 
   return (
     <>
