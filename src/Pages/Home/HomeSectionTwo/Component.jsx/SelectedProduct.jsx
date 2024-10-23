@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SelectedProduct.module.css";
 
 export const SelectedProduct = ({product}) => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   return (
     <div className={styles.main}>
       <img
-        src={product?.image[0]}
-        alt="Selected product"
+        src={product?.image[selectedImageIndex]}
+        alt={product?.name}
         className={styles.firstimg}
+        onClick={() => setSelectedImageIndex(selectedImageIndex)}
       />
 
       <div className={styles.firstsection}>
-        <img src={product?.image[1]} alt={product?.name} />
-        <img src={product?.image[2]} alt={product?.name} />
-        <img src={product?.image[3]} alt={product?.name} />
+      {product?.image.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt={product?.name}
+            onClick={() => setSelectedImageIndex(index)}
+            className={index === selectedImageIndex ? styles.selectedImg : ''}
+          />
+        ))}
+
+        
       </div>
     </div>
   );

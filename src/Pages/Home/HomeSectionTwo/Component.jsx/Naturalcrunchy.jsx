@@ -1,20 +1,70 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { css } from "styled-components";
-// import { Star, Plus, Minus } from 'lucide-react';
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
-export const ProductDisplay = ({product}) => {
+export const ProductDisplay = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
-  const salePrice = product.price - (product.price * (product.offer / 100));
-  console.log(salePrice);
-  
+  const [location, setLocation] = useState("");
+  const [pincode, setPincode] = useState("");
+
+  // Calculate sale price
+  const salePrice = product.price - product.price * (product.offer / 100);
+
+  // Function to render stars based on rating
+  const renderStars = (avgRatings) => {
+    const stars = [];
+    const fullStars = Math.floor(avgRatings); // Full stars
+    const hasHalfStar = avgRatings % 1 >= 0.5; // Check for half star
+
+    // Add full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={i} size={24} className="star" color="orange" />);
+    }
+
+    // Add half star if applicable
+    if (hasHalfStar) {
+      stars.push(
+        <FaStarHalfAlt
+          key={fullStars}
+          size={24}
+          className="star"
+          color="orange"
+        />
+      );
+    }
+
+    // Add empty stars
+    const emptyStarsCount = 5 - Math.ceil(avgRatings);
+    for (let i = 0; i < emptyStarsCount; i++) {
+      stars.push(
+        <FaStar
+          key={fullStars + 1 + i}
+          size={24}
+          className="star"
+          color="lightgray"
+        />
+      );
+    }
+
+    return stars;
+  };
+
+  // Function to handle location check based on pincode
+  const checkAvailability = () => {
+    // Mock location check based on pincode
+    if (pincode === "673019") {
+      setLocation("Olavanna, Kozhikode");
+    } else {
+      setLocation("Location not available");
+    }
+  };
 
   return (
     <div>
       <style>
         {css`
           .container-main {
-            // background-color: #fff9f2;
             padding: 20px;
           }
 
@@ -24,7 +74,6 @@ export const ProductDisplay = ({product}) => {
             padding: 40px;
             background-color: white;
             border-radius: 20px;
-            background-color: #ffffff;
           }
 
           .category-tag {
@@ -93,18 +142,12 @@ export const ProductDisplay = ({product}) => {
             justify-content: space-between;
             margin-bottom: 24px;
           }
-          .location-container-num {
-            color: #666;
-          }
 
           .quantity-container {
             display: flex;
             align-items: center;
             gap: 16px;
             margin-bottom: 24px;
-          }
-          .location-container-text {
-            color: #4caf50;
           }
 
           .quantity-button {
@@ -136,6 +179,17 @@ export const ProductDisplay = ({product}) => {
             display: flex;
             gap: 16px;
             margin-bottom: 24px;
+          }
+
+          .check-availability {
+            padding: 12px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 10px;
+            cursor: pointer;
+            font-weight: bold;
           }
 
           .add-to-cart {
@@ -176,13 +230,8 @@ export const ProductDisplay = ({product}) => {
           <h1 className="product-title">{product?.name}</h1>
 
           <div className="rating-container">
-            {/* {[...Array(4)].map((_, i) => (
-              <Star key={i} className="star" fill="#ffd700" />
-            ))}
-            {[...Array(1)].map((_, i) => (
-              <Star key={i} className="star" />
-            ))} */}
-            <span className="review-count">12 Reviews</span>
+            {renderStars(product?.avgRatings)}
+            <span className="review-count">{product?.ratingQty} Reviews</span>
           </div>
 
           <div className="top-rated">{product?.statistic}</div>
@@ -195,10 +244,31 @@ export const ProductDisplay = ({product}) => {
 
           <div className="location-container">
             <div className="location-container-num">
-              <span>673019</span>
+              <input
+                type="number"
+                className="pincode"
+                placeholder="Enter the pincode"
+                onChange={(e) => setPincode(e.target.value)}
+                style={{
+                  borderTop: "none",
+                  borderRight: "none",
+                  borderLeft: "none",
+                  width: "80%",
+                  padding: "10px",
+                }}
+              />
             </div>
             <div className="location-container-text">
-              <span>Olavanna,Kozhikode</span>
+              {location ? (
+                <span>{location}</span>
+              ) : (
+                <button
+                  className="check-availability"
+                  onClick={checkAvailability}
+                >
+                  Check Availability
+                </button>
+              )}
             </div>
           </div>
 
@@ -226,9 +296,7 @@ export const ProductDisplay = ({product}) => {
             </Link>
           </div>
 
-          <p className="description">
-            {product?.description}
-          </p>
+          <p className="description">{product?.description}</p>
         </div>
       </div>
     </div>

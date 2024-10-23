@@ -13,6 +13,14 @@
 
 .error{
  font-size: 3rem;
+ color: red;
+ height: 30vh;
+ width:90vw;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 0;
+ padding: 0;
 }
 
 .display {
