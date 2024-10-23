@@ -6,7 +6,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 export const ProductContainer = ({ product }) => {
   console.log(product);
 
-  const currentPrice = product.price - (product.offer / 100);
+  const currentPrice = product.price - (product.price * (product.offer / 100));
   console.log(currentPrice);
 
   console.log(product.avgRatings);
