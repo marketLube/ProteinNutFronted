@@ -5,8 +5,15 @@ import { css } from "styled-components";
 
 export const ProductDisplay = ({product}) => {
   const [quantity, setQuantity] = useState(1);
+  const [location,setLocation]=useState('')
   const salePrice = product.price - (product.price * (product.offer / 100));
-  console.log(salePrice);
+  
+  const [pincode,setPincode]=useState('')
+  console.log(pincode);
+
+  console.log(quantity);
+  
+  
   
 
   return (
@@ -137,6 +144,17 @@ export const ProductDisplay = ({product}) => {
             gap: 16px;
             margin-bottom: 24px;
           }
+          
+          .check-availabilty{
+            padding: 12px;
+            background-color: #4caf55;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 10px;
+            cursor: pointer;
+            font-weight: bold
+          }
 
           .add-to-cart {
             flex: 1;
@@ -167,6 +185,10 @@ export const ProductDisplay = ({product}) => {
             line-height: 1.6;
             font-size: 15px;
           }
+
+          .availabilty{
+            display:"none"
+          }
         `}
       </style>
 
@@ -195,10 +217,16 @@ export const ProductDisplay = ({product}) => {
 
           <div className="location-container">
             <div className="location-container-num">
-              <span>673019</span>
+              {/* <span>673019</span> */}
+              <input type="number" className="pincode"  placeholder="Enter the pincode" name="pincode" onChange={(e)=>{setPincode(e.target.value)}} style={{borderTop:"none",borderRight:"none",borderLeft:"none", width:"80%", padding:"10px"}} />
             </div>
             <div className="location-container-text">
-              <span>Olavanna,Kozhikode</span>
+              { location ? (<span>Olavanna,Kozhikode</span>)
+              :
+              (
+                <button className="check-availabilty" >Check Availabilty</button>
+              )
+               }
             </div>
           </div>
 
