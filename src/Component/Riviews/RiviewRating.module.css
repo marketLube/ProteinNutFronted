@@ -24,9 +24,9 @@ h2 {
 }
 
 .star {
-  width: 30px;
-  height: 30px;
-  color: #d1d5db;
+  cursor: pointer;
+  color: #d43b6e;
+  /* transition: color 0.2s; */
 }
 
 .starfilled {

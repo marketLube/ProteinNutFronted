@@ -7,11 +7,10 @@ import { Riviews } from "../../../../Component/Riviews/Riviews";
 import { useLocation } from "react-router-dom";
 
 export const SelectedItem = () => {
-
   const location = useLocation();
   const product = location.state?.product;
   console.log(product);
-  
+
   return (
     <div>
       <style>
@@ -57,7 +56,7 @@ export const SelectedItem = () => {
           <ProductDisplay product={product} />
         </div>
         <div>
-          <Riviews />
+          <Riviews productid={product?._id} />
         </div>
       </div>
     </div>

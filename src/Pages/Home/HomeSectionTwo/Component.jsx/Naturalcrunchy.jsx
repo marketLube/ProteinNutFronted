@@ -5,7 +5,7 @@ import { css } from "styled-components";
 
 export const ProductDisplay = ({product}) => {
   const [quantity, setQuantity] = useState(1);
-  const salePrice = product.price - product.offer/100
+  const salePrice = product.price - (product.price * (product.offer / 100));
   console.log(salePrice);
   
 
@@ -188,9 +188,9 @@ export const ProductDisplay = ({product}) => {
           <div className="top-rated">{product?.statistic}</div>
 
           <div className="price-container">
-            <span className="current-price">₹349.00</span>
-            <span className="original-price">₹{product.price}</span>
-            <span className="discount">50% Off</span>
+            <span className="current-price">₹{salePrice}</span>
+            <span className="original-price">₹{product?.price}</span>
+            <span className="discount">{product?.offer}% Off</span>
           </div>
 
           <div className="location-container">
@@ -227,10 +227,7 @@ export const ProductDisplay = ({product}) => {
           </div>
 
           <p className="description">
-            Enjoy the rich taste of 100% natural, roasted peanuts with a
-            satisfying crunch. Packed with protein and free from preservatives,
-            added sugars, or artificial flavors, Proteinuts is the perfect
-            healthy snack for any time of day. Fuel your body naturally!
+            {product?.description}
           </p>
         </div>
       </div>
