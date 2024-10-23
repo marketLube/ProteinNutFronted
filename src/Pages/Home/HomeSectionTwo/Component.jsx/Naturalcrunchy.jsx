@@ -1,13 +1,51 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { css } from "styled-components";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 // import { Star, Plus, Minus } from 'lucide-react';
 
-export const ProductDisplay = ({product}) => {
+export const ProductDisplay = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
-  const salePrice = product.price - (product.price * (product.offer / 100));
+  const salePrice = product.price - product.price * (product.offer / 100);
   console.log(salePrice);
-  
+
+  const renderStars = (avgRatings) => {
+    const stars = [];
+    const fullStars = Math.floor(avgRatings);
+    const hasHalfStar = avgRatings % 1 >= 0.5;
+
+    // Add full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={i} size={24} className="star" color="orange" />);
+    }
+
+    // Add half star if applicable
+    if (hasHalfStar) {
+      stars.push(
+        <FaStarHalfAlt
+          key={fullStars}
+          size={24}
+          className="star"
+          color="orange"
+        />
+      );
+    }
+
+    // Add empty stars
+    const emptyStarsCount = 5 - Math.ceil(avgRatings);
+    for (let i = 0; i < emptyStarsCount; i++) {
+      stars.push(
+        <FaStar
+          key={fullStars + 1 + i}
+          size={24}
+          className="star"
+          color="lightgray"
+        />
+      );
+    }
+
+    return stars;
+  };
 
   return (
     <div>
@@ -182,7 +220,8 @@ export const ProductDisplay = ({product}) => {
             {[...Array(1)].map((_, i) => (
               <Star key={i} className="star" />
             ))} */}
-            <span className="review-count">12 Reviews</span>
+            {renderStars(product?.avgRatings)}
+            <span className="review-count">{product?.ratingQty} Reviews</span>
           </div>
 
           <div className="top-rated">{product?.statistic}</div>
@@ -226,9 +265,7 @@ export const ProductDisplay = ({product}) => {
             </Link>
           </div>
 
-          <p className="description">
-            {product?.description}
-          </p>
+          <p className="description">{product?.description}</p>
         </div>
       </div>
     </div>
