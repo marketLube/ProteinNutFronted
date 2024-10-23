@@ -36,24 +36,31 @@ function Header() {
             </button>
           </Link>
 
-          <button
-            onClick={scrollToTarget("community")}
-            className={`btn ${styles.headerLinks}`}
-          >
-            Community
-          </button>
+          <Link to={"/"}>
+            <button
+              onClick={scrollToTarget("community")}
+              className={`btn ${styles.headerLinks}`}
+            >
+              Community
+            </button>
+          </Link>
         </div>
         <Link to="/">
           <Logo />
         </Link>
+
         <div className={styles.headerRight}>
           <a className={styles.headerLinks}></a>
-          <button
-            onClick={scrollToTarget("contact")}
-            className={`btn ${styles.headerLinks}`}
-          >
-            Contact
-          </button>
+
+          <Link>
+            <button
+              onClick={scrollToTarget("contact")}
+              className={`btn ${styles.headerLinks}`}
+            >
+              Contact
+            </button>
+          </Link>
+
           <HeaderButtonsContainer />
         </div>
       </StyledHeader>

@@ -1,21 +1,26 @@
 import React from "react";
 import styles from "./RiviewRating.module.css";
 import { FaArrowCircleRight } from "react-icons/fa";
+import { MdOutlineStarBorder } from "react-icons/md";
+import { motion } from "framer-motion";
 
-export const RiviewRating = () => {
+export const RiviewRating = ({ style }) => {
   return (
-    <div className={styles.productratingcontainer}>
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{ y: 1 }}
+      className={styles.productratingcontainer}
+      style={style}
+    >
       <h2>Rate this product</h2>
       <form>
-        <div className="star-rating">
-          {/* {[1, 2, 3, 4, 5].map((star) => (
-        <Star
-          key={star}
-          className={star ${rating >= star ? 'filled' : ''}}
-          onClick={() => setRating(star)}
-        />
-      ))} */}
+        <div className={styles.stars}>
+          {[1, 2, 3, 4].map((star) => (
+            <MdOutlineStarBorder key={star} className={styles.starfilled} />
+          ))}
+          <MdOutlineStarBorder className={styles.star} />
         </div>
+
         <div className={styles.form}>
           <input
             type="text"
@@ -35,6 +40,6 @@ export const RiviewRating = () => {
           Submit <FaArrowCircleRight className={styles.icn} />
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
