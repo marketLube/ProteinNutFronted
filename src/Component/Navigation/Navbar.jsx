@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
 import { Link } from "react-router-dom";
 import Logo from "../../Utils/Logo/Logo";
@@ -61,28 +61,64 @@ const navItemVariants = {
 
 export const Navbar = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const containerRef = useRef(null);
 
-  const handleNavClick = (id) => {
-    // Close the mobile menu
-    toggleOpen();
+  // Monitor scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // You can adjust this value (50) to change when the background appears
+      setHasScrolled(scrollPosition > 50);
+    };
 
-    // Redirect to specific routes for Profile and Cart
-    switch (id) {
-      case "profile":
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScrollAndClose = (id) => {
+    toggleOpen();
+    setTimeout(() => {
+      const targetElement = document.getElementById(id);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
+  };
+
+  const handleNavClick = (id) => {
+    if (id === "profile") {
+      toggleOpen();
+      setTimeout(() => {
         window.location.href = '/myaccount';
-        break;
-      case "cart":
-        window.location.href = '/cartpage';
-        break;
-      default:
-        // If there's no ID or it's not recognized, just return
-        return;
+      }, 300);
+      return;
     }
+    if (id === "cart") {
+      toggleOpen();
+      setTimeout(() => {
+        window.location.href = '/cartpage';
+      }, 300);
+      return;
+    }
+    handleScrollAndClose(id);
   };
 
   return (
-    <div className={styles.naavbar}>
+    <div 
+      className={styles.naavbar}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        transition: 'background-color 0.3s ease',
+        backgroundColor: hasScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+        boxShadow: hasScrolled ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
+        padding: '10px 20px',
+      }}
+    >
       <Link to={'/'}><Logo /></Link>
 
       <motion.nav
@@ -126,7 +162,6 @@ export const Navbar = () => {
                 variants={navItemVariants}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavClick(item.id)}
                 style={{
                   listStyle: "none",
                   marginBottom: "20px",
@@ -138,18 +173,22 @@ export const Navbar = () => {
                 }}
               >
                 <Link to="/" style={{ textDecoration: 'none' }}>
-                  <div
-                    className="text-placeholder"
+                  <button
+                    onClick={() => handleNavClick(item.id)}
                     style={{
+                      background: 'none',
+                      border: 'none',
                       width: "200px",
                       height: "20px",
                       borderRadius: "5px",
                       color: "#43bb0b",
                       fontWeight: "bold",
+                      cursor: "pointer",
+                      fontSize: "2rem",
                     }}
                   >
                     {item.name}
-                  </div>
+                  </button>
                 </Link>
               </motion.li>
             ))}
@@ -174,7 +213,7 @@ export const Navbar = () => {
             alignItems: "center",
           }}
         >
-          <FaGripLines size={30} color="#43bb0b" />
+          <FaGripLines size={30} color={hasScrolled ? "#43bb0b" : "#43bb0b"} />
         </button>
       </motion.nav>
     </div>
