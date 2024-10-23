@@ -12,6 +12,10 @@ h2 {
   color: #666;
   margin-bottom: 15px;
 }
+.stars {
+  display: flex;
+  margin-right: 0.5rem;
+}
 
 .starrating {
   display: flex;
@@ -26,7 +30,10 @@ h2 {
 }
 
 .starfilled {
-  color: #007bff;
+  color: #fbbf24;
+  fill: #fbbf24;
+  width: 30px;
+  height: 30px;
 }
 .form {
   background-color: white;

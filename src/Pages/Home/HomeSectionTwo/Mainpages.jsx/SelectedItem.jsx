@@ -56,7 +56,7 @@ export const SelectedItem = () => {
           <ProductDisplay product={product} />
         </div>
         <div>
-          <Riviews productid={product?._id} />
+          <Riviews product={product} />
         </div>
       </div>
     </div>
