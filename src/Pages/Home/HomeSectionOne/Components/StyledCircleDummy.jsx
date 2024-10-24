@@ -26,5 +26,13 @@ export const StyledCircleDummy = styled.div`
   
   animation: ${moveIn}moveIn 2s ease-in-out ;
 
+  @media (max-width: 468px) {
+    width: 100%;
+    padding-bottom: 80%;
+    background-color: white;
+    position: absolute;
+    bottom: -20%;
+  }
+
 `;
 

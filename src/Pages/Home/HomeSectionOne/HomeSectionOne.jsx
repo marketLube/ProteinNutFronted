@@ -12,6 +12,7 @@ import styled from "styled-components";
 
 import { BannerWrapper, BannerText } from "./StyledComponents/BannerComponents";
 import ShopButton from "../../../Component/ShopButton/ShopButton";
+import { StyledCircleDummy } from "./Components/StyledCircleDummy";
 
 const ContentWrapper = styled.div`
   display: flex;
