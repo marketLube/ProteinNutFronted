@@ -170,15 +170,14 @@ export const ProductDisplay = ({ product }) => {
           }
 
           .size-button {
-            padding: 5px 10px;
-            background-color: #fff9f2;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
+          padding: 5px 10px;
+          background-color: #fff9f2;
+          border: none;
+          border-radius: 4px;
+          font-weight: bold;
+          font-size: 12px;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 
           .size-button.active {
             border: 1px solid #4caf50;
@@ -276,7 +275,7 @@ export const ProductDisplay = ({ product }) => {
                   className="check-availability"
                   onClick={checkAvailability}
                 >
-                  Check Availability
+                  Check
                 </button>
               )}
             </div>
@@ -296,7 +295,7 @@ export const ProductDisplay = ({ product }) => {
             >
               +
             </button>
-            <div style={{ display: "flex", gap: ".5rem", flexDirection:"wrap" }}>
+            <div style={{ display: "flex", gap: ".5rem", flexDirection: "wrap" }}>
               <button
                 className={`size-button ${selectedWeight === "250G" ? "active" : ""}`}
                 onClick={() => setSelectedWeight("250G")}

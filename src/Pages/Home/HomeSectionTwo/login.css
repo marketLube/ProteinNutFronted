@@ -1,17 +1,18 @@
 .login-main-container {
   width: 100vw;
   height: 100vh;
-  background-color: #f5f5e9;
+  /* background-color: #f5f5e9; */
   padding-top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 1px;
+  /* background-color: rgb(254, 209, 65); */
 }
 .login-container {
   width: 400px;
   padding: 20px;
-  background-color: #f5f5e9;
+  /* background-color: #f5f5e9; */
   font-family: Arial, sans-serif;
   padding-top: 1px;
 }
@@ -62,4 +63,65 @@
 }
 .login-form button:hover {
   background-color: #00004d;
+}
+@keyframes scaleAnimation {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.yellowBg {
+  position: absolute;
+  width: 14%;
+  background-color: rgb(254, 209, 65);
+  bottom: 60%;
+  height: 15%;
+  top: 33%;
+  left: 43%;
+  
+  z-index: -2;
+  clip-path: polygon(25% 25%, 75% 25%, 75% 42%, 23.87% 37.3%);
+  
+  animation: scaleAnimation 1.5s ease-out forwards;
+  
+  transform-origin: left center ; 
+}
+
+@media (max-width: 375px) {
+  .yellowBg{
+    width: 65%;
+  height: 18%;
+  top: 27%;
+  left: 18%;
+  }
+}
+@media (min-width: 430px) {
+  .yellowBg{
+    width: 65%;
+  height: 18%;
+  top: 32%;
+  left: 18%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .yellowBg{
+    width: 13%;
+  height: 18%;
+  top: 32%;
+  left: 43%;
+  }
+}
+
+.yellowBg::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-color: inherit;
+  transform-origin: left center;
+  transform: scaleX(0);
 }

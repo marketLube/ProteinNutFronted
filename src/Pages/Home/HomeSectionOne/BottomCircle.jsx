@@ -188,7 +188,7 @@ function BottomCircle({ onColorChange }) {
       <StyledCircleDummy>
         <Circle animate={circleControls} />
       </StyledCircleDummy>
-      {/* <StyledCircleDummy1 /> */}
+      <StyledCircleDummy />
     </StyledCircle>
   );
 }
