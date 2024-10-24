@@ -9,40 +9,54 @@ export const Myaccounts = () => {
     <div>
       <style>
         {css`
-          .formone {
+          .account {
             display: flex;
             background-color: #ffffe6;
-            justify-content: space-around;
+            justify-content: center;
             padding: 20px;
-            gap: 20px;
-            padding-top: 150px;
+            gap: px;
+            padding-top: 14rem;
             max-height: 100vh;
             overflow: hidden;
           }
-
-          @media (max-width: 768px) {
-            .formone {
+          @media (max-width: 600px) {
+            .account {
               flex-direction: column;
+              justify-content: space-around;
               align-items: center;
               padding: 10px;
               gap: 10px;
-              padding-top: 100px;
+              padding-top: 15rem;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .account {
+              flex-direction: column;
+              justify-content: space-around;
+              align-items: center;
+              padding: 10px;
+              gap: 10px;
+              padding-top: 15rem;
+              /* background-color: blue; */
+              /* display: none; */
             }
           }
 
           @media (max-width: 480px) {
-            .formone {
+            .account {
               flex-direction: column;
+              justify-content: space-around;
               align-items: center;
               padding: 5px;
               gap: 5px;
-              padding-top: 50px;
+              padding-top: 10rem;
             }
           }
         `}
       </style>
 
-      <div className="formone">
+      <div className="account">
         <Myaccount />
         <Addresses />
       </div>

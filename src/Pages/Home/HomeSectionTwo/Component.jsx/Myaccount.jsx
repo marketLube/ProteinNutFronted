@@ -9,11 +9,12 @@ export const Myaccount = () => {
           .account-container {
             max-width: 900px;
             margin: auto;
-            padding: 2px;
-            // background-color: #2ec780;
+            padding: 18px;
+            /* background-color: #2ec780; */
             font-family: Arial, sans-serif;
-            width: 50rem;
-            height: 100vh;
+            width: 100vw;
+            /* height: 100vh; */
+            /* margin-top: 50rem; */
           }
           .account-header {
             font-size: 36px;
@@ -66,7 +67,7 @@ export const Myaccount = () => {
           }
 
           .order-item span {
-            font-size: 16px;
+            font-size: 12px;
             color: #00004d;
             padding-right: 10px;
           }
