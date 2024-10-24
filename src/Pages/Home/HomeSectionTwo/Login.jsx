@@ -2,22 +2,30 @@ import React, { useState } from "react";
 
 import "./login.css";
 import api from "../../../services/api";
+import toast from "react-hot-toast";
 
 export const Login = () => {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
-
-  const handleLogin = async () => {
-    try {
-      setLoading(true);
-      const res = await api.post();
-    } catch (e) {
-    } finally {
-    }
-  };
-
+  const [otpSended, setOtpSended] = useState(false);
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
+
+  const handleLogin = async () => {
+    const toastId = toast.loading("Sending otp to mail...");
+    try {
+      setLoading(true);
+      const res = await api.post("/users/login", { email });
+      setOtpSended(true);
+      console.log(res, "res");
+      toast.success("Successfully sent Otp", { id: toastId });
+    } catch (e) {
+      console.log(e, "Error");
+      toast.error("Otp senting failed", { id: toastId });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleMailChange = (e) => {
     setEmail(e.target.value);
@@ -42,9 +50,10 @@ export const Login = () => {
             placeholder="OTP"
             value={otp}
             onChange={handleOtp}
+            disabled={!otpSended}
           />
           <div className="button-otp">
-            <button>Get OTP</button>
+            <button onClick={handleLogin}>Get OTP</button>
           </div>
         </div>
       </div>

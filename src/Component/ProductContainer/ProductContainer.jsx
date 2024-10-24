@@ -7,7 +7,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 export const ProductContainer = ({ product }) => {
   const navigate = useNavigate();
 
-  const currentPrice = product.price - (product.price * (product.offer / 100));
+  const currentPrice = product.price - product.price * (product.offer / 100);
 
   const handleProductClick = () => {
     // Navigate programmatically and scroll to top
@@ -25,20 +25,40 @@ export const ProductContainer = ({ product }) => {
     }
 
     if (hasHalfStar) {
-      stars.push(<FaStarHalfAlt key={fullStars} size={24} className="star" color="orange" />);
+      stars.push(
+        <FaStarHalfAlt
+          key={fullStars}
+          size={24}
+          className="star"
+          color="orange"
+        />
+      );
     }
 
     const emptyStarsCount = 5 - Math.ceil(avgRatings);
     for (let i = 0; i < emptyStarsCount; i++) {
-      stars.push(<FaStar key={fullStars + 1 + i} size={24} className="star" color="lightgray" />);
+      stars.push(
+        <FaStar
+          key={fullStars + 1 + i}
+          size={24}
+          className="star"
+          color="lightgray"
+        />
+      );
     }
 
     return stars;
   };
 
   return (
-    <div className={styles.productcard} style={{ display: "flex", alignItems: "center" }}>
-      <div onClick={handleProductClick} style={{ cursor: "pointer", textDecoration: "none" }}>
+    <div
+      className={styles.productcard}
+      style={{ display: "flex", alignItems: "center" }}
+    >
+      <div
+        onClick={handleProductClick}
+        style={{ cursor: "pointer", textDecoration: "none" }}
+      >
         <div>
           <img
             src={product?.image[0]}
@@ -47,11 +67,22 @@ export const ProductContainer = ({ product }) => {
           />
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", marginTop: ".5rem" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginTop: ".5rem",
+          }}
+        >
           <h2 className={styles.producttitle}>{product?.name}</h2>
 
-          <div style={{ padding: "10px 3rem" }}>
-            {renderStars(product.avgRatings)}
+          <div
+            style={{
+              padding: "10px",
+              paddingRight: "12.5rem",
+            }}
+          >
+            {renderStars(product?.avgRatings)}
           </div>
 
           <div className={styles.pricecontainer}>
