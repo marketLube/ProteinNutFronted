@@ -107,13 +107,16 @@ export const Bill = () => {
               height: 100vh;
             }
             .checkout__content {
-              width: 70%;
+              width: 100%;
               padding: 20px;
             }
             .checkout__image {
               width: 40%;
               background-color: #ff4d4d;
               border-radius: 6px;
+            }
+            .checkout__item {
+              font-size: 10px;
             }
           }
 
@@ -126,13 +129,13 @@ export const Bill = () => {
               height: 50px;
             }
             .checkout__data h2 {
-              font-size: 20px;
+              font-size: 16px;
             }
             .checkout__data h3 {
-              font-size: 24px;
+              font-size: 20px;
             }
             .checkout__total {
-              font-size: 24px;
+              font-size: 20px;
             }
             .checkout__shipping,
             .checkout__subtotal {
@@ -149,17 +152,17 @@ export const Bill = () => {
               height: 60px;
             }
             .checkout__data h2 {
-              font-size: 22px;
+              font-size: 18px;
             }
             .checkout__data h3 {
-              font-size: 26px;
+              font-size: 20px;
             }
             .checkout__total {
-              font-size: 26px;
+              font-size: 20px;
             }
             .checkout__shipping,
             .checkout__subtotal {
-              font-size: 22px;
+              font-size: 18px;
             }
           }
         `}

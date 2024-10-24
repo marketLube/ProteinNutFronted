@@ -25,7 +25,6 @@ export const Pages = () => {
             .formone {
               grid-template-columns: 1fr;
               gap: 3rem;
-              padding-top: 5rem;
             }
 
             .formone > * {
@@ -35,12 +34,13 @@ export const Pages = () => {
 
           @media (max-width: 480px) {
             .formone {
-              padding-top: 3rem;
+              padding-top: 7rem;
               gap: 2rem;
             }
 
             .formone > * {
               padding: 1rem;
+              /* padding-top: 7rem; */
             }
           }
         `}

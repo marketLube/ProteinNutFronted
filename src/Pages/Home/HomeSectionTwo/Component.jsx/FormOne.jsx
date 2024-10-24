@@ -52,10 +52,10 @@ export const FormOne = () => {
             background-color: #00004d;
           }
           /* Media Queries */
-          @media (min-width: 600px) {
+          @media (max-width: 600px) {
             .form-container {
-              max-width: 400px;
-              width: 100%;
+              /* max-width: 400px; */
+              width: 90%;
             }
             .form-container label {
               font-size: 20px;
