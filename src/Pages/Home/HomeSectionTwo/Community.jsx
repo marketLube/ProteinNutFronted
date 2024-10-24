@@ -86,7 +86,7 @@ export const Community = () => {
             border-bottom-color: #000;
           }
 
-          .button {
+          .buttons {
             position: absolute;
             right: 0;
             top: 50%;
@@ -169,7 +169,7 @@ export const Community = () => {
               max-width: 350px;
             }
 
-            .button {
+            .buttons {
               width: 60px;
               height: 60px;
             }
@@ -242,9 +242,9 @@ export const Community = () => {
               max-width: 640px;
             }
 
-            .button {
-              width: 80px;
-              height: 80px;
+            .buttons {
+              width: 95px;
+              height: 95px;
             }
 
             .logo {
@@ -269,7 +269,7 @@ export const Community = () => {
                   off on a pack of peanuts
                 </p>
                 <div className="form">
-                  <button className="button">Sign up</button>
+                  <button className="buttons">Sign up</button>
                   <input
                     type="email"
                     placeholder="Email address"

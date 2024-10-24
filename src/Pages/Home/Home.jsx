@@ -33,7 +33,7 @@ function Home() {
       </div>
       <div style={{ backgroundColor: "rgb(254,209,65)" }}>
         <HomeLandingSection1 />
-        <Reels />
+        {/* <Reels /> */}
         <Community />
       </div>
     </Main>
