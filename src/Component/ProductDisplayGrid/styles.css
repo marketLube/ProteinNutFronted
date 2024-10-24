@@ -10,6 +10,7 @@
 .swiper {
   width: 80vw;
   height: 100%;
+  margin-left: 7rem;
 }
 
 .swiper-slide {
