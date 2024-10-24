@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
 import { Link } from "react-router-dom";
 import Logo from "../../Utils/Logo/Logo";
 import styles from "./Navbar.module.css";
 import { FaGripLines } from "react-icons/fa6";
+import { scrollToTarget } from "../../Helper/scrollToTarget";
 
 const navItems = [
   { name: "Shop", id: "grid" },
@@ -62,29 +63,56 @@ const navItemVariants = {
 export const Navbar = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+      setShowBackground(position > 100); // Adjust 100 to your desired scroll trigger point
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (id) => {
-    // Close the mobile menu
     toggleOpen();
 
-    // Redirect to specific routes for Profile and Cart
     switch (id) {
       case "profile":
         toggleOpen();
         window.location.href = "/myaccount";
-
         break;
       case "cart":
         window.location.href = "/cartpage";
         break;
       default:
-        // If there's no ID or it's not recognized, just return
-        return;
+        scrollToTarget(id)();
     }
   };
 
   return (
     <div className={styles.naavbar}>
+      {/* Add the background div with dynamic opacity based on scroll */}
+      <div
+        style={{
+          position: 'fixed',
+          top: showBackground ? '0' : '-10%',
+          left: 0,
+          right: 0,
+          height: '10%',
+          backgroundColor: 'rgba(255, 255, 255, 1)',
+          zIndex: -100,
+          opacity: 1,
+          transition: 'top 0.3s ease-in-out',
+          pointerEvents: 'none',
+          borderBottomLeftRadius: '6rem',  // Added rounded bottom corners
+          borderBottomRightRadius: '6rem'  // Added rounded bottom corners
+        }}
+      />
+
       <Link to="/">
         <Logo />
       </Link>
@@ -94,6 +122,7 @@ export const Navbar = () => {
         animate={isOpen ? "open" : "closed"}
         custom={1000}
         ref={containerRef}
+        style={{ zIndex: 999 }} // Ensure nav stays above the background
       >
         <motion.div
           className="background"
@@ -176,6 +205,7 @@ export const Navbar = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            zIndex: 999,
           }}
         >
           <FaGripLines size={30} color="#43bb0b" />
