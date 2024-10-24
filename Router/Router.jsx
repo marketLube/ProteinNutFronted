@@ -27,6 +27,7 @@ import { SelectedItem } from "../src/Pages/Home/HomeSectionTwo/Mainpages.jsx/Sel
 import { Riviews } from "../src/Component/Riviews/Riviews";
 import { RiviewRating } from "../src/Component/Riviews/RiviewRating";
 import api from "../src/services/api";
+import { RiviewSwiperComponent } from "../src/Component/Riviews/RiviewSwiperComponent";
 
 async function verify() {
   try {
@@ -150,6 +151,10 @@ const router = createBrowserRouter([
       {
         path: "rate",
         element: <RiviewRating />,
+      },
+      {
+        path: "ratecomp",
+        element: <RiviewSwiperComponent />,
       },
     ],
   },

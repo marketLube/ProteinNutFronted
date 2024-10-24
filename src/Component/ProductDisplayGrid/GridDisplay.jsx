@@ -5,25 +5,17 @@ import { Parallax } from "react-scroll-parallax";
 import { motion, useInView } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import SkeletonLoader from "../SkeltonLoader/SkeltonLoader";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import "./styles.css";
+import { useSelector } from "react-redux";
 
-export const GridDisplay = ({products,isLoading,error}) => {
+export const GridDisplay = ({ products, isLoading, error }) => {
   const targetRef = useRef(null);
   const isInView = useInView(targetRef, { amount: 0.3 });
-
-  // const {
-  //   data: products,
-  //   isLoading,
-  //   error,
-  //   refetch,
-  // } = useQuery({
-  //   queryKey: ["products"],
-  //   queryFn: () => api.get("/products").then((res) => res?.data.docs),
-  // });
-
-  console.log(products);
-  
-
-  
+  const { isMobile } = useSelector((state) => state.endpoint);
 
   return (
     <Parallax className={styles.display} id="grid">
@@ -91,9 +83,18 @@ export const GridDisplay = ({products,isLoading,error}) => {
         ) : products?.length === 0 ? (
           <div className={styles.noProducts}>No products available.</div>
         ) : (
-          products.map((product, i) => (
-            <ProductContainer product={product} key={i} />
-          ))
+          <Swiper
+            slidesPerView={isMobile ? 1 : 4}
+            navigation={true}
+            modules={[Navigation]}
+            className="swiper"
+          >
+            {products.map((product, i) => (
+              <SwiperSlide key={i}>
+                <ProductContainer product={product} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         )}
       </div>
     </Parallax>
