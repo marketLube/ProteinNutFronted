@@ -16,7 +16,7 @@ const navItems = [
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height + 160}px at calc(100% - 40px) 40px)`,
+    clipPath: `circle(${height + 100}px at calc(100% - 30px) 30px)`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -24,7 +24,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(25px at calc(100% - 40px) 40px)",
+    clipPath: "circle(16px at calc(100% - 39px) 40px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -65,17 +65,59 @@ export const Navbar = () => {
   const containerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showBackground, setShowBackground] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
     const handleScroll = () => {
       const position = window.pageYOffset;
       setScrollPosition(position);
-      setShowBackground(position > 100); // Adjust 100 to your desired scroll trigger point
+      setShowBackground(position > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  const getBackgroundStyles = () => {
+    // Base styles
+    const baseStyles = {
+      position: 'fixed',
+      left: 0,
+      right: 0,
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+      zIndex: -100,
+      opacity: 1,
+      transition: 'top 0.3s ease-in-out',
+      pointerEvents: 'none',
+      borderBottomLeftRadius: '4rem',
+      borderBottomRightRadius: '4rem',
+    };
+
+    // For iPhone 14 Pro Max and similar large devices (428px width)
+    if (windowWidth >= 428) {
+      return {
+        ...baseStyles,
+        top: showBackground ? '0' : '-10%',
+        height: '10%',
+      };
+    }
+
+    // For smaller devices
+    return {
+      ...baseStyles,
+      top: showBackground ? '0' : '-11.5%',
+      height: '11.5%',
+    };
+  };
 
   const handleNavClick = (id) => {
     toggleOpen();
@@ -95,122 +137,109 @@ export const Navbar = () => {
 
   return (
     <div className={styles.naavbar}>
-      {/* Add the background div with dynamic opacity based on scroll */}
-      <div
-        style={{
-          position: 'fixed',
-          top: showBackground ? '0' : '-10%',
-          left: 0,
-          right: 0,
-          height: '10%',
-          backgroundColor: 'rgba(255, 255, 255, 1)',
-          zIndex: -100,
-          opacity: 1,
-          transition: 'top 0.3s ease-in-out',
-          pointerEvents: 'none',
-          borderBottomLeftRadius: '6rem',  // Added rounded bottom corners
-          borderBottomRightRadius: '6rem'  // Added rounded bottom corners
-        }}
-      />
+      {/* Dynamic background with responsive styles */}
+      <div style={getBackgroundStyles()} />
 
-      <Link to="/">
-        <Logo />
-      </Link>
-
-      <motion.nav
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={1000}
-        ref={containerRef}
-        style={{ zIndex: 999 }} // Ensure nav stays above the background
-      >
-        <motion.div
-          className="background"
-          variants={sidebar}
-          style={{
-            position: "fixed",
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "#ffffff",
-          }}
+      <div>
+        <Link to="/">
+          <Logo style={{marginLeft:"-1rem"}} />
+        </Link>
+  
+        <motion.nav
+          initial={false}
+          animate={isOpen ? "open" : "closed"}
+          custom={1000}
+          ref={containerRef}
+          style={{ zIndex: 999 }}
         >
-          <motion.ul
-            variants={navVariants}
+          <motion.div
+            className="background"
+            variants={sidebar}
             style={{
-              padding: "25px",
-              position: "absolute",
-              top: "100px",
-              width: "100vw",
-              margin: 0,
+              position: "fixed",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
               alignItems: "center",
+              justifyContent: "center",
+              background: "#ffffff",
+              padding: 0,
             }}
           >
-            {navItems.map((item, i) => (
-              <motion.li
-                key={i}
-                variants={navItemVariants}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavClick(item.id)}
-                style={{
-                  listStyle: "none",
-                  marginBottom: "20px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  fontSize: "2rem",
-                  textAlign: "center",
-                }}
-              >
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  <div
-                    className="text-placeholder"
-                    style={{
-                      width: "200px",
-                      height: "20px",
-                      borderRadius: "5px",
-                      color: "#43bb0b",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.name}
-                  </div>
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </motion.div>
-
-        <button
-          onClick={() => toggleOpen()}
-          style={{
-            outline: "none",
-            border: "none",
-            cursor: "pointer",
-            position: "absolute",
-            top: "-4px",
-            right: "6px",
-            width: "50px",
-            height: "50px",
-            borderRadius: "50%",
-            background: "transparent",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 999,
-          }}
-        >
-          <FaGripLines size={30} color="#43bb0b" />
-        </button>
-      </motion.nav>
+            <motion.ul
+              variants={navVariants}
+              style={{
+                padding: "25px",
+                position: "absolute",
+                top: "100px",
+                width: "100vw",
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {navItems.map((item, i) => (
+                <motion.li
+                  key={i}
+                  variants={navItemVariants}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => handleNavClick(item.id)}
+                  style={{
+                    listStyle: "none",
+                    marginBottom: "20px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    fontSize: "2rem",
+                    textAlign: "center",
+                  }}
+                >
+                  <Link to="/" style={{ textDecoration: "none" }}>
+                    <div
+                      className="text-placeholder"
+                      style={{
+                        width: "100%",
+                        borderRadius: "5px",
+                        color: "#43bb0b",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.name}
+                    </div>
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+  
+          <button
+            onClick={() => toggleOpen()}
+            style={{
+              outline: "none",
+              border: "none",
+              cursor: "pointer",
+              position: "absolute",
+              top: ".4rem",
+              right: "3.9rem",
+              width: "4rem",
+              height: "4rem",
+              borderRadius: "50%",
+              background: "#5c8e55",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 999,
+            }}
+          >
+            <FaGripLines size={24} color="#fff" />
+          </button>
+        </motion.nav>
+      </div>
     </div>
   );
 };

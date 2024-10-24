@@ -15,13 +15,14 @@
   position: fixed;
   left: 5rem;
   right: 5rem;
-  height: 7rem;
-  width: 95%;
+  /* height: 7rem; */
+  width: 100%;
+  top: 1.2rem;
   border-bottom-left-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  
 }
 
 .drpdown {
@@ -36,11 +37,11 @@
 }
 
 .datas {
-  height: 13rem;
+  height: 12rem;
   /* padding-top: 40px; */
-  background-color: rgb(185, 197, 197);
+  /* background-color: rgb(185, 197, 197); */
   margin-top: 10rem;
-  width: 13rem;
+  width: 10rem;
   border-radius: 20px;
   display: flex;
   /* justify-content: center; */
@@ -85,25 +86,29 @@
   .naavbar {
     left: 2rem;
     right: 2rem;
-    height: 4.5rem;
+    height: 4rem;
     padding: 8px;
   }
   .drpdown {
-    width: 35px;
+    width: 30px;
     height: 35px;
   }
 }
 
 @media (max-width: 576px) {
   .naavbar {
-    left: 1rem;
-    right: 14rem;
-    height: 4rem;
-    top: 2rem;
-    padding: 5px;
+    /* left: 0rem;
+    right: 20rem;
+    height: 2rem;
+    top: 2rem; */
+    padding: 1rem;
   }
   .drpdown {
-    width: 30px;
-    height: 30px;
+    width: .5rem;
+    height: .5rem;
   }
+  .button{
+    display: none;
+  }
+  
 }
