@@ -6,14 +6,19 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Toaster } from "react-hot-toast";
+import { setIsLoggedIn } from "./App/generalSlice/generalSlice";
 
 function App() {
   const loaderData = useLoaderData();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(setIsLoggedIn(loaderData));
+  }, [loaderData, dispatch]);
+
   return (
     <>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster reverseOrder={false} />
       <GlobalStyles />
       <StyledApp>
         <Header></Header>

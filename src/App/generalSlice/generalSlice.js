@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isHome: true,
   isCart: true,
-  userName: null,
+  user: null,
   isLoggedIn: false,
   curHomeColor: "#5c8e55",
 };
@@ -15,14 +15,21 @@ const generalSlice = createSlice({
     setIsHome(state, action) {
       state.isHome = action.payload;
     },
-    setIsCart(state, action){
+    setIsCart(state, action) {
       state.isCart = action.payload;
     },
     setCurHomeColor(state, action) {
       state.curHomeColor = action.payload;
     },
+    setUser(state, action) {
+      state.user = action.payload;
+    },
+    setIsLoggedIn(state, action) {
+      state.isLoggedIn = action.payload;
+    },
   },
 });
 
-export const { setIsHome, setCurHomeColor, setIsCart } = generalSlice.actions;
+export const { setIsHome, setCurHomeColor, setIsCart, setUser, setIsLoggedIn } =
+  generalSlice.actions;
 export default generalSlice.reducer;
