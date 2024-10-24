@@ -5,6 +5,7 @@ import { StyledApp } from "./UI/MainComponents/MainComponents";
 import { Outlet, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const loaderData = useLoaderData();
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+      <Toaster position="top-right" reverseOrder={false} />
       <GlobalStyles />
       <StyledApp>
         <Header></Header>
