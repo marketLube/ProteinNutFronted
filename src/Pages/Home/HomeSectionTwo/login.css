@@ -90,6 +90,32 @@
   transform-origin: left center ; 
 }
 
+@media (max-width: 375px) {
+  .yellowBg{
+    width: 65%;
+  height: 18%;
+  top: 27%;
+  left: 18%;
+  }
+}
+@media (min-width: 430px) {
+  .yellowBg{
+    width: 65%;
+  height: 18%;
+  top: 32%;
+  left: 18%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .yellowBg{
+    width: 13%;
+  height: 18%;
+  top: 32%;
+  left: 43%;
+  }
+}
+
 .yellowBg::before {
   content: '';
   position: absolute;
