@@ -22,7 +22,6 @@ function Home() {
     queryFn: () => api.get("/products").then((res) => res.data.docs),
   });
 
-  console.log(products);
   return (
     <Main>
       <HomeSectionOne />
@@ -33,7 +32,7 @@ function Home() {
       </div>
       <div style={{ backgroundColor: "rgb(254,209,65)" }}>
         <HomeLandingSection1 />
-        <Reels />
+        {/* <Reels /> */}
         <Community />
       </div>
     </Main>

@@ -13,6 +13,7 @@
 @media (max-width: 768px) {
   .reels {
     width: 100%;
+    max-width: 100vw !important;
     touch-action: cross-slide-x;
   }
 }
