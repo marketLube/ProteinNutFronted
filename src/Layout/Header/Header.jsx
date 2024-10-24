@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 import { scrollToTarget } from "../../Helper/scrollToTarget";
 
 function Header() {
-  const { isHome } = useSelector((state) => state.general);
-
+  const { isHome, isCart } = useSelector((state) => state.general);
+const isTrue = isCart || isHome;
   return (
     <>
-      <HeaderBg $isHome={isHome} />
-      <StyledHeader $isHome={isHome}>
+      <HeaderBg $isHome={isTrue}  />
+      <StyledHeader $isHome={isTrue}>
         <div className={styles.headerText}>
           <Link to={"/"}>
             <button

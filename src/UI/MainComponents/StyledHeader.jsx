@@ -22,7 +22,7 @@ export const StyledHeader = styled.header`
   z-index: 100;
   padding: 0 5rem;
   transition: transform 0.5s ease;
-  ${(props) => (props.$isHome ? move : dontMove)};
+  ${(props) => (props.$isHome || props.$isCart ? move : dontMove)};
   overflow: hidden;
 `;
 
@@ -46,5 +46,5 @@ export const HeaderBg = styled.div`
   transition: transform 0.5s ease;
   border-bottom-left-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
-  ${(props) => (props.$isHome ? hide : visible)};
+  ${(props) => (props.$isHome || props.$isCart ? hide : visible)};
 `;

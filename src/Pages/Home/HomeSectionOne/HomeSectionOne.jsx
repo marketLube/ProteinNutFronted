@@ -177,7 +177,7 @@ const ChangingText = ({ colorIndex }) => {
 function HomeSectionOne() {
   const targetRef = useRef(null);
   const dispatch = useDispatch();
-  useObserver(targetRef, (isVisible) => dispatch(setIsHome(isVisible)), 0.8);
+  useObserver(targetRef, (isVisible) => dispatch(setIsHome(isVisible)), .8);
 
   const [prevColor, setPrevColor] = useState(colors[0]);
   const [curColor, setCurColor] = useState(colors[0]);
