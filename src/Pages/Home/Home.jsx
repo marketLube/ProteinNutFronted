@@ -9,6 +9,8 @@ import HomeSectionOne from "./HomeSectionOne/HomeSectionOne";
 import { Community } from "./HomeSectionTwo/Community";
 import api from "../../services/api";
 import { Parallax } from "react-scroll-parallax";
+import {scrollToTarget} from "../../Helper/scrollToTarget"
+
 
 function Home() {
   // api to fetch the products
@@ -22,9 +24,16 @@ function Home() {
     queryFn: () => api.get("/products").then((res) => res.data.docs),
   });
 
+  const handleScrollToTop = ()=>{
+    console.log("inside the parent component");
+    scrollToTarget("home")();
+    
+  }
+  
+
   return (
     <Main>
-      <HomeSectionOne />
+      <div id="home"><HomeSectionOne /></div>
       <Green />
       <div style={{ overflow: "hidden" }}>
         <GridDisplay products={products} isLoading={isLoading} error={error} />
@@ -33,7 +42,7 @@ function Home() {
       <div style={{ backgroundColor: "rgb(254,209,65)" }}>
         <HomeLandingSection1 />
         <Reels />
-        <Community />
+        <Community handleScrollToTop={handleScrollToTop} />
       </div>
     </Main>
   );

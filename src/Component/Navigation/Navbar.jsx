@@ -106,8 +106,8 @@ export const Navbar = () => {
     if (windowWidth >= 428) {
       return {
         ...baseStyles,
-        top: showBackground ? '0' : '-10%',
-        height: '10%',
+        top: showBackground ? '0' : '-9%',
+        height: '9%',
       };
     }
 

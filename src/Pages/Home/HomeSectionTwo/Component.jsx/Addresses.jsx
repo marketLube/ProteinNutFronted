@@ -8,13 +8,12 @@ export const Addresses = () => {
         {css`
           .address-container {
             max-width: 600px;
-            margin: auto;
-            padding: 20px;
+            // margin: auto;
+            padding: 30px;
             // background-color: #f5f5e9;
             font-family: Arial, sans-serif;
             margin-top: 10px;
-            height: 100vh;
-            width: 35rem;
+            width: 100%;
           }
           .address-header {
             font-size: 28px;
@@ -24,11 +23,11 @@ export const Addresses = () => {
           }
           .address-card {
             background-color: #fff;
-            padding: 20px;
+            padding: 40px 30px;
             border-radius: 15px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             border: 1px solid #eee;
-            width: 30rem;
+            width: 100%;
           }
           .address-card h5 {
             font-size: 16px;

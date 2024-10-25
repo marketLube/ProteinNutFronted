@@ -1,38 +1,84 @@
 import React from "react";
+import { FaArrowUp } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { Parallax } from "react-scroll-parallax";
 import { css } from "styled-components";
 
-export const Community = () => {
+
+export const Community = ({handleScrollToTop }) => {
   const { isDesktop } = useSelector((state) => state.endpoint);
+
   return (
     <div>
       <style>
         {css`
           .container-main {
             background-color: transparent;
-            padding: 10px;
+            // padding: 10px;
             /* margin-top: 5px; */
+            overflow:hidden;
           }
 
           .container {
             display: flex;
             flex-direction: column;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: rgb(255, 255, 255,0.85);
             border-radius: 25px;
             max-width: 100%;
             height: auto;
-            margin: 95px auto;
+            margin:95px auto;
             align-items: center;
             justify-content: center;
             opacity: 2;
+             z-index: 5;
+            //  overflow:hidden;
+          }
+
+          .circle-1 {
+            border:60px solid #5c8e55;
+            border-radius: 50%;
+            width: 800px;
+            height: 800px;
+            position:absolute;
+            bottom:10%;
+            left:-15%;
+            top:30%;
+            z-index: -1;
+
+          }
+          .circle-2 {
+            border:50px solid #5c8e55;
+            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            position:absolute;
+            bottom:10%;
+            right:-6%;
+            top:55%;
+            z-index: -2;
+
           }
 
           .container-items {
             width: 100%;
             padding: 20px;
+          }
+
+          .top-button{
+            width:40px;
+            height:40px;
+            background-color:#5c8e55;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:1rem;
+            border-radius:50%;
+            color:white;
+            position:absolute;
+            bottom:17%;
+            font-size:16px;
           }
 
           .content {
@@ -158,12 +204,38 @@ export const Community = () => {
           @media (min-width: 480px) {
             .container-main {
               padding: 40px;
+              overflow:hidden;
             }
 
             .container {
               padding: 30px;
               border-radius: 35px;
             }
+          //     .circle-1 {
+          //   border:30px solid #5c8e55;
+          //   border-radius: 50%;
+          //   width: 800px;
+          //   height: 800px;
+          //   position:absolute;
+          //   bottom:10%;
+          //   left:-15%;
+          //   top:40%;
+          //   z-index: -1;
+
+          // }
+          // .circle-2 {
+          //   border:30px solid #5c8e55;
+          //   border-radius: 50%;
+          //   width: 600px;
+          //   height: 600px;
+          //   position:absolute;
+          //   bottom:10%;
+          //   right:-6%;
+          //   top:55%;
+          //   z-index: -2;
+
+          // }
+
 
             .form {
               max-width: 350px;
@@ -256,10 +328,133 @@ export const Community = () => {
               height: 45px;
             }
           }
+
+           @media (max-width: 468px){
+
+           .container-main {
+              padding:0 10px;
+              overflow:hidden;
+              
+            }
+            .container{
+              margin:7% 4%;
+            }  
+              .container-items {
+            width: 100%;
+            padding: 20px;
+          }
+               .circle-1 {
+            border:20px solid #5c8e55;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            position:absolute;
+            // bottom:10%;
+            left:-40%;
+            top:50%;
+            z-index: -1;
+
+          }
+          .circle-2 {
+            border:20px solid #5c8e55;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            position:absolute;
+            right:-45%;
+            top:70%;
+            z-index: -2;
+          }
+            .buttons {
+            right: -2%;
+            top: 70%;
+            width: 60px;
+            height:60px;
+            font-size: 12px;
+            font-weight: 500;
+            padding:.5rem;
+            z-index: 0;
+            opacity: 1;
+          }
+            .nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:center;
+            gap:20%;
+            margin:20% 0 0 0;
+          }
+
+          .left-section {
+            text-align: left;
+          }
+
+          .input {
+            flex: 1;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid #00004d;
+            font-size: 12px;
+            outline: none;
+            width: 100%;
+            z-index: 5;
+            position: relative;
+            background-color: transparent;
+            margin:3% 0 0 0;
+          }
+
+          .input:focus {
+            border-bottom-color: #000;
+          }
+
+          .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00004d;
+            font-family: "Degular";
+          }
+
+          .description {
+            font-size: 11px;
+            color: #4e4e87;
+            margin-bottom: 24px;
+            font-family: "Sophia";
+            width:85%;
+          }
+
+          .logo {
+            margin-bottom: 0;
+            width:150px;
+
+          }
+          .icons {
+            width: 25px;
+            height: 25px;
+          }
+
+          .top-button{
+            width:30px;
+            height:30px;
+            background-color:#5c8e55;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:1rem;
+            border-radius:50%;
+            color:white;
+            position:absolute;
+            bottom:3%;
+            font-size:16px;
+          }
+
+           }
         `}
       </style>
       <Parallax speed={isDesktop ? 20 : 0} className="container-main">
         <div className="container" id="contact">
+        <div className="circle-1"></div>
+        <div className="circle-2"></div>
+        <div className="top-button" onClick={handleScrollToTop}><FaArrowUp /></div>
           <div className="container-items">
             <div className="content">
               <div className="left-section">
@@ -295,6 +490,7 @@ export const Community = () => {
             </nav>
           </div>
         </div>
+        
       </Parallax>
     </div>
   );
