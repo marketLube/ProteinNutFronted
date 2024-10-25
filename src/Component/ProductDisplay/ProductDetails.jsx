@@ -36,9 +36,7 @@ export const ProductDetails = () => {
             <Counter />
           </div>
         </div>
-        {isMobile ? null : (
-          <span className={styles.totalPrice}>Rs. 349.00</span>
-        )}
+        {isMobile ? null : <div className={styles.totalPrice}>Rs. 349.00</div>}
       </div>
     </div>
   );

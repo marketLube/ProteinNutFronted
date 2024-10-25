@@ -3,8 +3,9 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  max-width: 1500px;
-  margin: 0 auto;
+  flex: 1;
+  margin-right: 3rem;
+  height: 28rem;
 }
 
 .header {
@@ -21,6 +22,7 @@
 .productContainer {
   display: flex;
   align-items: center;
+  padding-top: 3rem;
 
   /* justify-content: space-between; */
 }
@@ -44,6 +46,8 @@
   font-size: 19px;
   font-weight: 500;
   color: #00004d;
+  width: 100%;
+
   /* margin: 0 0 5px 0; */
 }
 
@@ -64,8 +68,10 @@
   font-size: 18px;
   font-weight: 600;
   color: #00004d;
-  min-width: 100px;
-  text-align: right;
+  /* min-width: 100px; */
+  width: 30%;
+  /* background-color: aqua; */
+  text-align: end;
 }
 .det {
   display: flex;
@@ -75,9 +81,12 @@
 @media (max-width: 768px) {
   .card {
     margin: 15px;
+    padding: 15px;
+    height: 21rem;
   }
   .productTitle {
     font-size: 1.5rem;
+    width: 90%;
   }
   .productPrice {
     font-size: 1.3rem;

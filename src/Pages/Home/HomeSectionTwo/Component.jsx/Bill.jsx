@@ -104,7 +104,7 @@ export const Bill = () => {
           @media (max-width: 600px) {
             .checkout__container {
               flex-direction: row;
-              height: 100vh;
+              /* height: 100vh; */
             }
             .checkout__content {
               width: 100%;
@@ -146,6 +146,7 @@ export const Bill = () => {
           @media (max-width: 1024px) {
             .checkout__container {
               max-width: 900px;
+              padding: 5px;
             }
             .checkout__image {
               width: 60px;

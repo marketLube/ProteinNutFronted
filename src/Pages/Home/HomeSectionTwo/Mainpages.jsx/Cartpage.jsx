@@ -22,54 +22,48 @@ export const Cartpage = () => {
       setShowBackground(position > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   const getBackgroundStyles = () => {
     // Base styles
     const baseStyles = {
-      position: 'fixed',
+      position: "fixed",
       left: 0,
       right: 0,
-      backgroundColor: 'rgba(255, 255, 255, 1)',
+      backgroundColor: "rgba(255, 255, 255, 1)",
       zIndex: 5,
       opacity: 1,
       width: "92%",
       margin: "0 auto",
-      transition: 'top 0.3s ease-in-out',
-      borderBottomLeftRadius: '4rem',
-      borderBottomRightRadius: '4rem',
+      transition: "top 0.3s ease-in-out",
+      borderBottomLeftRadius: "4rem",
+      borderBottomRightRadius: "4rem",
     };
 
     // here the top position is changing
     if (windowWidth >= 1024) {
       return {
         ...baseStyles,
-        top: showBackground ? '0' : '-10%',
-        height: '9rem',
-        
+        top: showBackground ? "0" : "-10%",
+        height: "9rem",
       };
     }
-
   };
   return (
     <div className={styles.maindiv}>
-      <div style={getBackgroundStyles() } />
+      <div style={getBackgroundStyles()} />
       <h1 className={styles.carthead}>Your cart</h1>
       <div className={styles.sectionone}>
-        <div>
-          <ProductDetails />
-        </div>
-        <div>
-          <Checkouts />
-        </div>
+        <ProductDetails />
+        <Checkouts />
       </div>
-      <div>
+      <div className={styles.sectiontwo}>
         <Community />
       </div>
     </div>
