@@ -13,7 +13,7 @@
 .productcard::before {
   content: "";
   position: absolute;
-  margin-left: 2rem; /* Added back */
+  margin-left: 2rem;
   width: 16rem;
   height: 16rem;
   background-color: #ffffff;

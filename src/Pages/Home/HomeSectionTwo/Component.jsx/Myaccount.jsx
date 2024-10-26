@@ -1,7 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { css } from "styled-components";
 
 export const Myaccount = () => {
+
+  const user = useSelector((state)=> state.general.user);
+
+  console.log(user);
+  
+
   return (
     <div>
       <style>

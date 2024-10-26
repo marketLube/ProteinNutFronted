@@ -11,13 +11,17 @@ export const Myaccounts = () => {
         {css`
           .account {
             display: flex;
-            background-color: #ffffe6;
+            // background-color: #ffffe6;
             justify-content: center;
             padding: 20px;
-            gap: px;
             padding-top: 14rem;
-            max-height: 100vh;
-            overflow: hidden;
+
+          }
+
+          @media (min-width:1024px){
+            .address-section{
+              margin-top:7%;
+            }
           }
           @media (max-width: 600px) {
             .account {
@@ -51,6 +55,12 @@ export const Myaccounts = () => {
               padding: 5px;
               gap: 5px;
               padding-top: 10rem;
+              overflow: visible;
+              height:120vh
+            }
+              .address-section{
+              margin-top:-40%;
+              width:100%;
             }
           }
         `}
@@ -58,7 +68,7 @@ export const Myaccounts = () => {
 
       <div className="account">
         <Myaccount />
-        <Addresses />
+        <div className="address-section"><Addresses /></div>
       </div>
     </div>
   );

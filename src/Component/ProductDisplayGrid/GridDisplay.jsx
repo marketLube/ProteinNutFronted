@@ -90,7 +90,7 @@ export const GridDisplay = ({ products, isLoading, error }) => {
             className="swiper"
           >
             {products.map((product, i) => (
-              <SwiperSlide key={i}>
+              <SwiperSlide key={i} className="swiper-slide">
                 <ProductContainer product={product} />
               </SwiperSlide>
             ))}

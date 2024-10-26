@@ -13,11 +13,7 @@
   margin-left: 7rem;
 }
 
-@media (max-width: 768px) {
-  .swiper {
-    width: 100vw;
-  }
-}
+
 
 .swiper-slide {
   text-align: center;
@@ -35,4 +31,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+@media (max-width: 768px) {
+  .swiper {
+    width: 100vw;
+  }
+}
+@media (max-width :480){
+  .swiper {
+    width: 50vw;
+    height: 100%;
+    margin-left: 7rem;
+  }
 }
