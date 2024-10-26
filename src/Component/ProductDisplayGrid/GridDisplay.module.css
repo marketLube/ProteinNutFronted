@@ -1,7 +1,9 @@
+.swiperslides {
+}
 .detailsproduct {
   width: 100%;
   height: 75%;
-  display: grid;
+  /* display: grid; */
   font-family: "Degular";
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;

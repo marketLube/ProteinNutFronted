@@ -72,30 +72,32 @@ export const GridDisplay = ({ products, isLoading, error }) => {
         </div>
       </motion.h2>
 
-      <div className={styles.detailsproduct}>
-        {isLoading ? (
-          // Show skeletons while loading
-          Array.from({ length: 4 }).map((_, index) => (
-            <SkeletonLoader key={index} />
-          ))
-        ) : error ? (
-          <div className={styles.error}>{error.message}</div>
-        ) : products?.length === 0 ? (
-          <div className={styles.noProducts}>No products available.</div>
-        ) : (
-          <Swiper
-            slidesPerView={isMobile ? 1 : 4}
-            navigation={true}
-            modules={[Navigation]}
-            className="swiper"
-          >
-            {products.map((product, i) => (
-              <SwiperSlide key={i} className="swiper-slide">
-                <ProductContainer product={product} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+      <div className={styles.swiperslides}>
+        <div className={styles.detailsproduct}>
+          {isLoading ? (
+            // Show skeletons while loading
+            Array.from({ length: 4 }).map((_, index) => (
+              <SkeletonLoader key={index} />
+            ))
+          ) : error ? (
+            <div className={styles.error}>{error.message}</div>
+          ) : products?.length === 0 ? (
+            <div className={styles.noProducts}>No products available.</div>
+          ) : (
+            <Swiper
+              slidesPerView={isMobile ? 1.3 : 4}
+              navigation={true}
+              modules={[Navigation]}
+              className="swiper"
+            >
+              {products.map((product, i) => (
+                <SwiperSlide key={i} className="swiper-slide">
+                  <ProductContainer product={product} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </div>
       </div>
     </Parallax>
   );

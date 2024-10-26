@@ -53,13 +53,13 @@ export const ProductContainer = ({ product }) => {
   return (
     <div
       className={styles.productcard}
-      style={{ display: "flex", alignItems: "center" }}
+      style={{ display: "flex", alignItems: "start" }}
     >
       <div
         onClick={handleProductClick}
         style={{ cursor: "pointer", textDecoration: "none" }}
       >
-        <div>
+        <div className={styles.imagediv}>
           <img
             src={product?.image[0]}
             alt={product?.name}
@@ -67,31 +67,18 @@ export const ProductContainer = ({ product }) => {
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: ".5rem",
-          }}
-        >
+        <div className={styles.detailofproduct}>
           <h2 className={styles.producttitle}>{product?.name}</h2>
 
-          <div
-            style={{
-              padding: "10px",
-              paddingRight: "12.5rem",
-            }}
-          >
-            {renderStars(product?.avgRatings)}
-          </div>
+          <div>{renderStars(product?.avgRatings)}</div>
 
           <div className={styles.pricecontainer}>
             <span className={styles.currentprice}>Rs. {currentPrice}</span>
             <span className={styles.originalprice}>Rs. {product?.price}</span>
           </div>
+          <button className={styles.addtocartbutton}>Add To Cart</button>
         </div>
       </div>
-      <button className={styles.addtocartbutton}>Add To Cart</button>
     </div>
   );
 };
