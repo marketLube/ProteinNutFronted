@@ -3,11 +3,9 @@ import { useSelector } from "react-redux";
 import { css } from "styled-components";
 
 export const Myaccount = () => {
+  const user = useSelector((state) => state.general.user);
 
-  const user = useSelector((state)=> state.general.user);
-
-  console.log(user);
-  
+  console.log(user, "user");
 
   return (
     <div>
@@ -81,7 +79,6 @@ export const Myaccount = () => {
 
           .order-detail {
             margin-right: 80px;
-
             background-color: #ac0d0d;
           }
 

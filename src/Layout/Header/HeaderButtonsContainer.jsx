@@ -6,14 +6,11 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 function HeaderButtonsContainer() {
-  const { isLoggedIn, user } = useSelector((state) => state.general);
-  const endpoint = isLoggedIn ? "/login" : "/myaccount";
-
-  console.log(user, "user");
-
+  const { isLoggedIn } = useSelector((state) => state.general);
+  const endpoint = !isLoggedIn ? "/login" : "/myaccount";
   return (
     <div className={styles.headerBtnContainer}>
-      <Link to="/myaccount">
+      <Link to={endpoint}>
         <motion.div
           className="your-class-name"
           initial={{ scale: 0 }}
