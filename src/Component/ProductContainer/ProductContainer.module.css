@@ -50,6 +50,11 @@
 .backdrop {
   display: "none";
 }
+.detailofproduct {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
 
 .producttitle {
   font-size: 20px;
@@ -57,11 +62,15 @@
   text-align: start;
   margin-bottom: 12px;
   /* margin-top: 0px; */
+  height: 5rem;
+  overflow: hidden;
   padding: 0 30px;
 }
 
-.star {
+.starses {
   color: #f6ad55;
+  padding: 10px;
+  /* padding-right: 12.5rem; */
 }
 
 .pricecontainer {
@@ -100,6 +109,32 @@
 
 .addtocartbutton:hover {
   background-color: #38a169;
+}
+
+@media (max-width: 767px) {
+  .detailofproduct {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+  }
+  .imagediv {
+    width: 30rem;
+  }
+  .productimage {
+    width: 10rem;
+  }
+  .producttitle {
+    padding: 0 2px;
+  }
+  .currentprice {
+    padding: 0 0;
+  }
+  .detailofproduct {
+    padding: 3rem;
+  }
+  .addtocartbutton {
+    width: 80%;
+  }
 }
 
 @keyframes zoom {
