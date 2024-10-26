@@ -32,9 +32,9 @@ import { RiviewSwiperComponent } from "../src/Component/Riviews/RiviewSwiperComp
 async function verify() {
   try {
     const res = await api.get("/users/verify");
-    return res?.data?.isLoggedIn || null;
+    return res?.data || null;
   } catch (e) {
-    return e?.data?.isLoggedIn || null;
+    return e?.data || null;
   }
 }
 

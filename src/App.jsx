@@ -6,14 +6,15 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Toaster } from "react-hot-toast";
-import { setIsLoggedIn } from "./App/generalSlice/generalSlice";
+import { setIsLoggedIn, setUser } from "./App/generalSlice/generalSlice";
 
 function App() {
   const loaderData = useLoaderData();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setIsLoggedIn(loaderData));
+    dispatch(setIsLoggedIn(loaderData?.isLoggedIn));
+    dispatch(setUser(loaderData?.currentUser));
   }, [loaderData, dispatch]);
 
   return (

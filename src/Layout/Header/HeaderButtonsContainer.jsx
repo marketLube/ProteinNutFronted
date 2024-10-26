@@ -4,8 +4,12 @@ import styles from "./HeaderButtonsContainer.module.css";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 function HeaderButtonsContainer() {
-  const isLoggin = true;
+  const { isLoggedIn, user } = useSelector((state) => state.general);
+  const endpoint = isLoggedIn ? "/login" : "/myaccount";
+
+  console.log(user, "user");
 
   return (
     <div className={styles.headerBtnContainer}>
