@@ -4,12 +4,14 @@ import { Checkouts } from "../../../../Component/Checkout/Checkouts";
 import { Community } from "../Community";
 import styles from "./Cartpage.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Login } from "../Login";
 
 export const Cartpage = () => {
-  const containerRef = useRef(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [showBackground, setShowBackground] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const { isLoggedIn } = useSelector((state) => state.general);
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,7 +20,6 @@ export const Cartpage = () => {
 
     const handleScroll = () => {
       const position = window.pageYOffset;
-      setScrollPosition(position);
       setShowBackground(position > 100);
     };
 
@@ -59,10 +60,14 @@ export const Cartpage = () => {
     <div className={styles.maindiv}>
       <div style={getBackgroundStyles()} />
       <h1 className={styles.carthead}>Your cart</h1>
-      <div className={styles.sectionone}>
-        <ProductDetails />
-        <Checkouts />
-      </div>
+      {isLoggedIn ? (
+        <div className={styles.sectionone}>
+          <ProductDetails />
+          <Checkouts />
+        </div>
+      ) : (
+        <Login />
+      )}
       <div className={styles.sectiontwo}>
         <Community />
       </div>

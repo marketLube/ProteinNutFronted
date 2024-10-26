@@ -1,11 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { css } from "styled-components";
+import api from "../../../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export const Myaccount = () => {
   const user = useSelector((state) => state.general.user);
 
   console.log(user, "user");
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const res = api.post("/users/logout");
+      console.log(res);
+      navigate("/");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div>
@@ -109,7 +122,9 @@ export const Myaccount = () => {
           <span>My Account</span>
         </h1>
 
-        <button className="logout-button">Log Out</button>
+        <button className="logout-button" onClick={handleLogout}>
+          Log Out
+        </button>
         <div className="order-history">
           <h3>Order History</h3>
 
