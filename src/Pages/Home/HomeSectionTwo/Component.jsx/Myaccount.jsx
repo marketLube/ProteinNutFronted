@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 export const Myaccount = () => {
   const user = useSelector((state) => state.general.user);
 
-  console.log(user, "user");
   const navigate = useNavigate();
 
   const handleLogout = async () => {
