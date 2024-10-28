@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isHome: true,
   isCart: true,
+  cart: [],
   user: null,
   isLoggedIn: false,
   curHomeColor: "#5c8e55",
@@ -23,6 +24,7 @@ const generalSlice = createSlice({
     },
     setUser(state, action) {
       state.user = action.payload;
+      state.cart = action.payload.cart;
     },
     setIsLoggedIn(state, action) {
       state.isLoggedIn = action.payload;

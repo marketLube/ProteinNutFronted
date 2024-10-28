@@ -5,6 +5,7 @@ import api from "../../../../services/api";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import OrderItem from "./OrdersComponent/OrderItem";
+import { Loaderorder } from "../../../../Component/Loader/Loaderorder";
 
 export const Myaccount = () => {
   const { user } = useSelector((state) => state.general);
@@ -129,6 +130,23 @@ export const Myaccount = () => {
             border: none; /* Remove border */
             outline: none;
           }
+          .order-error {
+            font-size: 3rem;
+            color: red;
+            font-weight: bold;
+            height: 20vh;
+            width: 80vw;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+          }
+          .order-loading {
+            height: 10rem;
+            width: 50rem;
+            display: flex;
+            /* justify-content: start;
+            align-items: center; */
+          }
         `}
       </style>
 
@@ -140,8 +158,12 @@ export const Myaccount = () => {
         <button className="logout-button" onClick={handleLogout}>
           Log Out
         </button>
-        {error && <div>network error </div>}
-        {isLoading && <div>Loader</div>}
+        {error && <div className="order-error">Network error </div>}
+        {isLoading && (
+          <div className="order-loading">
+            <Loaderorder />
+          </div>
+        )}
         {!error && !isLoading && (
           <div className="order-history">
             <h3>Order History</h3>

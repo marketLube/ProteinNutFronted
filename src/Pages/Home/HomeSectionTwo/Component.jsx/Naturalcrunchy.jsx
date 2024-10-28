@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { css } from "styled-components";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import api from "../../../../services/api";
+import toast from "react-hot-toast";
 
 export const ProductDisplay = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
@@ -60,6 +62,15 @@ export const ProductDisplay = ({ product }) => {
       setLocation("Olavanna, Kozhikode");
     } else {
       setLocation("Location not available");
+    }
+  };
+
+  const handleClick = async () => {
+    try {
+      const res = await api.patch(`cart/add-product-to-cart/${product?._id}`);
+      toast.success("success fully added");
+    } catch (error) {
+      toast.error("Please try again later");
     }
   };
 
@@ -170,18 +181,18 @@ export const ProductDisplay = ({ product }) => {
           }
 
           .size-button {
-          padding: 5px 10px;
-          background-color: #fff9f2;
-          border: none;
-          border-radius: 4px;
-          font-weight: bold;
-          font-size: 12px;
-          transition: background-color 0.3s ease, border-color 0.3s ease;
-}
+            padding: 5px 10px;
+            background-color: #fff9f2;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+          }
 
           .size-button.active {
             border: 1px solid #4caf50;
-        }
+          }
 
           .button-container {
             display: flex;
@@ -269,7 +280,12 @@ export const ProductDisplay = ({ product }) => {
             </div>
             <div className="location-container-text">
               {location && pincode ? (
-                <span className="location-container-text" style={{ color: "#4caf50" }}>{location}</span>
+                <span
+                  className="location-container-text"
+                  style={{ color: "#4caf50" }}
+                >
+                  {location}
+                </span>
               ) : (
                 <button
                   className="check-availability"
@@ -295,21 +311,29 @@ export const ProductDisplay = ({ product }) => {
             >
               +
             </button>
-            <div style={{ display: "flex", gap: ".5rem", flexDirection: "wrap" }}>
+            <div
+              style={{ display: "flex", gap: ".5rem", flexDirection: "wrap" }}
+            >
               <button
-                className={`size-button ${selectedWeight === "250G" ? "active" : ""}`}
+                className={`size-button ${
+                  selectedWeight === "250G" ? "active" : ""
+                }`}
                 onClick={() => setSelectedWeight("250G")}
               >
                 250G
               </button>
               <button
-                className={`size-button ${selectedWeight === "500G" ? "active" : ""}`}
+                className={`size-button ${
+                  selectedWeight === "500G" ? "active" : ""
+                }`}
                 onClick={() => setSelectedWeight("500G")}
               >
                 500G
               </button>
               <button
-                className={`size-button ${selectedWeight === "1KG" ? "active" : ""}`}
+                className={`size-button ${
+                  selectedWeight === "1KG" ? "active" : ""
+                }`}
                 onClick={() => setSelectedWeight("1KG")}
               >
                 1KG
@@ -318,7 +342,9 @@ export const ProductDisplay = ({ product }) => {
           </div>
 
           <div className="button-container">
-            <button className="add-to-cart">Add to cart</button>
+            <button className="add-to-cart" onClick={handleClick}>
+              Add to cart
+            </button>
             <Link to="/homesectiontwo">
               <button className="buy-now">Buy Now</button>
             </Link>

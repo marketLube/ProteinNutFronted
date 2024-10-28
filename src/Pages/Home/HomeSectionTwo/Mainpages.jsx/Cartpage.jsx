@@ -13,6 +13,10 @@ export const Cartpage = () => {
 
   const { isLoggedIn } = useSelector((state) => state.general);
 
+  const { user } = useSelector((state) => state.general);
+  const { products } = user?.cart || [];
+  console.log(products, "products");
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -62,7 +66,11 @@ export const Cartpage = () => {
       <h1 className={styles.carthead}>Your cart</h1>
       {isLoggedIn ? (
         <div className={styles.sectionone}>
-          <ProductDetails />
+          <div className={styles.cartproducts}>
+            {products?.map((item) => (
+              <ProductDetails item={item} key={item._id} />
+            ))}
+          </div>
           <Checkouts />
         </div>
       ) : (

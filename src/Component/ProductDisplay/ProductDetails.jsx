@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ProductDetails.module.css";
 import { Counter } from "../Counter/Counter";
 import { useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
+import api from "../../services/api";
 
-export const ProductDetails = () => {
+export const ProductDetails = ({ item }) => {
   const isMobile = useSelector(function (state) {
     return state.endpoint.isMobile;
   });
-  console.log(isMobile, "iii");
+
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className={styles.card}>
@@ -19,24 +22,26 @@ export const ProductDetails = () => {
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <img
-            src="/Image/672px X 707px-01.svg"
-            alt="Pineapple Peanut Butter"
+            src={item?.image}
+            alt="Peanut Butter"
             className={styles.productImage}
           />
         </div>
         <div className={styles.det}>
           <div className={styles.productInfo}>
-            <h3 className={styles.productTitle}>
-              Pineapple flavoured Peanut Butter
-            </h3>
+            <h3 className={styles.productTitle}>{item?.name}</h3>
             {/* <h3 className={styles.productTitle}></h3> */}
-            <p className={styles.productPrice}>Rs. 349.00</p>
+            <p className={styles.productPrice}>Rs. {item?.price}</p>
           </div>
           <div className={styles.quantityContainer}>
-            <Counter />
+            <Counter quantity={quantity} setQuantity={setQuantity} />
           </div>
         </div>
-        {isMobile ? null : <div className={styles.totalPrice}>Rs. 349.00</div>}
+        {isMobile ? null : (
+          <div className={styles.totalPrice}>
+            Rs. {(quantity * item?.price).toFixed(2)}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Counter.module.css";
 
-export const Counter = () => {
-  const [quantity, setQuantity] = useState(1);
+export const Counter = ({ quantity, setQuantity }) => {
   return (
     <div>
       <div className={styles.quantitycontainer}>
