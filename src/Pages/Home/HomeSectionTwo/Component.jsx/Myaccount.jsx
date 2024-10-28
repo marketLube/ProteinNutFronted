@@ -21,6 +21,7 @@ export const Myaccount = () => {
   });
 
   console.log(orders, "orders");
+  console.log(error, "e");
 
   const navigate = useNavigate();
 
