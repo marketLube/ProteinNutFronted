@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { css } from "styled-components";
 
 export const Addresses = () => {
+  const { user } = useSelector((state) => state.general);
   return (
     <div>
       <style>
@@ -44,16 +46,13 @@ export const Addresses = () => {
 
       <div className="address-container">
         <h2 className="address-header">Addresses</h2>
-
         <div className="address-card">
-          <h5>Name</h5>
+          <h5>Email || Phone</h5>
           <hr />
           <p className="address-details">
-            Name
+            {user?.email || user?.phone}
             <br />
-            Location, street, landmark
-            <br />
-            district, state, Pin: 000 000
+            {user?.address || "Undisclosed place"}
           </p>
         </div>
       </div>

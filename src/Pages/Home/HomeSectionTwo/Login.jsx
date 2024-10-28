@@ -4,7 +4,7 @@ import "./login.css";
 import api from "../../../services/api";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../../App/generalSlice/generalSlice";
+import { setIsLoggedIn, setUser } from "../../../App/generalSlice/generalSlice";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -37,13 +37,14 @@ export const Login = () => {
     const toastId = toast.loading("Verifying otp...");
     try {
       const res = await api.patch(`/users/verify-otp/${email}/${otp}`);
-      console.log(res, "res");
+      dispatch(setIsLoggedIn(true));
       dispatch(setUser(res.data.envelop?.user));
       navigate(-1);
 
       toast.success("Otp verified successfully", { id: toastId });
     } catch (e) {
       setErr(e.response?.data?.message);
+      dispatch(setIsLoggedIn(false));
       console.log(e, "Error");
       toast.error("Otp verification failed", { id: toastId });
     }

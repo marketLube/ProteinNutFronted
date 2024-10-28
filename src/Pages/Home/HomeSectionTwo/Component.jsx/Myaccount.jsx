@@ -3,9 +3,24 @@ import { useSelector } from "react-redux";
 import { css } from "styled-components";
 import api from "../../../../services/api";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import OrderItem from "./OrdersComponent/OrderItem";
 
 export const Myaccount = () => {
-  const user = useSelector((state) => state.general.user);
+  const { user } = useSelector((state) => state.general);
+
+  const {
+    data: orders,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["orders "],
+    queryFn: () =>
+      api.get(`/orders?user=${user?._id}`).then((res) => res.data.docs),
+  });
+
+  console.log(orders, "orders");
 
   const navigate = useNavigate();
 
@@ -124,27 +139,16 @@ export const Myaccount = () => {
         <button className="logout-button" onClick={handleLogout}>
           Log Out
         </button>
-        <div className="order-history">
-          <h3>Order History</h3>
-
-          <div className="order-item">
-            <div className="order-image"></div>
-            <span>Cruchey Peanut Butter 500g x 1</span>
-            <button className="order-status-track">Track</button>
+        {error && <div>network error </div>}
+        {isLoading && <div>Loader</div>}
+        {!error && !isLoading && (
+          <div className="order-history">
+            <h3>Order History</h3>
+            {orders?.map((item) => (
+              <OrderItem key={item._id} item={item} />
+            ))}
           </div>
-
-          <div className="order-item">
-            <div className="order-image"></div>
-            <span>Creamy Peanut Butter 1KG x 3</span>
-            <button className="order-status-delivered">Delivered</button>
-          </div>
-
-          <div className="order-item">
-            <div className="order-image"></div>
-            <span>Pineapple Peanut Butter 500g x 1</span>
-            <button className="order-status-delivered">Delivered</button>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
