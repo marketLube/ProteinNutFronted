@@ -70,7 +70,9 @@ export const ProductContainer = ({ product }) => {
         <div className={styles.detailofproduct}>
           <h2 className={styles.producttitle}>{product?.name}</h2>
 
-          <div>{renderStars(product?.avgRatings)}</div>
+          <div className={styles.starses}>
+            <div>{renderStars(product?.avgRatings)}</div>
+          </div>
 
           <div className={styles.pricecontainer}>
             <span className={styles.currentprice}>Rs. {currentPrice}</span>
