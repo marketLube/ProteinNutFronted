@@ -1,18 +1,28 @@
 // ProductContainer.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./ProductContainer.module.css";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export const ProductContainer = ({ product }) => {
   const navigate = useNavigate();
 
+  const { cart } = useSelector((state) => state.general);
+
+  const [isincart, setisincart] = useState(
+    cart.products.find((prod) => prod._id === product._id)
+  );
+
   const currentPrice = product.price - product.price * (product.offer / 100);
 
   const handleProductClick = () => {
-    // Navigate programmatically and scroll to top
     navigate("/select", { state: { product } });
     window.scrollTo(0, 0);
+  };
+
+  const handleCartClick = () => {
+    setisincart(!isincart);
   };
 
   const renderStars = (avgRatings) => {
@@ -78,7 +88,9 @@ export const ProductContainer = ({ product }) => {
             <span className={styles.currentprice}>Rs. {currentPrice}</span>
             <span className={styles.originalprice}>Rs. {product?.price}</span>
           </div>
-          <button className={styles.addtocartbutton}>Add To Cart</button>
+          <button className={styles.addtocartbutton} onClick={handleCartClick}>
+            {isincart ? "Remove from Cart" : "Add to cart"}
+          </button>
         </div>
       </div>
     </div>
