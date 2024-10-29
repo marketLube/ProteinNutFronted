@@ -63,7 +63,7 @@ export const Cartpage = () => {
   return (
     <div className={styles.maindiv}>
       <div style={getBackgroundStyles()} />
-      <h1 className={styles.carthead}>Your cart</h1>
+      {isLoggedIn && <h1 className={styles.carthead}>Your cart</h1>}
       {isLoggedIn ? (
         <div className={styles.sectionone}>
           <div className={styles.cartproducts}>
@@ -76,9 +76,11 @@ export const Cartpage = () => {
       ) : (
         <Login />
       )}
-      <div className={styles.sectiontwo}>
-        <Community />
-      </div>
+      {isLoggedIn && (
+        <div className={styles.sectiontwo}>
+          <Community />
+        </div>
+      )}
     </div>
   );
 };

@@ -62,9 +62,6 @@ export const Login = () => {
       <div className="login-container">
         <div>
           <h2 className="login-header">Login</h2>
-          <div className="yellowBg">
-            <h2></h2>
-          </div>
         </div>
 
         <div className="login-form">

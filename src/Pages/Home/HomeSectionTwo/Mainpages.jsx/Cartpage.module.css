@@ -24,6 +24,9 @@
   flex-direction: column;
   gap: 3rem;
 }
+.notlogin {
+  /* background-color: aqua; */
+}
 
 @media (max-width: 768px) {
   .sectionone {
