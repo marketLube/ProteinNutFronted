@@ -27,12 +27,13 @@ export const ProductContainer = ({ product }) => {
 
   const handleAddToCart = async () => {
     const res = await api.patch(`add-product-to-cart/${product._id}`);
-
     dispatch(setIsCart());
     console.log(res, "res");
   };
+
   const handleRemoveCart = () => {
     api.patch(`remove-product-in-cart/${product._id}`);
+    dispatch(setIsCart());
   };
 
   const renderStars = (avgRatings) => {
@@ -101,13 +102,17 @@ export const ProductContainer = ({ product }) => {
           {isincart ? (
             <button
               className={styles.addtocartbutton}
-              onClick={handleAddToCart}
-            ></button>
+              onClick={handleRemoveCart}
+            >
+              Remove from the cart
+            </button>
           ) : (
             <button
               className={styles.addtocartbutton}
-              onClick={handleRemoveCart}
-            ></button>
+              onClick={handleAddToCart}
+            >
+              Add to the Cart
+            </button>
           )}
         </div>
       </div>
