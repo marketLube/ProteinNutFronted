@@ -8,6 +8,7 @@
   border-radius: 20px;
   position: relative;
   font-family: sophia;
+  /* background-color: aqua; */
 }
 
 .productcard::before {
@@ -53,6 +54,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
+  padding: 2rem;
 }
 
 .producttitle {
@@ -63,13 +65,12 @@
   /* margin-top: 0px; */
   height: 5rem;
   overflow: hidden;
+  /* padding: 0 30px; */
 }
 
 .starses {
   color: #f6ad55;
   text-align: left;
-  /* padding-right: 12.5rem; */
-  margin-bottom: 2rem;
 }
 
 .pricecontainer {
@@ -85,6 +86,7 @@
   font-size: 15px;
   font-weight: bold;
   color: #00004d;
+  /* padding: 0 30px; */
 }
 
 .originalprice {
@@ -94,7 +96,6 @@
 }
 
 .addtocartbutton {
-  width: 82%;
   padding: 12px 24px;
   background-color: #5c8e55;
   color: white;

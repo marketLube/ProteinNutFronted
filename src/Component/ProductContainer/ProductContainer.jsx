@@ -71,7 +71,7 @@ export const ProductContainer = ({ product }) => {
           <h2 className={styles.producttitle}>{product?.name}</h2>
 
           <div className={styles.starses}>
-            <div>{renderStars(product?.avgRatings)}</div>
+            {renderStars(product?.avgRatings)}
           </div>
 
           <div className={styles.pricecontainer}>
