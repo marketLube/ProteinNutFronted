@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./ProductContainer.module.css";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import api from "../../services/api";
+import { setIsCart } from "../../App/generalSlice/generalSlice";
 
 export const ProductContainer = ({ product }) => {
   const navigate = useNavigate();
@@ -16,13 +18,21 @@ export const ProductContainer = ({ product }) => {
 
   const currentPrice = product.price - product.price * (product.offer / 100);
 
+  const dispatch = useDispatch();
+
   const handleProductClick = () => {
     navigate("/select", { state: { product } });
     window.scrollTo(0, 0);
   };
 
-  const handleCartClick = () => {
-    setisincart(!isincart);
+  const handleAddToCart = async () => {
+    const res = await api.patch(`add-product-to-cart/${product._id}`);
+
+    dispatch(setIsCart());
+    console.log(res, "res");
+  };
+  const handleRemoveCart = () => {
+    api.patch(`remove-product-in-cart/${product._id}`);
   };
 
   const renderStars = (avgRatings) => {
@@ -88,9 +98,17 @@ export const ProductContainer = ({ product }) => {
             <span className={styles.currentprice}>Rs. {currentPrice}</span>
             <span className={styles.originalprice}>Rs. {product?.price}</span>
           </div>
-          <button className={styles.addtocartbutton} onClick={handleCartClick}>
-            {isincart ? "Remove from Cart" : "Add to cart"}
-          </button>
+          {isincart ? (
+            <button
+              className={styles.addtocartbutton}
+              onClick={handleAddToCart}
+            ></button>
+          ) : (
+            <button
+              className={styles.addtocartbutton}
+              onClick={handleRemoveCart}
+            ></button>
+          )}
         </div>
       </div>
     </div>
