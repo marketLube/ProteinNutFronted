@@ -24,7 +24,7 @@ const generalSlice = createSlice({
     },
     setUser(state, action) {
       state.user = action.payload;
-      state.cart = action.payload.cart;
+      state.cart = action.payload?.cart;
     },
     setIsLoggedIn(state, action) {
       state.isLoggedIn = action.payload;

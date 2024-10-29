@@ -286,6 +286,9 @@ export const Community = ({ handleScrollToTop }) => {
             .logo {
               margin-bottom: 0;
             }
+            .menu {
+              gap: 10px;
+            }
           }
 
           @media (min-width: 1024px) {
@@ -322,6 +325,9 @@ export const Community = ({ handleScrollToTop }) => {
             .icons {
               width: 45px;
               height: 45px;
+            }
+            .gap {
+              gap: 10px;
             }
           }
 
@@ -374,7 +380,7 @@ export const Community = ({ handleScrollToTop }) => {
               flex-direction: row;
               align-items: center;
               justify-content: center;
-              gap: 20%;
+              gap: 8%;
               margin: 20% 0 0 0;
             }
 
@@ -437,6 +443,9 @@ export const Community = ({ handleScrollToTop }) => {
               position: absolute;
               bottom: 3%;
               font-size: 16px;
+            }
+            .menu {
+              gap: 10px;
             }
           }
         `}

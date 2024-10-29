@@ -60,6 +60,9 @@
 }
 
 @media (max-width: 768px) {
+  .card {
+    height: 30rem;
+  }
   .parallax {
     padding-top: 1rem;
     width: 80%;

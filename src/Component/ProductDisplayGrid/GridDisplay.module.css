@@ -85,19 +85,18 @@
   }
 }
 
-/* Media Query for mobile screens */
 @media (max-width: 768px) {
   .detailsproduct {
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr;
   }
 
   .display {
-    padding: 2rem; /* Adjust the padding */
+    padding: 2rem;
   }
 
   .heading {
-    font-size: 36px; /* Adjust the font size */
-    width: 100%; /* Adjust the width */
+    font-size: 36px;
+    width: 100%;
   }
 
   .headingSecondary {
