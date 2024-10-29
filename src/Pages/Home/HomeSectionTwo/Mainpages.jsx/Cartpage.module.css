@@ -38,6 +38,9 @@
     padding-top: 0.5rem;
     margin: 15px;
   }
+  .cartproducts_ {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -56,6 +59,9 @@
   .maindiv {
     margin: 20px;
     padding-top: 0.2rem;
+  }
+  .cartproducts {
+    gap: 1rem;
   }
   /* .maindiv h1 {
     font-size: 3rem; 
