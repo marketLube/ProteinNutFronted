@@ -13,7 +13,7 @@ export const ProductContainer = ({ product }) => {
   const { cart } = useSelector((state) => state.general);
 
   const [isincart, setisincart] = useState(
-    cart.products.find((prod) => prod._id === product._id)
+    cart?.products.find((prod) => prod?._id === product?._id) || false
   );
 
   const currentPrice = product.price - product.price * (product.offer / 100);
