@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ProductDetails.module.css";
 import { Counter } from "../Counter/Counter";
 import { useSelector } from "react-redux";
-import { useQuery } from "@tanstack/react-query";
-import api from "../../services/api";
 
 export const ProductDetails = ({ item }) => {
   const isMobile = useSelector(function (state) {
@@ -34,7 +32,11 @@ export const ProductDetails = ({ item }) => {
             <p className={styles.productPrice}>Rs. {item?.price}</p>
           </div>
           <div className={styles.quantityContainer}>
-            <Counter quantity={quantity} setQuantity={setQuantity} />
+            <Counter
+              quantity={quantity}
+              setQuantity={setQuantity}
+              item={item}
+            />
           </div>
         </div>
         {isMobile ? null : (

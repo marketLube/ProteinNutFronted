@@ -45,7 +45,7 @@
   font-size: 19px;
   font-weight: 500;
   color: #00004d;
-  width: 100%;
+  width: 25rem;
 
   /* margin: 0 0 5px 0; */
 }
@@ -59,7 +59,8 @@
 .quantityContainer {
   display: flex;
   align-items: center;
-  margin: 0 10rem;
+  width: 20rem;
+  margin: 0 5rem;
 
   /* background-color: aqua; */
 }

@@ -15,7 +15,6 @@ export const Cartpage = () => {
 
   const { user } = useSelector((state) => state.general);
   const { products } = user?.cart || [];
-  console.log(products, "products");
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,6 +34,7 @@ export const Cartpage = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const getBackgroundStyles = () => {
     // Base styles
     const baseStyles = {

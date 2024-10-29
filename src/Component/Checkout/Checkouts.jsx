@@ -2,10 +2,12 @@ import React from "react";
 import styles from "./Checkouts.module.css";
 import { Buttons } from "../Button/Buttons";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Checkouts = () => {
   const navigate = useNavigate();
 
+  const { total } = useSelector((state) => state.general);
   const onClick = () => {
     navigate("/contactpage");
   };
@@ -18,7 +20,7 @@ export const Checkouts = () => {
       <div className={styles.content}>
         <div className={styles.contentdetail}>
           <div className={styles.quantityLabel}>Quantity</div>
-          <div className={styles.price}>Rs. 349.00</div>
+          <div className={styles.price}>Rs. {total.toFixed(2)}</div>
         </div>
 
         <Buttons onClick={onClick} />
