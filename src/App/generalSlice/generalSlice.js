@@ -29,7 +29,7 @@ const generalSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload;
       state.cart = action.payload?.cart;
-      state.total = action.payload?.cart?.products.reduce(
+      state.total = action.payload?.cart?.products?.reduce(
         (acc, val) => acc + val.price,
         0
       );
