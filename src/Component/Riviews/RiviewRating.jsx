@@ -5,20 +5,27 @@ import { MdOutlineStarBorder } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-stars";
+import api from "../../services/api";
 
-export const RiviewRating = ({ style, handleClick }) => {
+export const RiviewRating = ({ style, handleClick, refetch, productId }) => {
   const form = useForm({});
   const { register, handleSubmit, setValue } = form;
 
   // review submiting logic
-  const onSubmitftn = (data) => {
-    console.log(data);
+  const onSubmitftn = async (data) => {
+    // const { productId, message, rating, title } = req.body;
+
+    data.productId = productId;
+    const res = await api.post("/reviews", data).then((res) => res);
+    console.log(res);
+    refetch();
     handleClick();
   };
 
   // const ratingChanged = (newRating) => {
   //   console.log(newRating);
   // };
+
   const ratingChanged = (newRating) => {
     setValue("rating", newRating);
     console.log("New Rating: ", newRating);
@@ -53,11 +60,11 @@ export const RiviewRating = ({ style, handleClick }) => {
           />
           <textarea
             type="text"
-            placeholder="Description..."
+            placeholder="Message..."
             //   value={description}
             // onChange={(e) => setDescription(e.target.value)}
             className={`${styles.inputfield} ${styles.descriptioninput}`}
-            {...register("Description")}
+            {...register("message")}
           />
         </div>
         <div className={styles.ratingbutton}>

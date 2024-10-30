@@ -5,6 +5,7 @@ const initialState = {
   isCart: true,
   cart: [],
   user: null,
+  
   isLoggedIn: false,
   curHomeColor: "#5c8e55",
   total: 0,
@@ -34,6 +35,14 @@ const generalSlice = createSlice({
         0
       );
     },
+    setCart(state, action) {
+      state.cart = { ...state.cart, ...action.payload };
+      state.total = state.cart?.products?.reduce(
+        (acc, val) => acc + val.price,
+        0
+      );
+      console.log(state.cart, "sl");
+    },
     setIsLoggedIn(state, action) {
       state.isLoggedIn = action.payload;
     },
@@ -47,5 +56,6 @@ export const {
   setUser,
   setIsLoggedIn,
   setCartTotal,
+  setCart,
 } = generalSlice.actions;
 export default generalSlice.reducer;

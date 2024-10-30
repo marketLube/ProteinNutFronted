@@ -14,20 +14,20 @@
 .productcard::before {
   content: "";
   position: absolute;
-  margin-left: 2rem;
+  margin-left: 2.5rem;
   width: 16rem;
   height: 16rem;
   background-color: #ffffff;
   border-radius: 60%;
   z-index: 2;
   left: 19%;
-  top: 20%;
+  top: 11%;
 }
 
 .productimage {
   width: 100%;
   padding-top: 1.7rem;
-  max-width: 300px;
+  max-width: 150px;
   height: auto;
   margin-bottom: 3px;
   position: relative;
@@ -43,7 +43,7 @@
 .imgcircle {
   width: 30rem;
   height: 20rem;
-  background-color: #48bb78;
+  /* background-color: #48bb78; */
   position: relative;
 }
 
@@ -78,7 +78,7 @@
   align-items: center;
   justify-content: flex-start;
   text-align: start;
-  gap: 12px;
+  gap: 25px;
   margin-bottom: 1.5rem;
 }
 
@@ -112,6 +112,10 @@
 
 .imagediv {
   width: 30rem;
+  /* background-color: #48bb78; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -136,7 +140,7 @@
     padding: 3rem;
   }
   .addtocartbutton {
-    width: 80%;
+    width: 100%;
   }
   .starses {
     padding: 0 2px;

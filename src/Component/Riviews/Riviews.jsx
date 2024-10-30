@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Riviews.module.css";
 import { FaArrowCircleRight } from "react-icons/fa";
-import { Navigation } from "swiper/modules";
-import { Swipercomponent } from "../Reelsection/Swipercomponent";
+
 import { RiviewSwiperComponent } from "./RiviewSwiperComponent";
-import { MdOutlineStarBorder } from "react-icons/md";
+
 import { RiviewRating } from "./RiviewRating";
 import { useQuery } from "@tanstack/react-query";
 import api from "../../services/api";
@@ -12,9 +11,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 export const Riviews = ({ product }) => {
   const [isRatingform, setisRatingform] = useState(false);
-  const [isReview, setisReview] = useState();
 
-  console.log(product, "product");
   const productid = product?._id;
 
   const handleClick = () => {
@@ -92,12 +89,13 @@ export const Riviews = ({ product }) => {
 
       {isRatingform ? (
         <RiviewRating
+          refetch={refetch}
+          productId={product?._id}
           style={
             isRatingform
               ? { transform: "scaleX(1)" }
               : { transform: "scaleX(0)" }
           }
-
           handleClick={handleClick}
         />
       ) : null}

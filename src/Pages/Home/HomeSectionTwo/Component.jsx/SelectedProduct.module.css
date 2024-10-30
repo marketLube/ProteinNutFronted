@@ -19,12 +19,13 @@
 
 .firstsection img {
   width: 100px;
+  padding: 1rem;
 }
 
 .firstimg {
-  width: 40rem;
+  width: 35rem;
+  padding: 4rem;
 }
-
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {

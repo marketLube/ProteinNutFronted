@@ -4,12 +4,20 @@ import { css } from "styled-components";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import api from "../../../../services/api";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { setCart } from "../../../../App/generalSlice/generalSlice";
 
 export const ProductDisplay = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [location, setLocation] = useState("");
   const [pincode, setPincode] = useState("");
   const [selectedWeight, setSelectedWeight] = useState("500G"); // Default weight
+
+  const { cart } = useSelector((state) => state.general);
+  const [isCart, setIsCart] = useState(
+    cart?.products?.find((prdct) => prdct?._id === product?._id) || false
+  );
+  const dispatch = useDispatch();
 
   // Calculate sale price
   const salePrice = product.price - product.price * (product.offer / 100);
@@ -68,8 +76,22 @@ export const ProductDisplay = ({ product }) => {
   const handleClick = async () => {
     try {
       const res = await api.patch(`cart/add-product-to-cart/${product?._id}`);
+      dispatch(setCart(res?.data?.cart));
+
       toast.success("success fully added");
     } catch (error) {
+      toast.error("Please try again later");
+    }
+  };
+  const handleRemoveClick = async () => {
+    try {
+      const resp = await api
+        .patch(`cart/remove-product-in-cart/${product?._id}`)
+        .then((resp) => resp.data.docs);
+
+      // dispatch(setIsCart());
+      toast.success("success fully removed");
+    } catch (erroe) {
       toast.error("Please try again later");
     }
   };
@@ -342,9 +364,15 @@ export const ProductDisplay = ({ product }) => {
           </div>
 
           <div className="button-container">
-            <button className="add-to-cart" onClick={handleClick}>
-              Add to cart
-            </button>
+            {isCart ? (
+              <button className="add-to-cart" onClick={handleRemoveClick}>
+                Remove from cart
+              </button>
+            ) : (
+              <button className="add-to-cart" onClick={handleClick}>
+                Add to cart
+              </button>
+            )}
             <Link to="/homesectiontwo">
               <button className="buy-now">Buy Now</button>
             </Link>

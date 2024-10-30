@@ -27,6 +27,20 @@
 .notlogin {
   /* background-color: aqua; */
 }
+.Noproduct {
+  font-size: 40px;
+  font-weight: 900;
+  color: rgb(49, 59, 78);
+
+  width: 90rem;
+  height: 30rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  /* background-color: aqua; */
+}
 
 @media (max-width: 768px) {
   .sectionone {

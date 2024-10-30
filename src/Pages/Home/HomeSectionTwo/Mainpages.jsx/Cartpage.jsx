@@ -6,6 +6,7 @@ import styles from "./Cartpage.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Login } from "../Login";
+import { TbGardenCartOff } from "react-icons/tb";
 
 export const Cartpage = () => {
   const [showBackground, setShowBackground] = useState(false);
@@ -13,8 +14,9 @@ export const Cartpage = () => {
 
   const { isLoggedIn } = useSelector((state) => state.general);
 
-  const { user } = useSelector((state) => state.general);
-  const { products } = user?.cart || [];
+  const { cart } = useSelector((state) => state.general);
+  const { products } = cart || [];
+  console.log(products, "products");
 
   useEffect(() => {
     const handleResize = () => {
@@ -67,9 +69,16 @@ export const Cartpage = () => {
       {isLoggedIn ? (
         <div className={styles.sectionone}>
           <div className={styles.cartproducts}>
-            {products?.map((item) => (
-              <ProductDetails item={item} key={item._id} />
-            ))}
+            {products.length > 0 ? (
+              products.map((item) => (
+                <ProductDetails item={item} key={item._id} />
+              ))
+            ) : (
+              <p className={styles.Noproduct}>
+                Cart is Empty...
+                <TbGardenCartOff />
+              </p>
+            )}
           </div>
           <Checkouts />
         </div>

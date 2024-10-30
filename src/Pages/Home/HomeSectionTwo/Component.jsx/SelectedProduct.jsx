@@ -14,23 +14,22 @@ export const SelectedProduct = ({ product }) => {
 
       <div className={styles.firstsection}>
         {product?.image.map((img, index) => {
-
-          if(product?.image[index]){
-            return (<img
-              key={index}
-              src={img}
-              alt={product?.name}
-              onClick={() => setSelectedImageIndex(index)}
-              className={index === selectedImageIndex ? styles.selectedImg : ''}
-            />)
-          }
-          else{
+          if (product?.image[index]) {
+            return (
+              <img
+                key={index}
+                src={img}
+                alt={product?.name}
+                onClick={() => setSelectedImageIndex(index)}
+                className={
+                  index === selectedImageIndex ? styles.selectedImg : ""
+                }
+              />
+            );
+          } else {
             return null;
           }
-          
         })}
-
-
       </div>
     </div>
   );
